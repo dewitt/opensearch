@@ -1,0 +1,14 @@
+==Web browsers==
+
+* [http://www.microsoft.com/windows/ie/ Internet Explorer]: Add providers at [http://www.iegallery.com/ IE Gallery]
+* [http://www.mozilla.com/firefox/ Firefox] - also support [http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.0 OpenSearch Suggestions Extension]
+* [http://www.arora-browser.org/ Arora] - also supports [http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.0 OpenSearch Suggestions Extension] and [http://www.opensearch.org/Specifications/OpenSearch/Extensions/Referrer/1.0 OpenSearch Referrer Extension]
+* [http://www.google.com/chrome Google Chrome] - [http://www.google.com/chrome/intl/en/webmasters-faq.html#osdd Webmasters FAQ], [http://www.chromium.org/tab-to-search Chromium]
+* [http://browser.yandex.com Yandex.Browser]
+
+==See also==
+
+* [[Community/OpenSearch software|Programing language and application libraries supporting OpenSearch]]
+* [http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#link-type-search Link type search] on [http://www.whatwg.org/specs/web-apps/current-work/multipage/ WhatWG HTML living standard] (roughly HTML5 as of 2011)
+* [http://www.w3.org/TR/html5/links.html#link-type-search Link type search] on [http://www.w3.org/TR/html5/ W3C HTML5 working draft] 
+* [http://www.w3.org/TR/void/#opensearch Linked Datasets with the VoID Vocabulary] (W3C Interest Group Note, 2011-03)

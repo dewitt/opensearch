@@ -1,0 +1,321 @@
+== Notice ==
+
+{{Draft notice}}
+
+== Introduction ==
+
+This OpenSearch SRU Extension allows SRU (Search and Retrieval via URL) queries to be used within OpenSearch contexts. It makes the full SRU request parameter set available to OpenSearch implementations. This SRU Extension is aligned with the SRU 2.0 specification.
+
+For further information on SRU see:
+
+# [http://www.loc.gov/standards/sru/ SRU Home Page]
+# [http://www.loc.gov/standards/sru/specs/ SRU 1.2 Specs (Stable)]
+# [http://www.oasis-open.org/committees/documents.php?wg_abbrev=search-ws SRU 2.0 Specs (Public Drafts)]
+
+== Namespace ==
+
+The XML namespace of the OpenSearch SRU Extension is:
+
+ <nowiki>http://a9.com/-/opensearch/extensions/sru/2.0/</nowiki>
+
+This namespace and the corresponding namespace prefix "<code>sru</code>" must be included when the SRU Extension is used in an OpenSearch Description document.
+
+== Example ==
+
+Example of a detailed OpenSearch description document that describes a search engine that accept temporal search parameters.
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+                        xmlns:sru="<nowiki>http://a9.com/-/opensearch/extensions/sru/2.0/</nowiki>">
+   <nowiki><!-- Admin Details --></nowiki>
+   <ShortName>nature.com</ShortName>
+   <LongName>OpenSearch interface for nature.com</LongName>
+   <Description>The nature.com OpenSearch service provides a structured resource discovery facility for content hosted on nature.com. The service implements the SRU (Search and Retrieval via URL) protocol for interacting with the nature.com database. It can be accessed both natively using the SRU protocol as well as by means of the widely adopted OpenSearch conventions. </Description>
+   <Tags>nature.com opensearch sru</Tags>
+   <Contact>interfaces@nature.com</Contact>
+   <nowiki><!-- URL Template for ATOM --></nowiki>
+   <Url type="application/atom+xml"
+        indexOffset="1"
+        template="<nowiki>http://www.nature.com/opensearch/request?version=1.1&operation=searchRetrieve&query={searchTerms}&queryType={sru:queryType?}&httpAccept=application/atom%2Bxml&recordPacking=unpacked&startRecord={startIndex?}&maximumRecords={count?}&sortKeys={sru:sortKeys?}&stylesheet={sru:stylesheet?}</nowiki>"/>
+   <nowiki><!-- URL Template for SRU --></nowiki>
+   <Url type="application/sru+xml"
+        indexOffset="1"
+        template="<nowiki>http://www.nature.com/opensearch/request?version=1.1&operation=searchRetrieve&query={searchTerms}&queryType={sru:queryType?}&httpAccept=application/sru%2Bxml&startRecord={startIndex?}&maximumRecords={count?}&sortKeys={sru:sortKeys?}&stylesheet={sru:stylesheet?}</nowiki>"/>
+   <nowiki><!-- Example Queries --></nowiki>
+   <Query role="example" sru:queryType="searchTerms" searchTerms="vampire" />
+   <Query role="example" sru:queryType="cql" searchTerms="vampire" />
+   <Query role="example" sru:queryType="cql" searchTerms="cql.keywords=vampire" />
+   <Query role="example" sru:queryType="cql" sru:sortKeys="title,pam,1" searchTerms="cql.keywords=vampire" />
+   <Query role="example" sru:queryType="cql" sru:stylesheet="<nowiki>http://example.org/example.xsl</nowiki>" searchTerms="cql.keywords=vampire" />
+   <nowiki><!-- Control Params --></nowiki>
+   <Language>en-us</Language>
+   <OutputEncoding>UTF-8</OutputEncoding>
+   <InputEncoding>UTF-8</InputEncoding>
+   <SyndicationRight>open</SyndicationRight>
+   <AdultContent>false</AdultContent>
+   <Attribution>© 2009 Nature Publishing Group.</Attribution>
+ </OpenSearchDescription>
+
+== Parameters ==
+
+=== The "queryType" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&queryTerms={sru:queryType}
+</nowiki>
+
+The SRU parameter "<code>queryType</code>" is a string indicating the type of query supplied in the SRU parameter "<code>query</code>" or OpenSearch parameter "<code>searchTerms</code>" - but see below for discussion of the parameter to be used. If "<code>queryType</code>" is omitted, the default is "<code>cql</code>", however this default may be overridden by the server, which may indicate a default query type via Explain. The server indicates all query types supported via Explain.
+
+The string "<code>searchTerms</code>" is a reserved value for query type. When "<code>searchTerms</code>" is used as the query type, the query may (but need not) consist of a list of terms separated by space (e.g. “<code>cat hat rat</code>”). The server processes the query however it chooses.
+
+=== The "query" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&query={sru:query}</nowiki>
+
+''(Note: This SRU parameter is provided for completeness only. The SRU parameter "<code>query</code>" is a synonym for the OpenSearch parameter "<code>searchTerms</code>" which should be used in preference in OpenSearch URL templates.)''
+
+The SRU parameter "<code>query</code>" is a query expressed in the query language indicated by "<code>queryType</code>" (or the default, if "<code>queryType</code>" is omitted).
+
+=== The "startRecord" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&startRecord={sru:startRecord}</nowiki>
+
+''(Note: This SRU parameter is provided for completeness only. The SRU parameter "<code>startRecord</code>" is a synonym for the OpenSearch parameter "<code>startIndex</code>" which should be used in preference in OpenSearch URL templates.)''
+
+The SRU parameter "<code>startRecord</code>" specifies the start of the range of the result set records. This is a positive integer, optional, and its default if omitted is 1.
+
+=== The "maximumRecords" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&maximumRecords={sru:maximumRecords}</nowiki>
+
+''(Note: This SRU parameter is provided for completeness only. The SRU parameter "<code>maximumRecords</code>" is a synonym for the OpenSearch parameter "<code>count</code>" which should be used in preference in OpenSearch URL templates.)''
+
+The SRU parameter "<code>maximumRecords</code>" specifies that the number of records supplied is not to exceed maximumRecords. This is a non-negative integer, optional, and if omitted, the server may choose any value. (The server may return less than this number of records, for example if there are fewer matching records than requested, but MUST NOT return more.)
+
+=== The "recordPacking" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&stylesheet={sru:recordPacking}</nowiki>
+
+The SRU parameter "<code>recordPacking</code>" specifies a packing for record data whose value is "<code>string</code>" or "<code>xml</code>" (default is "<code>xml</code>" if omitted). If the value of the parameter is "<code>string</code>", then the server should perform the conversion (escape the relevant characters) before transferring records. If the value is "<code>xml</code>", then it should embed the XML directly into the response.
+
+=== The "recordSchema" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&recordSchema={sru:recordSchema}</nowiki>
+
+The SRU parameter "<code>recordSchema</code>" identifies the XML schema of the records to be supplied in the response. The value of the parameter is the short name that the server assigns to the identifier for the schema, as listed in the server’s Explain file. The default value if not supplied is determined by the server.
+
+Example:
+
+ <nowiki>http://example.com/?query=dinosaur&recordSchema=mods</nowiki>
+
+=== The "resultSetTTL" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&resulSetTTL={sru:resulSetTTL}</nowiki>
+
+The SRU parameter "<code>resultSetTTL</code>" specifies a period of time (in seconds) that the server should maintain the result set to be created. (Note that the server may choose not to fulfill this request, and may respond with a different value.)
+
+=== The "sortKeys" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&sortKeys={sru:sortKeys}</nowiki>
+
+The SRU parameter "<code>sortKeys</code>" specifies a request for the server to sort the result set. The "<code>sortKeys</code>" parameter consists of one or more sort keys, each with sub-parameters:
+
+* <code>path</code>
+** Mandatory. An XPath expression for a tagpath to be used in the sort. 
+* <code>sortSchema</code>
+** Optional. A short name for a URI identifying an XML schema to which the XPath expression applies. (The short name to URI mapping is included in the server’s Explain file.) 
+* <code>ascending</code>
+** Optional. Boolean, default "<code>true</code>". 
+* <code>caseSensitive</code>
+** Optional. Boolean, default "<code>false</code>". 
+* <code>missingValue</code>
+** Optional. Default is "<code>highValue</code>". 
+
+See the SRU specification for details on representing the "<code>sortKeys</code>" parameter value. But essentially this is a space-separated list of sort keys, with individual sort keys comprised of a comma-separated sequence of sub-parameters in the order listed above.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&sortKeys=title,onix date,onix,,0</nowiki>
+
+This example specifies a sort primarily by "<code>title</code>" from the "<code>onix</code>" schema (with defaults of "<code>ascending</code>", "<code>insensitive</code>" and "<code>highValue</code>" for non-specified sub-parameters), and secondarily by "<code>date</code>" also from the "<code>onix</code>" schema and "<code>insensitive</code>" (with defaults of "<code>ascending</code>" and "highValue" for non-specified sub-parameters).
+
+=== The "stylesheet" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&stylesheet={sru:stylesheet}</nowiki>
+
+The SRU parameter "<code>stylesheet</code>" specifies the URL for a stylesheet to be used for the display of the response to the user.
+
+Example:
+
+ <nowiki>http://example.com/?query=dinosaur&stylesheet=master.xsl</nowiki>
+
+=== The "rendering" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&rendering={sru:rendering}</nowiki>
+
+The SRU parameter "<code>rendering</code>" determines whether the stylesheet is to be rendered by the server or client. Its value is "<code>client</code>" or "<code>server</code>". If omitted, the default is "<code>client</code>".
+
+== Accept Parameters ==
+
+=== The "httpAccept" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&httpAccept={sru:httpAccept}</nowiki>
+
+The SRU parameter "<code>httpAccept</code>" may be supplied to indicate the preferred format of the response in lieu of the "<code>Accept</code>" header field described in the HTTP Protocol specification. (For reference, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html.) The value is an internet media type. For example if the client wants the response to be supplied in the ATOM format, the value of the parameter is "<code>application/atom+xml</code>".
+
+The default value for the response type is "<code>application/sru+xml</code>".
+
+Example:
+
+ <nowiki>http://example.com/?query=dinosaur&httpAccept=application/atom+xml</nowiki>
+
+This example specifies a query ("<code>dinosaur</code>") to an SRU server with results returned as an ATOM document.
+
+=== The "httpAcceptCharset" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&httpAcceptCharset={sru:httpAcceptCharset}</nowiki>
+
+The SRU parameter "<code>httpAcceptCharset</code>" may be supplied in lieu of the "<code>Accept-Charset</code>" header field described in the HTTP Protocol specification. (For reference, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html.)
+
+=== The "httpAcceptEncoding" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&httpAcceptEncoding={sru:httpAcceptEncoding}</nowiki>
+
+The SRU parameter "<code>httpAcceptEncoding</code>" may be supplied in lieu of the "<code>Accept-Encoding</code>" header field described in the HTTP Protocol specification. (For reference, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html.)
+
+=== The "httpAcceptLanguage" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&httpAcceptLanguage={sru:httpAcceptLanguage}</nowiki>
+
+The SRU parameter "<code>httpAcceptLanguage</code>" may be supplied in lieu of the "<code>Accept-Language</code>" header field described in the HTTP Protocol specification. (For reference, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html.)
+
+=== The "httpAcceptRanges" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&httpAcceptRanges={sru:httpAcceptRanges}</nowiki>
+
+The SRU parameter "<code>httpAcceptRanges</code>" may be supplied in lieu of the "<code>Accept-Ranges</code>" header field described in the HTTP Protocol specification. (For reference, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html.)
+
+== Facet Parameters ==
+
+=== The "facetLimit" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&facetLimit={sru:facetLimit}</nowiki>
+
+The SRU parameter "<code>facetLimit</code>" specifies the maximum number of counts that should be reported per facet field. The "<code>facetLimit</code>" parameter can be specified on a per field basis to indicate a separate limit for certain fields.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetLimit:dc.subject=100</nowiki>
+
+This example sets the limit to 100 for the "<code>dc.subject</code>" index.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetLimit=10&facetLimit:dc.subject=100</nowiki>
+
+This example sets the limit to 100 for "<code>dc.subject</code>" and 10 for all other fields.
+The "<code>facetStart</code>" parameter
+
+ <nowiki>http://example.com/?query={searchTerms}&facetStart={sru:facetStart}</nowiki>
+
+The SRU parameter "<code>facetStart</code>" specifies an offset (1-based) into the list of counts, to allow paging. The default value is 1 (meaning start with the first count). This parameter can be specified on a per field basis.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetStart=10</nowiki>
+
+This example means begin with the 10th count.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetStart:dc.subject=10</nowiki>
+
+This example means begin with the 10th count for "<code>dc.subject</code>".
+
+=== The "facetSort" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&facetSort={sru:facetSort}</nowiki>
+
+The SRU parameter "<code>facetSort</code>" is a sort specification for the facet results. It is non-repeatable, and has the following components:
+
+* <code>sortBy</code>
+** One of the following:
+*** "<code>recordCount</code>"
+*** "<code>alphanumeric</code>" 
+* <code>order</code>
+** Optional, one of:
+*** "<code>ascending</code>" (default for "<code>alphanumeric</code>")
+*** "<code>descending</code>" (default for "<code>recordCount</code>" or "<code>occurrence</code>") 
+* <code>caseSensitivity</code>
+** Optional, and meaningful only for "<code>alphanumeric</code>". One of:
+*** "<code>caseSensitive</code>"
+*** "<code>caseInsensitive</code>" (default) 
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetSort=recordCount</nowiki>
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetSort=alphanumeric,descending,caseSensitive</nowiki>
+
+=== The "facetRangeField" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&facetRangeField={sru:facetRangeField}</nowiki>
+
+The SRU parameter "<code>facetRangeField</code>" specifies the name of an index to be treated as a range facet. It is repeatable.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetRangeField=dateOfPublication</nowiki>
+
+=== The "facetLowValue" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&facetLowValue={sru:facetLowValue}</nowiki>
+
+The SRU parameter "<code>facetLowValue</code>" specifies the lowest value of the specified facet range field for which facet counts should be reported.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetLowValue:dateOfPublication=20010101</nowiki>
+
+=== The "facetHighValue" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&facetHighValue={sru:facetHighValue}</nowiki>
+
+The SRU parameter "<code>facetHighValue</code>" specifies the highest value of the specified facet range field for which facet counts should be reported.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetHighValue:dateOfPublication=20040404</nowiki>
+
+=== The "facetCount" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&facetCount={sru:facetCount}</nowiki>
+
+The SRU parameter "<code>facetCount</code>" may be used to request the facet count for a specific term. The parameter may be repeated, but should not be used in conjunction with any other facet parameter.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&facetCount:dc.subject=history</nowiki>
+
+== Extension Parameters ==
+
+=== The "extension" parameter ===
+
+ <nowiki>http://example.com/?query={searchTerms}&x-...={sru:extension}</nowiki>
+
+The SRU extension parameter takes on the name of the extension. It must begin with "<code>x-</code>" (lowercase <code>x</code> followed by hyphen). SRU will never include an official extension with a name beginning with "<code>x-</code>", so this will never clash with a mainstream extension name.
+
+See the SRU specification for details on naming the SRU extension parameter.
+
+Example:
+
+ <nowiki>http://example.com/?query=news&x-info4-onSearchFail=scan</nowiki>
+
+== Author ==
+
+Tony Hammond <t.hammond@nature.com>
+
+== License ==
+
+This document is made available subject to the terms of the [http://creativecommons.org/licenses/by-sa/2.5/ Creative Commons Attribution-ShareAlike 2.5 License].

@@ -1,0 +1,6 @@
+==Current Specifications==
+
+* [[Specifications/OpenSearch|OpenSearch specification]]
+* [[Specifications/OpenSearch/Extensions|OpenSearch extension specifications]]
+
+See also the [[Specifications/Archive|archived specifications]].

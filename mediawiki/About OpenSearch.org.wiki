@@ -1,0 +1,13 @@
+==Credits==
+
+The [http://opensearch.org/ opensearch.org] website was created by [http://a9.com A9.com, Inc.], an [http://www.amazon.com Amazon.com] company.  
+
+This site is maintained by members of the [[Community/OpenSearch community|OpenSearch community]].
+
+==Colophon==
+
+This website is powered by [http://www.mediawiki.org/wiki/MediaWiki MediaWiki].
+
+==Contributing==
+
+Please read the [[Community/Guidelines|community guidelines]] if you would like to contribute to this website.

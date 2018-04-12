@@ -1,0 +1,33 @@
+=== What is OpenSearch? ===
+
+OpenSearch is a collection of simple formats for the sharing of search results.
+
+You can use [[Specifications/OpenSearch/1.1|OpenSearch formats]] to help people discover and use your search engine and to syndicate search results across the web.
+
+=== Why use OpenSearch? ===
+
+The web is a big place, and search engines that crawl the surface of the web are picking up only a small fraction of the great content that is out there.  Moreover, some of the richest and most interesting content can not even be crawled and indexed by one search engine or navigated by one relevancy algorithm alone.  
+
+Different types of content require different types of search engines.   The best search engine for a particular type of content is frequently the search engine written by the people that know the content the best.  
+
+OpenSearch helps search engines and search clients communicate by introducing a common set of formats to perform search requests and syndicate search results.
+
+=== Who created OpenSearch? ===
+
+OpenSearch was created by [http://a9.com A9.com], an [http://www.amazon.com Amazon.com] company, and the OpenSearch format is now in use by hundreds of search engines and search applications around the Internet.  
+
+The OpenSearch specification is made available according to the terms of a [http://creativecommons.org/ Creative Commons] license so that everyone can participate.
+
+=== How do I use OpenSearch? ===
+
+If you want to view OpenSearch results, then please refer to the list of [[Community/OpenSearch enabled search clients|OpenSearch enabled search clients]].
+
+If you run a website and want to point clients to your search engine, then you should write a simple [[Specifications/OpenSearch/1.1#OpenSearch_description_document|OpenSearch description document]] to describe the search interface.
+
+If you would like to enable third-party applications to use your search engine in unique ways, then you should also syndicate your search results by formatting them in the RSS or Atom formats, augmented with [[Specifications/OpenSearch/1.1#OpenSearch_response_elements|OpenSearch response elements]].
+
+=== Where can I learn more? ===
+
+If you are interested in supporting the OpenSearch format in your application, be sure to read the [[Specifications/OpenSearch/1.1|OpenSearch 1.1 specification]] and the [[Documentation/Developer how to guide|developer "how-to" guide]].
+
+=== Where do I get the XSD Schemas? ===

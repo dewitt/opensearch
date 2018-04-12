@@ -1,0 +1,16 @@
+== Draft extension specifications ==
+
+* [[Specifications/OpenSearch/Extensions/Referrer/1.0|OpenSearch Referrer extension]]
+* [[Specifications/OpenSearch/Extensions/Relevance/1.0|OpenSearch Relevance extension]]
+* [[Specifications/OpenSearch/Extensions/Parameter/1.0|OpenSearch Parameter extension]]
+* [[Specifications/OpenSearch/Extensions/Suggestions/1.1|OpenSearch Suggestions extension]]
+* [[Specifications/OpenSearch/Extensions/Geo/1.0/Draft_2|OpenSearch Geo extension (Draft)]]
+* [[Specifications/OpenSearch/Extensions/Time/1.0/Draft_1|OpenSearch Time extension (Draft)]]
+
+=== Extension proposals from the Community ===
+* [[Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft_1|OpenSearch Advertisement extension (Draft)]]
+* [[Community/Proposal/Specifications/OpenSearch/Extensions/Commerce/1.0/Draft_1|OpenSearch Commerce extension (Draft)]]
+* [[Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1|OpenSearch Mobile extension (Draft)]]
+* [[Community/Proposal/Specifications/OpenSearch/Extensions/Spelling/1.0/Draft_1|OpenSearch Spelling extension (Draft)]]
+* [[Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1|OpenSearch SRU extension (Draft)]]
+* [[Community/Proposal/Specifications/OpenSearch/Extensions/Semantic/1.0/Draft_1|OpenSearch Semantic extension (Draft)]]

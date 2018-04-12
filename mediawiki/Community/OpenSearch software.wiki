@@ -1,0 +1,51 @@
+== Writing OpenSearch results with various software ==
+
+* [http://dev.alfresco.com/ Alfresco] 
+* [http://drupal.org/project/opensearch Drupal OpenSearch Results] by Robert Douglass
+* [http://search.cpan.org/dist/Kwiki-OpenSearch-Service/ Kwiki] by Tatsuhiko Miyagawa
+* [http://search.cpan.org/dist/Search-OpenSearch/ Perl engines for Swish3, Xapian, Lucy, KinoSearch] by Peter Karman
+* [http://lucene-ws.net/ Lucene] 
+* [http://lucene.apache.org/ Lucene by Apache.org]
+* [http://lucene.apache.org/nutch/ Nutch] 
+* [http://virtuoso.openlinksw.com/wiki/main/Main/OdsIndex OpenLink Data Spaces] by [http://www.openlinksw.com OpenLink Software]
+* [http://www.mediawiki.org/wiki/Extension:OpenSearch MediaWiki] by Gregory Szorc
+* [http://hublog.hubmed.org/archives/001212.html Moveable Type] by Alf Eaton
+* [http://plone.org/products/plos PLOS (Plone OpenSearch)] (new!)
+* [http://wiki.rubyonrails.org/rails/pages/SearchGenerator SearchGenerator (Ruby on Rails)]
+* [http://www.williamsburger.com/wb/archives/opensearch-v-1-1 Wordpress] by Chris Fairbanks
+* [http://geonetwork-opensource.org/ GeoNetwork opensource geospatial catalog] (new!)
+* [http://code.google.com/p/pyopensearch/ PyOpenSearch] example Python [http://bitbucket.org/mchaput/whoosh/wiki/Home Whoosh] application with jQuery client
+
+== Applications with contributed OpenSearch description documents ==
+
+These applications don't actively support OpenSearch, but the location of their search result pages can be expressed in an OpenSearch description document:
+
+* [[Mantis]] issue tracker
+
+== Reading OpenSearch ==
+
+* [http://drupal.org/project/opensearchclient Drupal client library] by Robert Douglass
+* [http://drupal.org/project/opensearch_aggregator Drupal OpenSearch Aggregator] by Steven Wittens
+* [http://search.cpan.org/dist/WWW-OpenSearch/ Perl library] by Tatsuhiko Miyagawa and Brian Cassidy
+* [http://pear.php.net/package/Services_OpenSearch/docs/0.1.0/Services_OpenSearch/_OpenSearch_Services_OpenSearch-0.1.0_OpenSearch_php.html PHP] Hirose Masaaki 
+* [http://github.com/edsu/opensearch  Python library] by Ed Summers
+* [http://wiki.java.net/bin/view/Javawsxml/OpenSearch ROME plugin]
+* [http://virtuoso.openlinksw.com/wiki/main/ OpenLink Virtuoso] by [http://www.openlinksw.com OpenLink Software]
+* [http://incubator.apache.org/abdera/ Apache Abdera] 
+* [http://ojax.sourceforge.net/ OJAX] (new!)
+* [http://libraryfind.org/ LibraryFind open source metasearch application] (new!)
+* [http://gitorious.org/qopensearch qopensearch - a set of Qt classes]
+* [http://www.clarience.com/en-GB/Catalog.aspx/Product/OpenSearch-Client-Library-for-.NET---v1.0/B6FD5C7B-BD79-4052-B2E8-A35D9AC720F9 .NET client library] by [http://www.clarience.com/ Clarience] (new!)
+* [https://github.com/nsidc/OpenSearchlight OpenSearchlight] - An OpenSearch client in JavaScript
+
+== Other specifications that use OpenSearch ==
+
+* [http://code.google.com/apis/gdata/protocol.html Google's GData API]
+* [http://www.sixapart.com/developers/product_documentation/vox/open_media_profile.html Six Apart's Open Media Profile]
+* [http://www.last.fm/api/show?service=272 Last.fm API]
+
+== See also ==
+
+* [[Community/OpenSearch search clients|Search clients that support OpenSearch]]
+* The [http://feedvalidator.org feedvalidator] supports OpenSearch descriptions ([http://feedvalidator.googlecode.com/svn/trunk/feedvalidator/src/feedvalidator/opensearch.py opensearch.py], [http://code.google.com/p/feedvalidator/ project])
+* [http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#the-external-interface AddSearchProvider] Javascript API on [http://www.whatwg.org/specs/web-apps/current-work/multipage/ WhatWG HTML living standard]

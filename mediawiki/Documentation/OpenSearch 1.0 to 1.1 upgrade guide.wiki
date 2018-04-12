@@ -1,0 +1,81 @@
+== Why Should I Upgrade? ==
+
+OpenSearch 1.0 was a first attempt at syndicating search results in an open format.  OpenSearch 1.1 is a more mature format, including many changes that came about from comments on the first version.  OpenSearch 1.1 is more powerful, flexible, and extensible.
+
+Additionally, most software that produces and consumes OpenSearch will make use of the new format, so it is a good idea to stay up to date.
+
+'''But I don’t want to!'''
+
+This upgrade is actually very simple.  Every effort was made to keep OpenSearch 1.1 back-compatible with OpenSearch 1.0, though there are a small number of changes that needed to be made.  
+
+Bear in mind that ;  there are many new features that you can now use to enhance your syndicated search results.
+
+== What changed? ==
+
+This document covers only the small  handful of steps that are required to upgrade.   Be sure to read [[Specifications/OpenSearch/Changelog|the full changelog between OpenSearch 1.0 and OpenSearch 1.1]].
+
+== Upgrade steps ==
+
+To upgrade, you will need to:
+
+# [[#Update your OpenSearch description documents|Update your OpenSearch description documents]]
+# [[#Update your OpenSearch response feeds|Update your OpenSearch response feeds]]
+
+=== Change the XML namespace ===
+
+With OpenSearch 1.1, all parts of the OpenSearch specification were moved under a single namespace:
+
+: <code><nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki></code>
+
+You will need to change to this namespace in both your OpenSearch description documents and in your OpenSearch response feeds (formerly called OpenSearch RSS).
+
+=== Update your OpenSearch description documents ===
+
+To upgrade an OpenSearch description document from OpenSearch 1.0 to OpenSearch 1.1 you will need to:
+
+# [[#Change the XML namespace|Change the XML namespace]]
+# [[#Modify the "Url" element|Modify the "Url" element]]
+# [[#Replace the "SampleSearch" element|Replace the "SampleSearch" element]]
+# [[#Remove the "Format" element|Remove the "Format" element]]
+
+==== Modify the "Url" element ====
+
+This is the most important change.   You will need to:
+
+# Move the template URL from a child text node into the new "<code>template</code>" attribute.
+# Add a "<code>type</code>" attribute.
+
+''Example of the old 1.0 Url element:''
+
+   <Url><nowiki>http://example.com/?q={searchTerms}</nowiki></Url>
+
+''Example of the new 1.1 Url element:''
+
+  <Url type="application/rss+xml"
+       template="<nowiki>http://example.com/?q={searchTerms}</nowiki>" />
+
+==== Replace the "SampleSearch" element ====
+
+The old "SampleSearch" element has been replaced by the more powerful "Query" element.  
+
+To convert to OpenSearch 1.1, replace your SampleSearch element with a Query element of type="example".
+
+''Example of the old 1.0 SampleSearch element:''
+
+   <SampleSearch>cat</SampleSearch>
+
+''Example of the new 1.1 Query element:''
+
+  <Query role="example" searchTerms="cat" />
+
+==== Remove the "Format" element ====
+
+The "Format" element has been removed from OpenSearch 1.1.  Remove it from your OpenSearch description document.
+
+=== Update your OpenSearch response feeds ===
+
+To upgrade an OpenSearch response feed (formerly called OpenSearch RSS) from OpenSearch 1.0 to OpenSearch 1.1 you will simply need to:
+
+# [[#Change the XML namespace|Change the XML namespace]]
+
+Of course, you will likely want to explore other types of result formats (such as Atom 1.0) and the [[Specifications/OpenSearch/1.1#OpenSearch response elements|wealth of powerful functionality]] available in OpenSearch 1.1.

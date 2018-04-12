@@ -1,0 +1,58 @@
+__NOTOC__
+
+== Introduction ==
+
+OpenSearch is a collection of simple formats for the sharing of search results.
+
+The [[Specifications/OpenSearch/1.1#OpenSearch_description_document|OpenSearch description document]] format can be used to describe a search engine so that it can be used by [[Community/OpenSearch search clients|search client applications]].
+
+The [[Specifications/OpenSearch/1.1#OpenSearch_response_elements|OpenSearch response elements]] can be used to extend existing syndication formats, such as RSS and Atom, with the extra metadata needed to [[Community/OpenSearch search engine directories|return search results]].
+
+== For everyone ==
+
+* [[Documentation/Frequently asked questions|Frequently asked questions]]
+* [[Community/OpenSearch search clients|Search clients that support OpenSearch]]
+* [[Community/OpenSearch search engine directories|Directories of search engines that support OpenSearch]]
+
+== For developers ==
+
+=== Specifications ===
+
+* [[Specifications/OpenSearch/1.1|OpenSearch 1.1 (Draft 5)]]
+** [[Specifications/OpenSearch/1.1#OpenSearch_description_document|OpenSearch description document]]
+** [[Specifications/OpenSearch/1.1#OpenSearch_URL_template_syntax|OpenSearch URL template syntax]]
+** [[Specifications/OpenSearch/1.1#OpenSearch_Query_element|OpenSearch Query element]]
+** [[Specifications/OpenSearch/1.1#OpenSearch_response_elements|OpenSearch response elements]]
+* [[Specifications/OpenSearch/Extensions|OpenSearch extensions]]
+** [[Specifications/OpenSearch/Extensions/Referrer/1.0|OpenSearch Referrer extension]]
+** [[Specifications/OpenSearch/Extensions/Relevance/1.0|OpenSearch Relevance extension]]
+** [[Specifications/OpenSearch/Extensions/Parameter/1.0|OpenSearch Parameter extension]]
+** [[Specifications/OpenSearch/Extensions/Suggestions/1.1|OpenSearch Suggestions extension]]
+** [[Specifications/OpenSearch/Extensions/Geo/1.0/Draft_2|OpenSearch Geo extension (Draft)]]
+** [[Specifications/OpenSearch/Extensions/Time/1.0/Draft_1|OpenSearch Time extension (Draft)]]
+** [[Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft_1|OpenSearch Advertisement extension (Draft)]]
+** [[Community/Proposal/Specifications/OpenSearch/Extensions/Commerce/1.0/Draft_1|OpenSearch Commerce extension (Draft)]]
+** [[Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1|OpenSearch Mobile extension (Draft)]]
+** [[Community/Proposal/Specifications/OpenSearch/Extensions/Spelling/1.0/Draft_1|OpenSearch Spelling extension (Draft)]]
+** [[Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1|OpenSearch SRU extension (Draft)]]
+* [[Specifications/Archive|Archived specifications]]
+* [[Specifications/License|License]]
+* [[Specifications/OpenSearch/Changelog|OpenSearch specification changelog]]
+
+=== Documentation ===
+
+* [[Documentation/Developer how to guide|Developer "how to" guide]]
+* [[Documentation/Developer best practices guide|Developer "best practices" guide]]
+* [[Documentation/Recommendations/OpenSearch and microformats|OpenSearch and microformats]]
+* [[Documentation/Stylesheet|OpenSearch response stylesheet]]
+* [[Documentation/OpenSearch 1.0 to 1.1 upgrade guide|OpenSearch 1.0 to 1.1 upgrade guide]]
+
+=== Community ===
+
+* [[Community/OpenSearch software|Software libraries for reading and writing OpenSearch]]
+* [[Community/Guidelines|Editorial guidelines]]
+* [[Community/Roadmap|OpenSearch roadmap]]
+* [[Community/Mailing lists|Mailing lists]]
+* [[Community/Todo list|Website todo list]]
+* [[Community/OpenSearch community|People in the community]]
+* [[Community/OpenSearch 2 wishlist|Wishlist of ideas for OpenSearch 2]]

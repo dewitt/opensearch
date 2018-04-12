@@ -1,0 +1,87 @@
+== Notice ==
+
+{{Draft notice}}
+
+== Introduction ==
+
+As the amount of historic data builds on the web, it is valuable to provide a way for users and tools to easily query based on time and timespans. The purpose of the OpenSearch-Time extensions is to provide a standard mechanism to query a resource based on temporal extents. 
+
+The Temporal parameters are based on the [http://en.wikipedia.org/wiki/ICalendar iCalendar] and Microformat standards. 
+
+
+
+
+
+=== Namespace ===
+Updated July 27, 2007: the OpenSearch Time extension namespace was shortened to just "time" instead of "opensearchtime". This was to make the namespace more succint.
+
+== Example ==
+
+Example of a detailed OpenSearch description document that describes a search engine that accept temporal search parameters.
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+                         xmlns:time="<nowiki>http://a9.com/-/opensearch/extensions/time/1.0/</nowiki>">
+    <ShortName>Web Search</ShortName>
+    <Description>Use Example.com to search the Web.</Description>
+    <Tags>example web</Tags>
+    <Contact>admin@example.com</Contact>
+    <Url type="application/atom+xml"
+        template="<nowiki>http://example.com/?q={searchTerms}&amp;dtstart={time:start?}&amp;dtend={time:end?}&amp;pw={startPage?}&amp;format=atom</nowiki>"/>
+    <Url type="text/html"
+        template="<nowiki>http://example.com/?q={searchTerms}&amp;dtstart={time:start?}&amp;dtend={time:end?}&amp;pw={startPage?}</nowiki>"/>
+    <LongName>Example.com Web Search</LongName>
+    <Image height="64" width="64" type="image/png">http://example.com/websearch.png</Image>
+    <Query role="example" searchTerms="cat" />
+    <Developer>Example.com Development Team</Developer>
+    <Attribution>
+        Search data Copyright 2005, Example.com, Inc., All Rights Reserved
+    </Attribution>
+    <SyndicationRight>open</SyndicationRight>
+    <AdultContent>false</AdultContent>
+    <Language>en-us</Language>
+    <OutputEncoding>UTF-8</OutputEncoding>
+    <InputEncoding>UTF-8</InputEncoding>
+  </OpenSearchDescription>
+
+== Namespace ==
+
+The XML namespace of the OpenSearch Time Extension is:
+
+  <code><nowiki>http://a9.com/-/opensearch/extensions/time/1.0/</nowiki></code>
+
+This namespace and a corresponding namespace prefix must be included when the extension is used in an OpenSearch Description document.
+
+== Parameters ==
+
+=== The "start" and "end" parameters ===
+
+  <code><nowiki>http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;dtstart={time:start}&amp;dtend={time:end}&amp;format=rss</nowiki></code>
+
+Replaced with a string of the beginning of the time slice of the search query. This string should match the [http://www.ietf.org/rfc/rfc3339.txt RFC-3339 -  Date and Time on the Internet: Timestamps], which is also used by the [http://www.ietf.org/rfc/rfc4287.txt Atom syndication format].
+
+It is of the format
+
+  <code><nowiki>YYYY-MM-DDTHH:mm:ssZ</nowiki></code>
+  <code><nowiki>1996-12-19T16:39:57-08:00</nowiki></code>
+
+'Z' is the time-offset, where 'Z' signifies UTC or an actual offset can be used. 
+
+Example:
+
+  <nowiki>http://example.com/?q=news&dtstart=2007-02-12T04:30:02Z&dtend=2007-03-11T02:28:00Z&format=rss</nowiki>
+
+== Author ==
+
+Andrew Turner <ajturner@highearthorbit.com> 
+
+== Contributors ==
+
+DeWitt Clinton <dewitt@opensearch.org>
+
+== License ==
+
+This document is made available subject to the terms of the [http://creativecommons.org/licenses/by-sa/2.5/ Creative Commons Attribution-ShareAlike 2.5 License].
+
+[[Category:Specification]]
+[[Category:Extension]]

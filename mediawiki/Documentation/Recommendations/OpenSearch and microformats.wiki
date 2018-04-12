@@ -1,0 +1,167 @@
+== Notice ==
+
+{{Draft notice}}
+
+== Introduction ==
+
+"Microformats are a set of simple, open data formats built upon existing and widely adopted standards for the purpose of adding machine-readable semantic meaning to human-readable content." (From "[http://microformats.org/about/ About Microformats]")
+
+In the same way, OpenSearch is a set of simple, open data formats built upon existing and widely adopted standards for the purpose of sharing search results.
+
+The goals and philosophies of the two initiatives are highly compatible; OpenSearch and microformats can work together in bringing rich data to end users simply and intuitively.
+
+The microformat approach of adding semantic markup to existing and human-readable content works particularly well within the context of search. OpenSearch search engines can return search results in a human-readable XHTML format; thus it is easy to apply a well-defined layer of semantic markup to indicate the underlying meaning of that content.
+
+== Interoperability ==
+
+Microformats offer a convenient way of adding machine-readable semantic information to human-readable search results.  The use of microformats in an OpenSearch context does not preclude the use of alternate techniques.
+
+== Namespaces ==
+
+All elements, attributes, and parameters in an OpenSearch context must be associated with an XML namespace.  
+
+=== Microformats with XMDP profiles ===
+
+If a microformat declares a formal XMDP profile then the XMDP profile URI should be used as the XML namespace name.
+
+=== Microformats without XMDP profiles ===
+
+If a microformat does not declare a formal XMDP profile then the most reasonable homepage URI for the microformat markup should be used as the XML namespace name.
+
+=== Example namespaces ===
+
+''Example XML namespaces for common microformats:''
+
+  xmlns:hcalendar="<nowiki>http://microformats.org/wiki/hcalendar</nowiki>"
+  
+  xmlns:hcard="<nowiki>http://www.w3.org/2006/03/hcard</nowiki>"
+  
+  xmlns:hreview="<nowiki>http://microformats.org/wiki/hreview</nowiki>"
+  
+  xmlns:xfn="<nowiki>http://www.gmpg.org/xfn/11</nowiki>"
+
+== Responses ==
+
+Microformats can be used in OpenSearch response formats that contain explicitly typed and well-formed markup, such as XHTML text constructs in Atom 1.0.  Care must be taken to ensure that the client can reasonably parse and interpret any microformat information, thus microformats can not be reliably used with opaque or unstructured search result content, such as encoded HTML.
+
+=== Atom 1.0 Responses ===
+
+==== Elements that can contain microformat markup  ====
+
+Microformat markup can be used in the Atom 1.0 elements classified as [http://www.atomenabled.org/developers/syndication/atom-format-spec.php#text.constructs text constructs], such as <code>atom:title</code>, <code>atom:subtitle</code>, <code>atom:summary</code>, and <code>atom:content</code>.
+
+==== XHTML content ====
+
+Text construct elements must be of <code>type="xhtml"</code> to be parsed for microformat content.
+
+==== Other content ====
+
+Text construct elements of <code>type="text"</code> and <code>type="html"</code> are considered opaque and can not be parsed for microformat content.
+
+==== Resolving ambiguities ====
+
+If an entry contains both an <code>atom:summary</code> element and an <code>atom:content</code> element then only content of the <code>atom:summary</code> element should be displayed to the end-user.  The <code>atom:content</code> element may still be parsed for microformat markup.
+
+==== Example Atom 1.0 response ====
+
+''Example Atom 1.0-based OpenSearch response with microformat content:''
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <feed xmlns="<nowiki>http://www.w3.org/2005/Atom</nowiki>" 
+        xmlns:opensearch="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>">
+    <title>Example.com Phonebook Search</title>
+    <nowiki><!-- ... --></nowiki>
+    <entry>
+      <title>Jane Smith</title>
+      <link href="<nowiki>http://example.com/people/jsmith</nowiki>"/>
+      <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+      <updated>2003-12-13T18:30:02Z</updated>
+      <summary type="xhtml">
+        '''<nowiki><div xmlns="http://www.w3.org/1999/xhtml" class="vcard">
+          <div class="n">
+            <span class="honorific-prefix">Ms.</span>
+            <span class="given-name">Jane</span>
+            <span class="family-name">Smith</span>
+          </div>
+          <div class="tel">
+            <span class="type">Work</span>: 
+            <span class="value">(212) 555-0101</span>
+          </div>
+        </div></nowiki>'''
+      </summary>
+    </entry>
+  </feed>
+
+=== RSS 2.0 Responses ===
+
+Search engines that wish to include semantic markup in OpenSearch results are encouraged to use the Atom 1.0 syndication format instead of RSS 2.0.  The <code>description</code> element in RSS 2.0 does not convey enough formal context about the type or encoding of the enclosed content to reliably be used to deliver machine-readable semantic data.
+
+== URL Templates ==
+
+Microformat class names can be used in OpenSearch URL templates to provide conventional query parameter names.  
+
+=== Parameter namespaces ===
+
+All template query parameter in the template must be associated with an XML namespace name via an XML namespace prefix.
+
+=== Optional Parameters ===
+
+The search server can use the "<code>?</code>" flag when requesting a microformat-based parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the extension.
+
+
+=== Example URL templates ===
+
+''Example of the hCalendar microformat used in an OpenSearch URL template:''
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+                         '''xmlns:hcalendar="<nowiki>http://microformats.org/wiki/hcalendar</nowiki>"'''>
+    <Url type="application/atom+xml"
+         template="<nowiki>http://example.com?q={searchTerms}&amp;amp;start={</nowiki>'''hcalendar:dtstart?'''}&amp;amp;end={'''hcalendar:dtend?'''}"/>
+    <nowiki><!-- ... --></nowiki>
+  </OpenSearchDescription>
+
+''Example of the hCard microformat used in an OpenSearch URL template:''
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+                         '''xmlns:hcard="<nowiki>http://www.w3.org/2006/03/hcard</nowiki>"'''>
+    <Url type="application/atom+xml"
+         template="<nowiki>http://example.com?q={searchTerms}&amp;amp;address={</nowiki>'''hcard:adr?'''}"/>
+    <Url type="application/atom+xml"
+         template="<nowiki>http://example.com?q={searchTerms}&amp;amp;zip={</nowiki>'''hcard:postal-code?'''}"/>
+    <nowiki><!-- ... --></nowiki>
+  </OpenSearchDescription>
+
+== Query Elements ==
+
+Microformat classes can be used as attribute names in OpenSearch Query elements. Each fully qualified attribute name corresponds to a parameter in an OpenSearch URL template.
+
+=== Query attribute namespaces ===
+
+Each attribute in the Query element must be associated with an XML namespace name. 
+
+=== Example Query elements ===
+
+''Example of microformats in OpenSearch Query elements:''
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+                         '''xmlns:hcard="<nowiki>http://www.w3.org/2006/03/hcard</nowiki>"'''>
+    <Url type="application/atom+xml"
+         template="<nowiki>http://example.com/{searchTerms}</nowiki>?city={'''hcard:locality?'''}&amp;amp;state={'''hcard:region?'''}&amp;amp;country={'''hcard:country-name?'''}&amp;amp;zip={'''hcard:postal-code?'''}"/>
+    <Query role="example" searchTerms="pizza" '''hcard:postal-code="94117"''' />
+    <Query role="example" searchTerms="car dealership" '''hcard:locality="San Francisco"''' '''hcard:region="California"''' />
+    <Query role="example" searchTerms="hydroelectric dam" '''hcard:country-name="United States"''' />
+    <!-- ... -->
+  </OpenSearchDescription>
+
+== Author ==
+
+DeWitt Clinton <dewitt@opensearch.org>
+
+== Further Reading ==
+
+* [[Specifications/OpenSearch/1.1|OpenSearch 1.1 specification]]
+* [http://www.atomenabled.org/developers/syndication/atom-format-spec.php Atom 1.0 Specification]
+* [http://www.microformats.org Microformats website]

@@ -1,0 +1,13 @@
+==Notice==
+
+'''The following documents are made available for archival purposes.  Please refer to the [[Specifications/OpenSearch/1.1|latest OpenSearch specification]].'''
+
+==Archived specifications==
+
+* OpenSearch 1.1
+** [http://www.opensearch.org/Specifications/OpenSearch/1.1/Draft_3 OpenSearch 1.1 Draft 3]
+
+* OpenSearch 1.0
+** [http://opensearch.a9.com/spec/opensearchdescription/1.0/ OpenSearch Description Document]
+** [http://opensearch.a9.com/spec/opensearchquerysyntax/1.0/ OpenSearch Query Syntax]
+** [http://opensearch.a9.com/spec/opensearchrss/1.0/ OpenSearch RSS]

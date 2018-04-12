@@ -1,0 +1,124 @@
+This page provides suggestions for making sure that your OpenSearch
+feeds work properly and can be discovered by search clients.
+
+## Use the proper namespace
+
+Get your XML namespaces right. Invalid namespaces will make it
+impossible for search clients to parse your OpenSearch content.
+
+The [correct
+namespace](Specifications/OpenSearch/1.1#Namespace "wikilink") for
+OpenSearch 1.1 is:
+
+`  http://a9.com/-/spec/opensearch/1.1/`
+
+## Use autodiscovery links
+
+This can’t be said enough. To help your OpenSearch feeds get found, use
+an "autodiscovery" link; it is a simple <link> element that points to a
+related [OpenSearch Description
+document](Specifications/OpenSearch/1.1#OpenSearch_description_document "wikilink").
+
+Include these autodiscovery in your HTML web pages, in your OpenSearch
+Response feed, and in any other RSS or Atom feed, who’s content is
+searchable via your OpenSearch.
+
+Read all about [OpenSearch autodiscovery in the OpenSearch 1.1
+specification](Specifications/OpenSearch/1.1#Autodiscovery "wikilink").
+
+## Adding your search to browsers (javascript)
+
+Aside from using autodiscovery links, both
+[IE7](http://msdn2.microsoft.com/en-us/library/Aa744112.aspx) and
+[Firefox 2](http://developer.mozilla.org/en/docs/Adding_search_engines_from_web_pages)
+can be pointed to your [OpenSearch Description
+document](Specifications/OpenSearch/1.1#OpenSearch_description_document "wikilink")
+using a javascript call:
+
+``` 
+  window.external.AddSearchProvider("http://mysite.org/odd.xml");
+```
+
+## Write informative OpenSearch description documents
+
+Here are some tips to get you started:
+
+  - Don’t mention "OpenSearch" in the ShortName, LongName, Description,
+    or Tags elements (unless your search engine is *about* OpenSearch).
+    Here is a bad description: "This searches for books by author via
+    OpenSearch." Use "Book search by author." instead. In general, you
+    should avoid using the word "search" except in the Description
+    element.
+
+<!-- end list -->
+
+  - The Tags element contains a list of keywords that describe the
+    search engine. Tags such as "the" and "and" are not needed.
+    Remember, this is not a human-readable sentence; it is meant to be
+    tokenized and parsed by a machine. Also, tags are space-separated,
+    so make sure you don’t separate them with commas or anything else.
+
+<!-- end list -->
+
+  - You can specify more than one Image element. You should probably
+    include at least two: one 64 by 64 pixel image, and one 16 by 16
+    pixel image, so that search clients can display a small icon for
+    your search engine and a larger one for a detailed information page.
+    Please [refer to the
+    specification](Specifications/OpenSearch/1.1#The_.22Image.22_element "wikilink")
+    for more details on the Image element.
+
+<!-- end list -->
+
+  - Put a valid email address in the Contact element, so that you can be
+    notified if your OpenSearch feed is broken.
+
+<!-- end list -->
+
+  - You can specify multiple Url elements, and you should do so if your
+    search engine can return search results in HTML, RSS, Atom, or any
+    other format. Include them all to give search clients maximum
+    flexibility.
+
+<!-- end list -->
+
+  - Specify at least one [Query
+    element](Specifications/OpenSearch/1.1#The_.22Query.22_element "wikilink")
+    containing an "example" search. This example search should always
+    return at least one search result. Search clients will use this
+    example search to validate your OpenSearch feed.
+
+<!-- end list -->
+
+  - If you search engine supports multiple languages, declare them with
+    the [Language
+    element](Specifications/OpenSearch/1.1#The_.22Language.22_element "wikilink")\!
+    Or as an alternative, create a separate OpenSearch description
+    document for each language your search engine supports, with the
+    Description and other text in the appropriate language. If you do
+    create multiple OpenSearch description documents, be sure to refer
+    to all of them with [autodiscovery
+    links](Specifications/OpenSearch/1.1#Autodiscovery "wikilink"),
+    making use of the `hreflang` attribute as appropriate.
+
+## Check for common errors in the search results
+
+  - Try a search that doesn't have a match. Make sure you get a
+    legitimate OpenSearch response indicating the lack of matches. Don't
+    generate a 404 or 500 error. See [The Developer how to
+    guide](Documentation/Developer_how_to_guide#How_to_indicate_errors "wikilink")
+    for more information.
+
+<!-- end list -->
+
+  - Try a search with many results to make sure that paging works. Try
+    requesting the second page of results, and see that you do indeed
+    get the second page of results. What happens if you request a page
+    beyond the last result?
+
+<!-- end list -->
+
+  - If you also have a web based search, compare the results of the web
+    search to the OpenSearch search. Do you get the same first result in
+    both cases? Assuming that the page size is the same, do you get the
+    same first result on the second page?

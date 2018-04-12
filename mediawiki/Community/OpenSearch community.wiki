@@ -1,0 +1,16 @@
+==Notable contributors to the OpenSearch community==
+
+Please list your name below if you are an active participant in the OpenSearch community.
+
+* [[User:DeWitt|DeWitt Clinton]] -- specification author, opensearch.org maintainer, head cheerleader
+* [[User:Tesler|Joel Tesler]] -- specification contributor, primary implementor 
+* [[User:Mfagan|Michael Fagan]] -- specification contributor, implementor
+* [[User:JamesSnell|James Snell]] -- specification contributor
+* Aaron Suave -- specification contributor
+* Joe Gregorio -- specification contributor
+* Chris Fairbanks -- implementor of the WordPress plugin
+* Andrew Turner -- author of the Geo extension
+* John Hodge---My Open Id
+* Ed Summers - implementor
+* [[User:NguyenHuyNhut|Nguyen Huy Nhut simple solutions taipan vietnam]] -- Implementor
+* [[User:Tonyhammond|Tony Hammond]] - member of OASIS Search Web Services TC

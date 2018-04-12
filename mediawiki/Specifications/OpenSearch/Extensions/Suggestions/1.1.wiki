@@ -1,0 +1,1 @@
+#REDIRECT [[Specifications/OpenSearch/Extensions/Suggestions/1.1/Draft_1]]

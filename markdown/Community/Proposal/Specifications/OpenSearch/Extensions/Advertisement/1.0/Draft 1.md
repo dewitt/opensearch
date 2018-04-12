@@ -1,0 +1,304 @@
+## Notice
+
+## Introduction
+
+The OpenSearch Advertisement Extension allows search engines to include
+advertisements with search results.
+
+*Example of a search result that includes an advertisement:*
+
+` `<feed xmlns="<nowiki>http://www.w3.org/2005/Atom</nowiki>" 
+        xmlns:opensearch="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+        xmlns:advertisement="<nowiki>http://a9.com/-/opensearch/extensions/advertisement/1.0/</nowiki>">  
+`   <!-- ... -->`  
+`   `<entry>  
+`     <!-- ... -->`  
+`   `</entry>  
+`   `<ad:advertisement>  
+`     `<ad:callOut atom:type="TEXT">`[Ad]`</ad:callOut>  
+`     `<ad:title atom:type="TEXT">`20% Off Coffee`</ad:title>  
+`     `<ad:subTitle atom:type="TEXT">`Walk in and show us this ad on your phone`</ad:subTitle>  
+`     `<ad:displayUrl atom:type="TEXT">`example.com/coffee`</ad:displayUrl>  
+`     `<ad:image ad:id="cprp20" ad:width="170" ad:height="30">  
+`       `<ad:link href="<nowiki><http://example.com/ads/20_off_coffee.jpg></nowiki>`" />`  
+`       `<ad:altText atom:type="TEXT">`Click for Cafes Near You`</ad:altText>  
+`     `</ad:image>  
+`     `<atom:link href="<nowiki><http://example.com/coffee/></nowiki>`" />`  
+`     `<ad:id>`1234567890`</ad:id>  
+`   `</ad:advertisement>`  `  
+` `</feed>
+
+## Namespace
+
+The XML namespace of the OpenSearch Advertisement Extension is:
+
+  -   
+    `http://a9.com/-/opensearch/extensions/advertisement/1.0/`
+
+This namespace and a corresponding namespace prefix must be included
+when the extension is used in an OpenSearch response.
+
+## Elements
+
+The OpenSearch Advertisement extension introduces the following element
+and sub-elements.
+
+### The "advertisement" element
+
+The `advertisement` element is used to specify an advertisement related
+to the search results. See further in this document for the
+specifications of sub-elements.
+
+  -   
+    Requirements: This element may appear zero or more times.
+
+*Examples of `advertisement`
+elements:*
+
+` `<ad:advertisement>  
+`   `<ad:callOut atom:type="TEXT">`[Ad]`</ad:callOut>  
+`   `<ad:title atom:type="TEXT">`20% Off Coffee`</ad:title>  
+`   `<ad:subTitle atom:type="TEXT">`Walk in and show us this ad on your phone`</ad:subTitle>  
+`   `<ad:displayUrl atom:type="TEXT">`example.com/coffee`</ad:displayUrl>  
+`   `<ad:image ad:id="cprp20" ad:width="170" ad:height="30">  
+`     `<ad:link href="<nowiki><http://example.com/ads/20_off_coffee.jpg></nowiki>`" />`  
+`     `<ad:altText atom:type="TEXT">`Click for Cafes Near You`</ad:altText>  
+`   `</ad:image>  
+`   `<atom:link href="<nowiki><http://example.com/coffee/></nowiki>`" />`  
+`   `<ad:id>`1234567890`</ad:id>  
+` `</ad:advertisement>`  `
+
+` `<ad:advertisement>  
+`   `<ad:callOut atom:type="TEXT">`[Ad]`</ad:callOut>  
+`   `<ad:title atom:type="TEXT">`Paris and Nicole: Double Trouble?`</ad:title>  
+`   `<ad:subTitle atom:type="TEXT">`Read this and more at example.com`</ad:subTitle>  
+`   `<ad:displayUrl atom:type="TEXT">`example.com`</ad:displayUrl>  
+`   `<ad:image ad:id="pn200" ad:width="200" ad:height="40">  
+`     `<ad:link href="<nowiki><http://example.com/ads/paris_nicole.jpg></nowiki>`" />`  
+`     `<ad:altText atom:type="TEXT">`Click for Celebrity Gossip`</ad:altText>  
+`   `</ad:image>  
+`   `<atom:link href="<nowiki><http://example.com/celebs/></nowiki>`" />`  
+`   `<ad:id>`1234567891`</ad:id>  
+` `</ad:advertisement>
+
+#### The "callOut" sub-element
+
+The `callOut` sub-element is an [atom:text
+construct](http://www.atomenabled.org/developers/syndication/atom-format-spec.php#text.constructs)
+used to specify a textual marker that identifies this content as an
+advertisement.
+
+  -   
+    Requirements: This element may appear zero or one time.
+
+*Examples of `callOut` elements:*
+
+` `<ad:callOut atom:type="TEXT">`[Ad]`</ad:callOut>
+
+` `<ad:callOut atom:type="TEXT">`Sponsored Result`</ad:callOut>
+
+#### The "title" sub-element
+
+The `title` sub-element is an [atom:text
+construct](http://www.atomenabled.org/developers/syndication/atom-format-spec.php#text.constructs)
+used to specify the title of the advertisement.
+
+  -   
+    Requirements: This element may appear zero or one time.
+
+*Examples of `title`
+elements:*
+
+` `<ad:title atom:type="TEXT">`Paris and Nicole: Double Trouble?`</ad:title>
+
+` `<ad:title atom:type="TEXT">`20% Off Coffee`</ad:title>
+
+#### The "subTitle" sub-element
+
+The `subTitle` sub-element is an [atom:text
+construct](http://www.atomenabled.org/developers/syndication/atom-format-spec.php#text.constructs)
+used to specify the subtitle text of the advertisement. The subtitle
+text is positioned underneath the advertisement title.
+
+  -   
+    Requirements: This element may appear zero or one time.
+
+*Examples of `subTitle`
+elements:*
+
+` `<ad:subTitle atom:type="TEXT">`Read this and more at example.com`</ad:subTitle>
+
+` `<ad:subTitle atom:type="TEXT">`Walk in and show us this ad on your phone`</ad:subTitle>
+
+#### The "displayUrl" sub-element
+
+The `displayUrl` sub-element is an [atom:text
+construct](http://www.atomenabled.org/developers/syndication/atom-format-spec.php#text.constructs)
+used to specify the advertisement domain name or URL. This value need
+not be a valid URL. Most online advertisements display only a domain
+name as the `displayUrl`. The `displayUrl` text is positioned underneath
+the advertisement subtitle.
+
+  -   
+    Requirements: This element may appear zero or one time.
+
+*Examples of `displayUrl` elements:*
+
+` `<ad:displayUrl atom:type="TEXT">`example.com`</ad:displayUrl>
+
+` `<ad:displayUrl atom:type="TEXT">`example.com/coffee`</ad:displayUrl>
+
+#### The "image" sub-element
+
+The `image` sub-element is used to specify an image displayed in the
+advertisement.
+
+  -   
+    Requirements: This element may appear zero or one time.
+
+<table border="1">
+
+<tr>
+
+<td>
+
+<b>Attribute Name</b>
+
+</td>
+
+<td>
+
+<b>Attribute Value</b>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+id
+
+</td>
+
+<td>
+
+A unique ID for the image advertisement.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+width
+
+</td>
+
+<td>
+
+The integer width of the image.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+height
+
+</td>
+
+<td>
+
+The integer height of the image.
+
+</td>
+
+</tr>
+
+</table>
+
+<table border="1">
+
+<tr>
+
+<td>
+
+<b>Sub-element Name</b>
+
+</td>
+
+<td>
+
+<b>Sub-element Value</b>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+link
+
+</td>
+
+<td>
+
+An [Atom Link
+element](http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.link)
+used to specify the link to an image to display in the advertisement.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+altText
+
+</td>
+
+<td>
+
+An [atom:text
+construct](http://www.atomenabled.org/developers/syndication/atom-format-spec.php#text.constructs)
+used to specify the alternate text for the image displayed in the
+advertisement.
+
+</td>
+
+</tr>
+
+</table>
+
+*Examples of `image`
+elements:*
+
+` `<ad:image ad:id="pn200" ad:width="200" ad:height="200">  
+`   `<ad:link href="http://example.com/banners/paris_nicole_200px.jpg" />  
+`   `<ad:altText atom:type="TEXT">`Click for Celebrity Gossip`</ad:altText>  
+` `</ad:image>
+
+## Authors
+
+Gail Rahn Frederick, Damon Lanphear and Michael "Luni" Libes
+\<opensearch@medio.com\> (Medio Systems)
+
+## License
+
+This document is made available by [Medio Systems](http://medio.com)
+subject to the terms of the [Creative Commons Attribution-ShareAlike 3.0
+License](http://creativecommons.org/licenses/by-sa/3.0/).
+
+[Category:Specification](Category:Specification "wikilink")
+[Category:Extension](Category:Extension "wikilink")

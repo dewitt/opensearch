@@ -1,0 +1,29 @@
+Hundreds of search engines support OpenSearch.  The following sites contain lists of search engines that do:
+
+=== Directories of search engines that can return syndicated (RSS or Atom) [[Specifications/OpenSearch/1.1#OpenSearch_response_elements|OpenSearch results]]: ===
+
+* [http://opensearch.a9.com/-/search/moreColumns.jsp A9.com's column chooser]
+* [http://www.search2.net/ Search2.net]
+* [http://www.elitebuys.net/ Elite Buys]
+
+=== Directories of search engines that have public [[Specifications/OpenSearch/1.1#OpenSearch_description_document|OpenSearch description documents]]: ===
+
+* [http://www.enhanceie.com/IE/SearchBuilder.asp EnhanceIE.com's SearchBuilder]
+* [http://www.microsoft.com/windows/ie/searchguide/default_new.mspx Microsoft's Internet Explorer Search Guide]
+* [http://mycroft.mozdev.org/ Mycroft Project] - lists both Sherlock and OpenSearch plugins
+* [http://www.openbdb.com/ Open Books]
+* [http://www.opensearchlist.com/index.aspx OpenSearchList.com]
+* [http://www.searchplugins.net/ Searchplugins.net]
+* [http://tredosoft.com/internet_explorer_7_search_providers Tredosoft's list of search providers]
+* [http://www.clinteastman.pwp.blueyonder.co.uk/opensearch/ IE7 Beta 2 Search Providers Profiles]
+* [http://www.prowebsites.net/Internet_Explorer_7/IE_7_Search_Providers.asp#1 IE 7.0 Beta 2 Search Providers]
+* [http://www.ae35-unit.dk/iesearch/ IE7.0 Beta 2 search plugins] (Danish)
+* [http://siit.net/members/art/searchplugins/ Thai Search Plugins]
+* [http://search.infoweb.net/ InfoWeb Search Directory]
+* [http://free.naplesplus.us/ Naples Florida Search NAPLESPLUS]
+* [http://search.webgoblin.co.uk/ WebGoblin - Search Engines with OpenSearch]
+* [http://www.elitebuys.net/ Elite Buys]
+
+=== See also ===
+
+* [[Community/OpenSearch software|Software libraries for reading and writing OpenSearch]]

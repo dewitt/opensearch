@@ -1,0 +1,67 @@
+# A list of all pages, from http://www.opensearch.org/Special:Allpages:
+
+About
+About OpenSearch.org
+Community/Guidelines
+Community/JSON Formats
+Community/Mailing lists
+Community/OpenSearch 2 wishlist
+Community/OpenSearch client libraries
+Community/OpenSearch community
+Community/OpenSearch enabled search clients
+Community/OpenSearch enabled search engines
+Community/OpenSearch icons
+Community/OpenSearch libraries
+Community/OpenSearch search clients
+Community/OpenSearch search engine directories
+Community/OpenSearch software
+Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft 1
+Community/Proposal/Specifications/OpenSearch/Extensions/Commerce/1.0/Draft 1
+Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft 1
+Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft 1
+Community/Proposal/Specifications/OpenSearch/Extensions/Semantic/1.0/Draft 1
+Community/Proposal/Specifications/OpenSearch/Extensions/Spelling/1.0/Draft 1
+Community/Proposal guidelines
+Community/Proposal namespace
+Community/Roadmap
+Community/Todo list
+Documentation/Developer best practices guide
+Documentation/Developer how to
+Documentation/Developer how to guide
+Documentation/Frequently asked questions
+Documentation/Frequently asked questions (for users)
+Documentation/OpenSearch 1.0 to 1.1 upgrade guide
+Documentation/Recommendations/OpenSearch and microformats
+Documentation/Stylesheet
+Home
+Mailman/listinfo/discuss
+Main Page
+Roadmap
+Specifications
+Specifications/Archive
+Specifications/License
+Specifications/OpenSearch
+Specifications/OpenSearch/1.0
+Specifications/OpenSearch/1.1
+Specifications/OpenSearch/1.1/Draft 3
+Specifications/OpenSearch/1.1/Draft 4
+Specifications/OpenSearch/1.1/Draft 5
+Specifications/OpenSearch/Changelog
+Specifications/OpenSearch/Extensions
+Specifications/OpenSearch/Extensions/Geo/1.0/Draft 1
+Specifications/OpenSearch/Extensions/Geo/1.0/Draft 2
+Specifications/OpenSearch/Extensions/Parameter
+Specifications/OpenSearch/Extensions/Parameter/1.0
+Specifications/OpenSearch/Extensions/Parameter/1.0/Draft 1
+Specifications/OpenSearch/Extensions/Parameter/1.0/Draft 2
+Specifications/OpenSearch/Extensions/Referrer
+Specifications/OpenSearch/Extensions/Referrer/1.0
+Specifications/OpenSearch/Extensions/Referrer/1.0/Draft 1
+Specifications/OpenSearch/Extensions/Relevance/1.0
+Specifications/OpenSearch/Extensions/Relevance/1.0/Draft 1
+Specifications/OpenSearch/Extensions/Suggestions
+Specifications/OpenSearch/Extensions/Suggestions/1.0
+Specifications/OpenSearch/Extensions/Suggestions/1.1
+Specifications/OpenSearch/Extensions/Suggestions/1.1/Draft 1
+Specifications/OpenSearch/Extensions/Time/1.0/Draft 1
+Todo list

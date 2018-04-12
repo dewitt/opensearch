@@ -1,0 +1,42 @@
+== Version 1.1, Draft 3, Release Candidate ==
+
+* Merged core specification into single document.
+* Moved the <code>&lt;Param/&gt;</code> element and the <code>&lt;Url/&gt;</code> element's '<code>method</code>' attribute to the OpenSearch parameter extension.
+* Added the '<code>indexOffset</code>' and '<code>pageOffset</code>' to the <code>&lt;Url/&gt;</code> element.
+* Replaced the OpenSearch <code>&lt;link/&gt;</code> element with the standard Atom <code>&lt;link/&gt;</code> element.
+
+== Version 1.1, Draft 2 (December 6 2005) ==
+
+* Unified XML namespace across core specifications.
+* Added section on autodiscovery.
+* Modified <code>&lt;Tags/&gt;</code> value to allow up to 256 characters.
+* Modified <code>&lt;Contact/&gt;</code> and <code>&lt;Tags/&gt;</code> elements to make them optional.
+* Modified <code>&lt;atom:link rel="..."/&gt;</code> values to match Atom specification.
+* Added <code>&lt;Query/&gt;</code> element.
+* Replaced <code>&lt;SampleSearch/&gt;</code> element in description with <code>&lt;Query role="example"/&gt;</code>.
+* Replaced <code>&lt;searchTerms/&gt;</code> element in response with <code>&lt;Query role="request"/&gt;</code>.
+
+== Version 1.1, Draft 1 (September 9 2005) ==
+
+* Updated XML namespaces to reflect the new version.
+* Moved information regarding host restrictions to query syntax specification.  
+* Modified <code>&lt;Image/&gt;</code> element to allow multiple occurrences.
+* Added '<code>width</code>', '<code>height</code>', and '<code>type</code>' attributes to <code>&lt;Image/&gt;</code> element.
+* Added <code>&lt;Language/&gt;</code>, <code>&lt;OutputEncoding/&gt;</code>, and <code>&lt;InputEncoding/&gt;</code> elements to description.
+* Added '<code>language</code>', '<code>outputEncoding</code>', and '<code>inputEncoding</code>' as core search parameters.
+* Specified MIME type for description documents.
+* Specified extensibility mechanism for custom search parameters.
+* Added '<code>?</code>' modifier for search parameters.
+* Specified extensibility mechanism for description documents.
+* Specified use of <code>&lt;atom:link/&gt;</code> elements in response.
+* Added <code>&lt;searchTerms/&gt;</code> element to response.
+* Added '<code>template</code>', '<code>type</code>', and '<code>method</code>' attributes to <code>&lt;Url/&gt;</code> element.
+* Added '<code>&lt;Param/&gt;</code> element to <code>&lt;Url/&gt;</code> element to support POST requests.
+* Modified <code>&lt;Url/&gt;</code> elements to allow multiple occurrences.
+* Removed <code>&lt;Format/&gt;/code> element from description.
+* Renamed OpenSearch RSS to OpenSearch Response.
+* Added support for Atom, HTML, and other response formats.
+
+== Version 1.0 (March 15 2005) ==
+
+* Released OpenSearch Description, OpenSearch Query Syntax, and OpenSearch RSS core specifications.

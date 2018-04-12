@@ -1,0 +1,77 @@
+== Notice ==
+
+{{Draft notice}}
+
+== Introduction ==
+
+The OpenSearch Referrer extension allows search engines to request a query parameter from search clients to indicate the source of the search.  This parameter could be used to identify the particular search client, the version of the search client, additional information about the source of the search, or similar.
+
+== Namespace ==
+
+The XML namespace of the OpenSearch Referrer Extension is:
+
+: <code><nowiki>http://a9.com/-/opensearch/extensions/referrer/1.0/</nowiki></code>
+
+This namespace and a corresponding namespace prefix must be included when the extension is used in an OpenSearch Description document.
+
+== Parameters ==
+
+The OpenSearch Referrer Extension introduces the following parameter to be used in OpenSearch URL templates.
+
+=== The "source" parameter ===
+
+Replaced with a string identifying the search client that performed the search request.
+
+== Example URL Template ==
+
+''Example: An OpenSearch URL template with an optional source parameter:''
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+    '''xmlns:referrer="<nowiki>http://a9.com/-/opensearch/extensions/referrer/1.0/</nowiki>"'''>
+    <Url type="application/atom+xml"
+      template="<nowiki>http://example.com/{searchTerms}</nowiki>?'''src={referrer:source?}'''"/>
+    <nowiki><!-- ... --></nowiki>
+  </OpenSearchDescription>
+
+== Source Values ==
+
+Values for the <code>source</code> parameter are not dictated by this specification.  Search clients should make known and publish the list of values that they indend to send as a source parameter.
+
+For example, Internet Explorer 7 could send one of the following values, depending on where in the browser a search originated:
+
+: "IE-SearchBox"
+
+Or,
+
+: "IE-Address"
+
+The A9.com website could send the following value:
+
+: "a9.com"
+
+The Firefox web browser could send the following value:
+
+: "firefox-a"
+
+
+''Note: Those values are used as examples only.  Please refer to the documentation for the particular search client to determine the actual "source" values.
+
+== Optional Parameters ==
+
+The search server should use the "<code>?</code>" flag in the URL template when requesting the <code>source</code> parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the extension.
+
+== Author ==
+
+DeWitt Clinton <dewitt@opensearch.org>
+
+== Contributors ==
+
+Michael Fagan <mifa@a9.com>
+
+== License ==
+
+This document is made available by [http://a9.com A9.com] subject to the terms of the [http://creativecommons.org/licenses/by-sa/2.5/ Creative Commons Attribution-ShareAlike 2.5 License].
+
+[[Category:Specification]]
+[[Category:Extension]]

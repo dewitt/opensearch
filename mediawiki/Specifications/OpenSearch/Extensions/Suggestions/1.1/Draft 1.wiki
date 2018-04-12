@@ -1,0 +1,190 @@
+== Notice ==
+
+{{Draft notice}}
+
+== Introduction ==
+
+The OpenSearch Suggestions extension offers a convention by which search engines can return a set of search term completions for a given search prefix.  The search completions can be used by a search client to dynamically present the end user with search term suggestions.
+
+== Background ==
+
+The [http://www.google.com/webhp?complete=1&hl=en Google Suggest] project pioneered a mechanism for dynamically presenting a list of search term completions as the user interacts with the search interface.  The [http://www.mozilla.com/firefox/ Firefox] web browser was the first to incorporate this technique into the browser search box to offer the user dynamic search term suggestions, a technique subsequently adopted by [http://www.microsoft.com/windows/products/winfamily/ie/default.mspx Internet Explorer], [http://www.apple.com/safari/ Safari], and [http://www.google.com/chrome Chrome].  This document is based on the original [http://wiki.mozilla.org/Search_Service/Suggestions Firefox Search Service design documentation], and subsequently updated for clarity and to include additional search parameters.
+
+== Overview ==
+
+The search engine publishes an [[Specifications/OpenSearch/1.1/Draft_3#OpenSearch_description_document|OpenSearch description document]] containing two [[Specifications/OpenSearch/1.1/Draft_3#The_.22Url.22_element|Url elements]].  The first <code>Url</code> element is of type <code>type="application/x-suggestions+json"</code> and indicates to the client how to retrieve a list of suggested searches for a given search prefix.  The second <code>Url</code> element is usually of <code>type="text/html"</code> and is used by the search client to perform one of the suggested search queries.  Additionally, the second query template may request parameters about the search suggestion that led to the final search query.
+
+== Type ==
+
+The following type is used to indicate that the response contains JSON formatted search suggestions:
+
+: <code>application/x-suggestions+json</code>
+
+== Namespace ==
+
+The XML namespace of the OpenSearch Suggestions Extension is:
+
+: <code><nowiki>http://www.opensearch.org/specifications/opensearch/extensions/suggestions/1.1</nowiki></code>
+
+This namespace and a corresponding namespace prefix must be included when the extension is used in an OpenSearch Description document.
+
+== OpenSearch description document ==
+
+Search engines that support search suggestions can use the OpenSearch description document to publish URL templates for both retrieving the list of suggestions and for performing follow-up search queries.
+
+=== Declaring a JSON-formatted search suggestion URL ===
+
+Search engines should publish a <code>Url</code> element of <code>type="application/x-suggestions+json"</code> to indicate that they can be queried for a list of search suggestions in JSON format.
+
+==== Example ====
+
+Example of publishing the location of a JSON-formatted search suggestion query:
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>">
+    '''<Url type="application/x-suggestions+json"'''
+         '''template="<nowiki>http://example.com/suggest?q={searchTerms}</nowiki>"/>'''
+    <nowiki><!-- ... --></nowiki>
+  </OpenSearchDescription>
+
+=== Declaring a URL for follow-up search queries ===
+
+After the list of search suggestions has been retrieved, the client will likely perform a full follow up search, as is documented using a standard [[Specifications/OpenSearch/1.1/Draft_3#The_.22Url.22_element|Url element]], usually of <code>type="text/html"</code>, in the OpenSearch description document.  In addition to the usual query template parameters, this specification introduces the <code>suggestionPrefix</code> and the <code>suggestionIndex</code> extension parameters to provide additional context to the search engine.
+
+The extension parameters are in the <code><nowiki>http://www.opensearch.org/specifications/opensearch/extensions/suggestions/1.1</nowiki></code> namespace, which must be explicitly declared as a [[Specifications/OpenSearch/1.1/Draft_3#Fully_qualified_parameter_names|fully qualified parameter name]] using an <code>xmlns</code> declaration.
+
+These extension parameters could be used in any Url template, but the meaning is defined here only when they are used in the context of a follow-up search query generated from a list of suggested searches.
+
+==== The "suggestionPrefix" parameter ====
+
+When the search query was generated as a result of a search suggestion, the <code>suggestionPrefix</code> variable is replaced by the string used to generate the search suggestion.
+
+Note the search server should use the "<code>?</code>" flag in the URL template when requesting the <code>suggestionPrefix</code> parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the suggestions extension.
+
+==== The "suggestionIndex" parameter ====
+
+When the search query was generated as a result of a search suggestion, the <code>suggestionIndex</code> variable is replaced by the location of the selected suggestion within the list, offset from 0.
+
+Note the search server should use the "<code>?</code>" flag in the URL template when requesting the <code>suggestionIndex</code> parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the suggestions extension.
+
+==== Example ====
+
+Example of a Url template that accepts additional information when used in conjunction with suggested searches:
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription 
+       xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+       '''xmlns:suggestions="<nowiki>http://www.opensearch.org/specifications/opensearch/extensions/suggestions/1.1"</nowiki>'''>
+    <Url type="text/html"
+         template="<nowiki>http://example.com?q={searchTerms}</nowiki>
+                   &amp;amp;'''prefix={suggestions:suggestionPrefix?}'''
+                   &amp;amp;'''index={suggestions:suggestionIndex?}"'''/>
+    <nowiki><!-- ... --></nowiki>
+  </OpenSearchDescription>
+
+== JSON-formatted search suggestion responses ==
+
+=== Response format ===
+
+The response body should be returned in [http://www.json.org/ JavaScript Object Notation] as a JavaScript array of arrays.
+
+=== Response content ===
+
+Search suggestions are returned as an ordered collection of values.  
+The four values are returned in the following order:
+
+* Query String
+* Completions
+* Descriptions
+* Query URLs
+
+==== Suggestion prefix ====
+
+Description: A single element echoing the requested search term.  The search client may validate that this value matches the expected response.
+
+Required: yes
+
+Example:
+
+  "sea"
+
+==== Search terms ====
+
+Description:  A list of suggested completions for the given search term.  These can be used as the value for the <code>searchTerms</code> parameter of a subsequent search.
+
+Required: yes
+
+Example:
+
+  ["sears",
+   "search engines",
+   "search engine",
+   "search",
+   "sears.com",
+   "seattle times"]
+
+==== Descriptions ====
+
+Description: A list of human-readable strings that provide additional information or context regarding the suggested completion.  
+
+Required: no
+
+Example:
+
+  ["7,390,000 results",
+   "17,900,000 results",
+   "25,700,000 results",
+   "1,220,000,000 results",
+   "1 result",
+   "17,600,000 results"]
+
+==== Query URLs ====
+
+Description: A list of URLs that should be used by the search client to request the suggested search term at the corresponding position in the completions lists.
+
+Required: no
+
+Example:
+
+  [<nowiki>"http://example.com?q=sears",
+   "http://example.com?q=search+engines",
+   "http://example.com?q=search+engine",
+   "http://example.com?q=search",
+   "http://example.com?q=sears.com",
+   "http://example.com?q=seattle+times"</nowiki>]
+
+=== Example ===
+
+The following is a full example of a JSON formatted search suggestions response:
+  
+  ["sea",
+   ["sears",
+    "search engines",
+    "search engine",
+    "search",
+    "sears.com",
+    "seattle times"],
+   ["7,390,000 results",
+    "17,900,000 results",
+    "25,700,000 results",
+    "1,220,000,000 results",
+    "1 result",
+    "17,600,000 results"],
+   [<nowiki>"http://example.com?q=sears"</nowiki>,
+    <nowiki>"http://example.com?q=search+engines"</nowiki>,
+    <nowiki>"http://example.com?q=search+engine"</nowiki>,
+    <nowiki>"http://example.com?q=search"</nowiki>,
+    <nowiki>"http://example.com?q=sears.com"</nowiki>,
+    <nowiki>"http://example.com?q=seattle+times"</nowiki>]]
+
+== Authors ==
+
+This specification was edited by DeWitt Clinton <dewitt@opensearch.org>, based on the work of 
+Joe Hughes' search suggestions documentation in Firefox and the Google search suggestions format.
+
+== License ==
+
+This document is made available by [http://a9.com A9.com] subject to the terms of the [http://creativecommons.org/licenses/by-sa/2.5/ Creative Commons Attribution-ShareAlike 2.5 License].
+
+[[Category:Specification]]
+[[Category:Extension]]

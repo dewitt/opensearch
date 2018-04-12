@@ -1,0 +1,100 @@
+== So, you want to display search results on your website? ==
+
+Provided here is a stylesheet (XSL file) that will convert RSS and Atom based OpenSearch search result feeds into HTML.  You can use it on your website, or anywhere else, for free, as they are made available under a [[#License|Creative Commons license]].  It is a good idea to use this stylesheet on your own OpenSearch feeds, so that users can see actual search results instead of raw XML.
+
+== The files ==
+
+Here are the three files used: the stylesheet, and two associated files.
+
+* [http://69.55.232.189/downloads/opensearch_to_html.xsl opensearch_to_html.xsl] - the XSLT (primary file)
+* [http://69.55.232.189/downloads/opensearch_to_html.css opensearch_to_html.css]- the CSS stylesheet
+* [http://69.55.232.189/downloads/opensearch_to_html.js opensearch_to_html.js] - the Javascript file (see [[#Technical details|technical details]])
+
+== How to use the stylesheet ==
+
+=== Step 1: Find an OpenSearch feed that you want to display ===
+
+See the [[Community/OpenSearch search engine directories|list of OpenSearch search engine directories]] for pointers to plenty of OpenSearch feeds.
+
+=== Step 2: Get the files ===
+
+Download [[#The files|the three files]] listed above.
+
+The os.xsl file is required.  The os.css file makes it look pretty, so you will probably want that too.  The os.js file is used to handle web browsers that don’t support all of the stylesheet functionality needed (details).
+
+Save the files to some location where they can be accessed over the Internet via an HTTP.  Or save them on a filesystem if you indend to use them locally.
+
+=== Step 2: Apply the stylesheet ===
+
+The style sheet can be applied either by a standalone parser, or performed in-line by a search client, such as a web browser.
+
+==== In-line transformation ====
+
+To use the XSLT parser build most modern web browsers, or make use of another parser, simply add a link to the style sheet in the OpenSearch response feed, right below the XML declaration.
+
+For example:
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet href="os.xsl" type="text/xsl" ?>
+  <rss version="2.0" xmlns:opensearch="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>">
+     <nowiki><!-- ... --></nowiki>
+  </rss>
+
+You may need to adjust the links to the next and previous pages of search results so that they also have the stylesheet applied to them.
+
+==== Stand-alone transformation ====
+
+
+== Features ==
+
+The stylesheet will transform most valid OpenSearchs feed into HTML.   Assuming that the feed contains valid XHTML (or no HTML at all), the transformation should be valid XHTML 1.0.  Please note that potentially malicious code (such as Javascript) is not dealt with.
+
+The stylesheet is capable of transforming both OpenSearch 1.0 and OpenSearch 1.1 response feeds, in any of the following syndication formats: RSS 0.9, 0.91, 0.92, 0.93, 1.0, and 2.0, and Atom 1.0.
+
+The stylesheet does not yet make use of the [[Specifications/OpenSearch/1.1#OpenSearch Query element|OpenSearch Query element]].
+
+The stylesheet is liberal, which means that it will try to make errors invisible to the user (it should "just work"), even if there are problems with the OpenSearch elements, or even if there is no feed at all.
+
+The stylesheet makes use of a variety of information, including supporting a number of RSS/Atom elements and popular extensions, such as author and category information.  This, along with all text on the page, is configurable; see [[#Advanced usage|advanced usage]].
+
+== Advanced usage ==
+
+=== Translations and text changes ===
+
+It is quite simple to change any of the text used by the stylesheet to mark up the search results.
+
+There is a section at the top of the os.xsl file where all the bits of text used are stored, along with descriptions of what each is used for.  You can edit the os.xsl file in any text editor.
+
+The section to edit should be easy to find; it is near the top, just below the <code><xsl:output/></code> element.  Each string is contained within a <code><xls:variable/></code> element with a name describing the text.
+
+For example, the following element defines the text that is displayed when there are no search results:
+
+  <xls:variable name="t-noresults">Sorry, no results were found.</xsl:variable>
+
+Note, the language of the actual OpenSearch results are not affected by the stylesheet; just the text that the stylesheet adds on top of that.
+
+=== Settings ===
+
+The text used for translations is also used for settings, such as whether or not to display author information if it is available. The options are described in the source code, so see the above section for details.
+
+=== Customize anything ===
+
+Any of the files can be customized all you want. Go crazy!
+
+=== Within another page ===
+
+The stylesheet is currently designed to create a whole web page.  If you want to display an OpenSearch feed within another page, then you will have to use the XSLT on your web server and modify it to remove some of the redundant surrounding HTML markup.
+
+=== Technical details ===
+
+The stylesheet is an [http://www.w3.org/TR/xslt XSLT].  Modern web browsers such as Firefox, Internet Explorer, Safari (1.3 and up), and Opera have XSLT parsers built-in.  If you would prefer to do the transformation on your web server (rather than client-side), you’ll need to make use of one of the publicly available XSLT parsers.
+
+The XSLT parser used by the Mozilla browser (and derivatives, such as Firefox) does not support a certain XSLT command that is required for the stylesheet to work properly. The Javascript file (os.js) available here corrects for that problem. If you know you won’t need to deal with that parser, then you do not need the Javascript file, and you should modify the "<code>use-doe-hack</code>" variable near the top of the stylesheet.
+
+== Author ==
+
+Michael Fagan <mifa@a9.com>
+
+== Contributors ==
+
+Joel Tesler <tesler@a9.com>, DeWitt Clinton <dewitt@opensearch.org>

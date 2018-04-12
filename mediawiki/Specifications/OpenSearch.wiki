@@ -1,0 +1,11 @@
+== Core specifications ==
+
+* [[Specifications/OpenSearch/1.1/Draft 5|OpenSearch 1.1 Draft 5]]
+
+== Extension specifications ==
+
+See [[Specifications/OpenSearch/Extensions|the OpenSearch extensions page]].
+
+== Archived specifications ==
+
+See [[Specifications/Archive|the archived OpenSearch specifications]].
