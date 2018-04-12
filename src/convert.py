@@ -25,7 +25,7 @@ def convert_to_markdown(mediawiki_dir, markdown_dir):
         input = Path(entry)
         output = Path(markdown_dir, Path(entry).relative_to(mediawiki_dir)).with_suffix('.md')
         output.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(['/home/dewitt/src/pandoc-2.1.3/bin/pandoc', input, '-o', output, '--from', 'mediawiki', '--to', 'gfm'])
+        subprocess.run(['pandoc', input, '-o', output, '--from', 'mediawiki', '--to', 'gfm'])
         
 if __name__ == '__main__':
     if len(argv) != 4:
@@ -33,4 +33,4 @@ if __name__ == '__main__':
     else:
         script, mediawiki_xml, mediawiki_dir, markdown_dir = argv
         extract_mediawiki(mediawiki_xml, mediawiki_dir)
-        convert_to_markdown(mediawiki_dir, markdown_dir)
+#        convert_to_markdown(mediawiki_dir, markdown_dir)
