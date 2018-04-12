@@ -6,7 +6,7 @@ The most recent version of the specification is available at [OpenSearch/Specifi
 
 # What is this repository?
 
-This respository is a port of the opensearch.org website. The original source content can be found in the [src/](src/) subdirectory, and the ported files can be found in the [doc/](doc/) subdirectory.
+This respository is a port of the opensearch.org website. The original source content can be found in the [src/](src/) subdirectory, and the ported files can be found in the [docs/](docs/) subdirectory.
 
 # Why was this repository created?
 
