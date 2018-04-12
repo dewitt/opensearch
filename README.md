@@ -4,6 +4,8 @@ OpenSearch is a collection of simple formats for the sharing of search results.
 
 The most recent version of the specification is available at [OpenSearch/Specifications/1.1/Draft 5](docs/Specifications/OpenSearch/1.1/Draft%205.wiki).
 
+You can view the complete migrated content of the original opensearch.org website [here](docs/).
+
 # What is this repository?
 
 This respository is a port of the opensearch.org website. The original source content can be found in the [src/](src/) subdirectory, and the ported files can be found in the [docs/](docs/) subdirectory.
