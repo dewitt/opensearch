@@ -2,7 +2,7 @@
 
 OpenSearch is a collection of simple formats for the sharing of search results.
 
-The most recent version of the specification is available at [OpenSearch/Specifications/1.1/Draft 5](src/OpenSearch/Specifications/1.1/Draft%205).
+The most recent version of the specification is available at [OpenSearch/Specifications/1.1/Draft 5](docs/Specifications/OpenSearch/1.1/Draft%205.wiki).
 
 # What is this repository?
 
@@ -11,9 +11,7 @@ This respository is a port of the opensearch.org website. The original source co
 
 # Why was this repository created?
 
-The opensearch.org website was originally created by A9.com in 2005 to host the contents of the OpenSearch specification under the terms of the [Creative Commons 2.5 BY-SA](http://creativecommons.org/licenses/by-sa/2.5/) license. That site was maintained by the community from 2006 until 2018 using a MediaWiki instance hosted at a private ISP. 
-
-The community has long-discussed migrating the content over to a more up-to-date hosting environment with better version control. [This repository](https://github.com/dewitt/opensearch) is a realization of that intent.
+The opensearch.org website was originally created by A9.com in 2005 to host the contents of the OpenSearch specification under the terms of the [Creative Commons 2.5 BY-SA](http://creativecommons.org/licenses/by-sa/2.5/) license. That site was maintained by the community from 2006 until 2018 using a MediaWiki instance hosted at a private ISP. This new git-based repository offers the same content in a modern hosting environment with better tooling and version control.
 
 # How do I get involved?
 
