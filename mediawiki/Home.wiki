@@ -18,11 +18,11 @@ The [[Specifications/OpenSearch/1.1#OpenSearch_response_elements|OpenSearch resp
 
 === Specifications ===
 
-* [[Specifications/OpenSearch/1.1/Draft 5|OpenSearch 1.1 (Draft 5)]]
-** [[Specifications/OpenSearch/1.1/Draft 5#OpenSearch_description_document|OpenSearch description document]]
-** [[Specifications/OpenSearch/1.1/Draft 5#OpenSearch_URL_template_syntax|OpenSearch URL template syntax]]
-** [[Specifications/OpenSearch/1.1/Draft 5#OpenSearch_Query_element|OpenSearch Query element]]
-** [[Specifications/OpenSearch/1.1/Draft 5#OpenSearch_response_elements|OpenSearch response elements]]
+* [[Specifications/OpenSearch/1.1/Draft 5.wiki|OpenSearch 1.1 (Draft 5)]]
+** [[Specifications/OpenSearch/1.1/Draft 5.wiki#OpenSearch_description_document|OpenSearch description document]]
+** [[Specifications/OpenSearch/1.1/Draft 5.wiki#OpenSearch_URL_template_syntax|OpenSearch URL template syntax]]
+** [[Specifications/OpenSearch/1.1/Draft 5.wiki#OpenSearch_Query_element|OpenSearch Query element]]
+** [[Specifications/OpenSearch/1.1/Draft 5.wiki#OpenSearch_response_elements|OpenSearch response elements]]
 * [[Specifications/OpenSearch/Extensions|OpenSearch extensions]]
 ** [[Specifications/OpenSearch/Extensions/Referrer/1.0|OpenSearch Referrer extension]]
 ** [[Specifications/OpenSearch/Extensions/Relevance/1.0|OpenSearch Relevance extension]]
