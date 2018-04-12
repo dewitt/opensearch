@@ -1,75 +1,75 @@
-== Notice ==
-
-{{Template:Draft notice}}
-
-== Overview ==
+# Overview
 
 This document defines the OpenSearch description document, the OpenSearch Query element, the OpenSearch URL template syntax, and the OpenSearch response elements.  Collectively these formats may be referred to as "OpenSearch 1.1" or simply "OpenSearch".
 
-''Search clients can use OpenSearch description documents to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.''
+*Search clients can use OpenSearch description documents to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.*
 
-== Namespace ==
+# Namespace
 
 The XML Namespaces URI for the XML data formats described in this specification is:
 
-: <code><nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki></code>
+`http://a9.com/-/spec/opensearch/1.1/`
 
-== OpenSearch description document ==
+# OpenSearch description document
 
-=== Overview ===
+## Overview
 
 An OpenSearch description document can be used to describe the web interface of a search engine.
 
-=== Examples ===
+## Examples
 
-''Example of a simple OpenSearch description document:''
+*Example of a simple OpenSearch description document:*
 
-  <?xml version="1.0" encoding="UTF-8"?>
-  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>">
-    <ShortName>Web Search</ShortName>
-    <Description>Use Example.com to search the Web.</Description>
-    <Tags>example web</Tags>
-    <Contact>admin@example.com</Contact>
-    <Url type="application/rss+xml" 
-         template="<nowiki>http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}&amp;amp;format=rss</nowiki>"/>
-  </OpenSearchDescription>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Web Search</ShortName>
+  <Description>Use Example.com to search the Web.</Description>
+  <Tags>example web</Tags>
+  <Contact>admin@example.com</Contact>
+  <Url type="application/rss+xml" 
+       template="<nowiki>http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;format=rss</nowiki>"/>
+</OpenSearchDescription>
+```
 
-''Example of a detailed OpenSearch description document:''
+*Example of a detailed OpenSearch description document:*
 
-  <?xml version="1.0" encoding="UTF-8"?>
-  <OpenSearchDescription xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>">
-    <ShortName>Web Search</ShortName>
-    <Description>Use Example.com to search the Web.</Description>
-    <Tags>example web</Tags>
-    <Contact>admin@example.com</Contact>
-    <Url type="application/atom+xml"
-         template="<nowiki>http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}&amp;amp;format=atom</nowiki>"/>
-    <Url type="application/rss+xml"
-         template="<nowiki>http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}&amp;amp;format=rss</nowiki>"/>
-    <Url type="text/html" 
-         template="<nowiki>http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}</nowiki>"/>
-    <LongName>Example.com Web Search</LongName>
-    <Image height="64" width="64" type="image/png"><nowiki>http://example.com/websearch.png</nowiki></Image>
-    <Image height="16" width="16" type="image/vnd.microsoft.icon"><nowiki>http://example.com/websearch.ico</nowiki></Image>
-    <Query role="example" searchTerms="cat" />
-    <Developer>Example.com Development Team</Developer>
-    <Attribution>
-      Search data Copyright 2005, Example.com, Inc., All Rights Reserved
-    </Attribution>
-    <SyndicationRight>open</SyndicationRight>
-    <AdultContent>false</AdultContent>
-    <Language>en-us</Language>
-    <OutputEncoding>UTF-8</OutputEncoding>
-    <InputEncoding>UTF-8</InputEncoding>
-  </OpenSearchDescription>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Web Search</ShortName>
+  <Description>Use Example.com to search the Web.</Description>
+  <Tags>example web</Tags>
+  <Contact>admin@example.com</Contact>
+  <Url type="application/atom+xml"
+       template="http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;format=atom"/>
+  <Url type="application/rss+xml"
+       template="http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;format=rss"/>
+  <Url type="text/html" 
+       template="<nowiki>http://example.com/?q={searchTerms}&amp;pw={startPage?}"/>
+  <LongName>Example.com Web Search</LongName>
+  <Image height="64" width="64" type="image/png">http://example.com/websearch.png</Image>
+  <Image height="16" width="16" type="image/vnd.microsoft.icon">http://example.com/websearch.ico</Image>
+  <Query role="example" searchTerms="cat" />
+  <Developer>Example.com Development Team</Developer>
+  <Attribution>
+    Search data Copyright 2005, Example.com, Inc., All Rights Reserved
+  </Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+```
 
-=== Type ===
+## Type
 
 OpenSearch description documents are referred to via the following type:
 
-: <code><nowiki>application/opensearchdescription+xml</nowiki></code>
+`application/opensearchdescription+xml`
 
-''This type is pending IANA registration.''
+*This type is pending IANA registration.*
 
 === Extensibility ===
 
