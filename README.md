@@ -2,7 +2,7 @@
 
 OpenSearch is a collection of simple formats for the sharing of search results.
 
-The most recent version of the specification is available at [OpenSearch/Specifications/1.1/Draft 5](src/OpenSearch/Specifications/1.1/Draft%205).
+The most recent version of the specification is available at [OpenSearch/Specifications/1.1/Draft 5](src/OpenSearch/Specifications/1.1/Draft%205.wiki).
 
 # What is this repository?
 
