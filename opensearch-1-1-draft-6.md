@@ -71,6 +71,7 @@
     - [The `itemsPerPage` element](#the-itemsperpage-element)
     - [The `Query` element](#the-query-element)
   - [Response metadata in HTML/XHTML](#response-metadata-in-htmlxhtml)
+- [Future Versions](#future-versions)
 - [Author](#author)
 - [Contributors](#contributors)
 - [License](#license)
@@ -1518,6 +1519,11 @@ profile associated with the [OpenSearch 1.1 namespace](#namespace):
   </body>
 </html>
 ```
+
+## Future Versions
+
+This document is maintained at
+[https://github.com/dewitt/opensearch](https://github.com/dewitt/opensearch).
 
 ## Author
 
