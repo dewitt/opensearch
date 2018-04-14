@@ -1,4 +1,4 @@
-# OpenSearch 1.1
+# OpenSearch
 
 - [Version](#version)
 - [Overview](#overview)
@@ -81,9 +81,9 @@ OpenSearch 1.1 Draft 6
 
 ## Overview
 
-This document defines the OpenSearch description document, the OpenSearch Query element, the OpenSearch URL template syntax, and the OpenSearch response elements.  Collectively these formats may be referred to as "OpenSearch 1.1" or simply "OpenSearch".
+This document defines the [OpenSearch description document](#opensearch-description-document), the [OpenSearch Query element](#opensearch-query-element), the [OpenSearch URL template syntax](#opensearch-url-template-syntax), and the [OpenSearch response elements](#opensearch-response-elements). Collectively these formats may be referred to as "OpenSearch 1.1" or simply "OpenSearch".
 
-*Search clients can use [OpenSearch description documents](#opensearch-description-documents) to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.*
+*Search clients can use [OpenSearch description documents](#opensearch-description-document) to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.*
 
 ## Namespace
 
