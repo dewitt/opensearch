@@ -2,7 +2,7 @@
 
 This document defines the OpenSearch description document, the OpenSearch Query element, the OpenSearch URL template syntax, and the OpenSearch response elements.  Collectively these formats may be referred to as "OpenSearch 1.1" or simply "OpenSearch".
 
-*Search clients can use OpenSearch description documents to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.*
+*Search clients can use [OpenSearch description documents](#opensearch-description-documents) to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.*
 
 # Namespace
 
@@ -127,13 +127,13 @@ Describes an interface by which a client can make requests for an external resou
 
 - Parent: `OpenSearchDescription`
 - Attributes:
-  - `template` - The URL template to be processed according to the [[#OpenSearch URL template syntax|OpenSearch URL template syntax]].
+  - `template` - The URL template to be processed according to the [OpenSearch URL template syntax](#opensearch-url-template-syntax).
     - Requirements: This attribute is **required**.
   - `type` - The MIME type of the resource being described.
     - Restrictions: The value must be a valid MIME type.
     - Requirements: This attribute is **required**.
   - `rel` - The role of the resource being described in relation to the description document.
-    - Restrictions:  Contains a space-delimited list of valid rel value tokens.  See the [[#Url rel values|Url rel values]] specification for allowed rel values. 
+    - Restrictions:  Contains a space-delimited list of valid rel value tokens.  See the [Url rel values](#url-rel-values) specification for allowed rel values. 
     - Default: "results"
     - Requirements: This attribute is optional.
   - `indexOffset` - The index number of the first search result.
@@ -195,7 +195,7 @@ Rel values:
 - `"results"` (default)
   -   Represents a request for search results in the specified format.
 - `"suggestions"`
-  -   Represents a request for search suggestions in the specified format.  See the [[Specifications/OpenSearch/Extensions/Suggestions|OpenSearch Suggestions extension]] for further details.
+  -   Represents a request for search suggestions in the specified format.  See the [OpenSearch Suggestions extension](http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.1) for further details.
 - `"self"`
   -   Represents the canonical URL of this description document.
 - `"collection"`
@@ -217,7 +217,7 @@ Contains an email address at which the maintainer of the description document ca
 
 ### The `Tags` element
 
-Contains a set of words that are used as keywords to identify and categorize this search content.  Tags must be a single word and are delimited by the space character (' ').  
+Contains a set of words that are used as keywords to identify and categorize this search content.  Tags must be a single word and are delimited by the space character (`' '`).  
 
 - Parent: `OpenSearchDescription`
 - Restrictions: The value must contain 256 or fewer characters of plain text. The value must not contain HTML or other markup.
@@ -249,7 +249,7 @@ Contains an extended human-readable title that identifies this search engine.
 
 Contains a URL that identifies the location of an image that can be used in association with this search content.
 
-*Image sizes are offered as a hint to the search client.  The search client will choose the most appropriate image for the available space and should give preference to those listed first in the OpenSearch description document.  Square aspect ratios are recommended.  When possible, search engines should offer a 16x16 image of type "image/x-icon" or "image/vnd.microsoft.icon" (the [http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwui/html/msdn_icons.asp Microsoft ICON format]) and a 64x64 image of type `"image/jpeg"` or `"image/png"`.*
+*Image sizes are offered as a hint to the search client.  The search client will choose the most appropriate image for the available space and should give preference to those listed first in the OpenSearch description document.  Square aspect ratios are recommended.  When possible, search engines should offer a 16x16 image of type "image/x-icon" or "image/vnd.microsoft.icon" (the [Microsoft ICO format](https://msdn.microsoft.com/en-us/library/windows/desktop/gg430024(v=vs.85).aspx)) and a 64x64 image of type `"image/jpeg"` or `"image/png"`.*
 
 - Parent: `OpenSearchDescription`
 - Attributes:
@@ -275,7 +275,7 @@ Contains a URL that identifies the location of an image that can be used in asso
 
 ### The `Query` element
 
-Defines a search query that can be performed by search clients.   Please see the [[#OpenSearch Query element|OpenSearch Query element]] specification for more information.
+Defines a search query that can be performed by search clients.   Please see the [OpenSearch Query element](#opensearch-query-element) specification for more information.
 
 *OpenSearch description documents should include at least one Query element of role="example" that is expected to return search results.  Search clients may use this example query to validate that the search engine is working properly.*
 
@@ -369,11 +369,11 @@ Contains a boolean value that should be set to true if the search results may co
 
 Contains a string that indicates that the search engine supports search results in the specified language.
 
-*An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "Language" element|"Language" element]] for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of `"*"`.   The [[#The "language" parameter|"language" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to allow the search client to choose among the available languages.*
+*An [OpenSearch description document](#opensearch-description-document) should include one `Language` element for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of `"*"`.   The [`"language"` template parameter](#the-language-parameter) in the [OpenSearch URL template](#opensearch-url-template-syntax) can be used to allow the search client to choose among the available languages.*
 
 - Parent: `OpenSearchDescription`
-- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag XML 1.0 Language Identification], as specified by RFC 5646.  In addition, the value of "*" will signify that the search engine does not restrict search results to any particular language.
-- Default: "*".
+- Restrictions: The value must conform to the [XML 1.0 Language Identification](http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag), as specified by RFC 5646.  In addition, the value of `"*"` will signify that the search engine does not restrict search results to any particular language.
+- Default: `"*"`.
 - Requirements: This element may appear zero, one, or more times.
 
 *Examples:*
@@ -388,11 +388,11 @@ Contains a string that indicates that the search engine supports search results 
 
 Contains a string that indicates that the search engine supports search requests encoded with the specified character encoding.
 
-*An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "InputEncoding" element|"InputEncoding" element]] for each character encoding that can be used to encode search requests.   The [[#The "inputEncoding" parameter|"inputEncoding" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to require the search client to identify which encoding is being used to encode the current search request.*
+*An [OpenSearch description document](#opensearch-description-document) should include one `InputEncoding` element for each character encoding that can be used to encode search requests.   The [`"inputEncoding"` template parameter](#the-inputencoding-parameter) in the [OpenSearch URL template](#opensearch-url-template-syntax) can be used to require the search client to identify which encoding is being used to encode the current search request.*
 
 - Parent: `OpenSearchDescription`
-- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
-- Default: "UTF-8".
+- Restrictions: The value must conform to the [XML 1.0 Character Encodings](http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding), as specified by the [IANA Character Set Assignments](http://www.iana.org/assignments/character-sets).
+- Default: `"UTF-8"`.
 - Requirements: This element may appear zero, one, or more times.
 
 *Example:*
@@ -405,11 +405,11 @@ Contains a string that indicates that the search engine supports search requests
 
 Contains a string that indicates that the search engine supports search responses encoded with the specified character encoding.
 
-*An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "OutputEncoding" element|"OutputEncoding" element]] for each character encoding that can be used to encode search responses.   The [[#The "outputEncoding" parameter|"outputEncoding" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to allow the search client to choose a character encoding in the search response.*
+*An [OpenSearch description document](#opensearch-description-document) should include one `OutputEncoding` element for each character encoding that can be used to encode search responses.   The [`"outputEncoding"` template parameter](#the-outputencoding-parameter) in the [OpenSearch URL template](#opensearch-url-template-syntax) can be used to allow the search client to choose a character encoding in the search response.*
 
 - Parent: `OpenSearchDescription`
-- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
-- Default: "UTF-8".
+- Restrictions: The value must conform to the [XML 1.0 Character Encodings](http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding), as specified by the [IANA Character Set Assignments](http://www.iana.org/assignments/character-sets).
+- Default: `"UTF-8"`.
 - Requirements: This element may appear zero, one, or more times.
 
 *Example:*
@@ -424,7 +424,7 @@ Contains a string that indicates that the search engine supports search response
 
 ### Autodiscovery in RSS/Atom ###
 
-RSS and Atom documents may reference related [[#OpenSearch description document|OpenSearch description documents]] via the Atom 1.0 "link" element, as specified in Section 4.2.7 of RFC 4287.
+RSS and Atom documents may reference related [OpenSearch description document](#opensearch-description-document) via the Atom 1.0 `link` element, as specified in Section 4.2.7 of RFC 4287.
 
 *The `rel` attribute of the `link` element should contain the value `"search"` when referring to OpenSearch description documents.  This relationship value is pending IANA registration.  The reuse of the Atom `link` element is recommended in the context of other syndication formats that do not natively support comparable functionality.*
 
@@ -469,7 +469,7 @@ The following restrictions apply:
 
 ### Autodiscovery in HTML/XHTML
 
-HTML and XHTML documents may reference related [[#OpenSearch description document|OpenSearch description documents]] via the [http://www.w3.org/TR/REC-html40/struct/links.html#h-12.3 HTML 4.0 &lt;link/&gt; element].
+HTML and XHTML documents may reference related [OpenSearch description documents](#opensearch-description-document) via the [HTML 4.0 `link` element](http://www.w3.org/TR/REC-html40/struct/links.html#h-12.3).
 
 The following restrictions apply:
 
@@ -603,7 +603,7 @@ The OpenSearch URL template format can be used to represent a parameterized form
 
 `http://example.com/feed/{startPage?}`
 
-*Example of a search URL template that contains an optional template parameter in an extended namespace, shown in the context of a [[#The "Url" element|Url element]]:*
+*Example of a search URL template that contains an optional template parameter in an extended namespace, shown in the context of a [`Url` element](#the-url-element):*
 
 ```xml
 <Url type="application/rss+xml" 
@@ -613,7 +613,7 @@ The OpenSearch URL template format can be used to represent a parameterized form
 
 ## Context
 
-This specification refers to the use of the OpenSearch URL template syntax specifically within the context of the [[#The "Url" element|"Url" element]] in an [[#OpenSearch description document|OpenSearch description document]].
+This specification refers to the use of the OpenSearch URL template syntax specifically within the context of the [`Url` element](#the-url-element) in an [OpenSearch description document](#opensearch-description-document).
 
 ## Template grammar
 
@@ -647,7 +647,7 @@ tfragement     = *( fragement / tparameter )
 
 The search client **must** replace every instance of a template parameter with a value before the search request is performed.
 
-*If a search engine wishes to indicate that a template parameter is optional and can be replaced with the empty string, then the "?" notation described in the section on [[#Optional template parameters|optional template parameters]] should be used.*
+*If a search engine wishes to indicate that a template parameter is optional and can be replaced with the empty string, then the `"?"` notation described in the section on [optional template parameters](#optional-template-parameters) should be used.*
 
 ### Parameter names
 
@@ -659,7 +659,7 @@ Both the parameter name prefix and the local parameter name are case sensitive.
 
 ### Parameter name prefix
 
-A parameter name prefix associates a local parameter name with a parameter namespace.  All parameter name prefixes must be previously declared as an [http://www.w3.org/TR/REC-xml-names/ XML namespace] prefix on the containing element or ancestor elements.
+A parameter name prefix associates a local parameter name with a parameter namespace.  All parameter name prefixes must be previously declared as an [XML namespace](http://www.w3.org/TR/REC-xml-names/) prefix on the containing element or ancestor elements.
 
 *The choice of prefix is at the discretion of the author of the OpenSearch description document.  Search clients should make no assumption as to the meaning of any particular literal prefix string, and should rely exclusively on the mapping of prefix strings to XML namespace declarations when parsing fully qualified parameter names.*
 
@@ -677,9 +677,9 @@ A parameter name prefix associates a local parameter name with a parameter names
 
 ### Unqualified parameter names
 
-Unqualified parameter names consist of only a local parameter name and do not include a parameter name prefix.  Unqualified parameter names in OpenSearch URL templates are implicitly associated with the [[#Namespace|OpenSearch 1.1 namespace]].
+Unqualified parameter names consist of only a local parameter name and do not include a parameter name prefix.  Unqualified parameter names in OpenSearch URL templates are implicitly associated with the [OpenSearch 1.1 namespace](#namespace).
 
-*This specification includes an exhaustive list of all unqualified [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter names]].*
+*This specification includes an exhaustive list of all unqualified [OpenSearch 1.1 parameter names](#opensearch-11-parameters).*
 
 *Example of an unqualified parameter name:*
 
@@ -716,7 +716,7 @@ Optional template parameters are template parameters that contain a template par
 
 `{startPage?}`
 
-=== OpenSearch 1.1 parameters ===
+## OpenSearch 1.1 parameters
 
 The following local parameter names are identified with the OpenSearch 1.1 namespace.  The list is exhaustive; only the local parameter names listed below may appear unqualified in an OpenSearch URL template.
 
@@ -732,49 +732,49 @@ Replaced with the keyword or keywords desired by the search client.
 
 - Replaced with the number of search results per page desired by the search client.
 
-*Search clients should anticipate that the value of the `count` parameter may not be honored by the search engine, and should rely exclusively on the contents of [[#The "itemsPerPage" element|the "itemsPerPage" response element]] in calculating actual page size.*
+*Search clients should anticipate that the value of the `count` parameter may not be honored by the search engine, and should rely exclusively on the contents the [`itemsPerPage` response element](#the-itemsperpage-element) in calculating actual page size.*
 
-: Restrictions:  The value must be a non-negative integer.
+- Restrictions:  The value must be a non-negative integer.
 
 ### The `startIndex` parameter
 
 Replaced with the index of the first search result desired by the search client.
 
 - Restrictions:  The value must be an integer.
-- Default:  The value specified by the `indexOffset` attribute of the containing [[#The "Url" element|Url element]].
+- Default:  The value specified by the `indexOffset` attribute of the containing the [`Url` element](#the-url-element).
 
 ### The `startPage` parameter
 
 Replaced with the page number of the set of search results desired by the search client.
 
 - Restrictions: The value must be an integer.
-- Default: The value specified by the `pageOffset` attribute of the containing [[#The "Url" element|Url element]].
+- Default: The value specified by the `pageOffset` attribute of the containing the [`Url` element](#the-url-element).
 
 ### The `language` parameter
 
 Replaced with a string that indicates that the search client desires search results in the specified language.
 
-*An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "Language" element|"Language" element]] for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of "*".   The [[#The "language" parameter|"language" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to allow the search client to choose among the available languages.*
+*An [OpenSearch description document](#opensearch-description-document) should include one [`Language` element](#the-language-element) for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of `"*"`.   The `"language"` template parameter in the [OpenSearch URL template](#opensearch-url-template) can be used to allow the search client to choose among the available languages.*
 
-- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag XML 1.0 Language Identification], as specified by RFC 5646.  In addition, a value of `"*"` will signify that the search client desires search results in any language.
+- Restrictions: The value must conform to the [XML 1.0 Language Identification](http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag), as specified by RFC 5646.  In addition, a value of `"*"` will signify that the search client desires search results in any language.
 - Default: `"*"`
 
 ### The `inputEncoding` parameter
 
 Replaced with a string that indicates that the search client is performing the search request encoded with the specified character encoding.
 
-*An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "InputEncoding" element|"InputEncoding" element]] for each character encoding that can be used to encode search requests.   The [[#The "inputEncoding" parameter|"inputEncoding" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to require the search client to identify which encoding is being used to encode the current search request.*
+*An [OpenSearch description document](#opensearch-description-document) should include one [`InputEncoding` element](#the-inputencoding-element) for each character encoding that can be used to encode search requests.   The `"inputEncoding"` parameter in the [OpenSearch URL template](#opensearch-url-template) can be used to require the search client to identify which encoding is being used to encode the current search request.*
 
-- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
+- Restrictions: The value must conform to the [XML 1.0 Character Encodings](http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding), as specified by the [IANA Character Set Assignments](http://www.iana.org/assignments/character-sets).
 - Default: `"UTF-8"`
 
 ### The "outputEncoding" parameter ###
 
 Replaced with a string that indicates that the search client desires a search response encoding with the specified character encoding.
 
-*An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "OutputEncoding" element|"OutputEncoding" element]] for each character encoding that can be used to encode search responses.   The [[#The "outputEncoding" parameter|"outputEncoding" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to allow the search client to choose a character encoding in the search response.*
+*An [OpenSearch description document](#opensearch-description-document) should include one [`OutputEncoding` element](#the-outputencoding-element) for each character encoding that can be used to encode search responses.   The `"outputEncoding"` parameter in the [OpenSearch URL template](#opensearch-url-template) can be used to allow the search client to choose a character encoding in the search response.*
 
-- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
+- Restrictions: The value must conform to the [XML 1.0 Character Encodings](http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding), as specified by the [IANA Character Set Assignments](http://www.iana.org/assignments/character-sets).
 - Default: `"UTF-8"`
 
 # OpenSearch `Query` element
@@ -848,7 +848,7 @@ Describes a specific search request that can be made by the search client.
 
 - Attributes:
   - `role` - Contains a string identifying how the search client should interpret the search request defined by this Query element.
-    - Restrictions: See the [[#Role values|role values]] specification for allowed role values.
+    - Restrictions: See the [role values](#role-values) specification for allowed role values.
     - Requirements: This attribute is **required**.  
   - `title` - Contains a human-readable plain text string describing the search request.
     - Restrictions: The value must contain 256 or fewer characters of plain text.  The value must not contain HTML or other markup.
@@ -856,25 +856,25 @@ Describes a specific search request that can be made by the search client.
   - `totalResults` - Contains the expected number of results to be found if the search request were made.
     - Restrictions: The value is a non-negative integer.
     - Requirements: This attribute is optional.
-  -    - Restrictions: See the [[#The "searchTerms" parameter|"searchTerms" parameter]].
+  -    - Restrictions: See the [`searchTerms` parameter](#the-searchterms-parameter).
     - Requirements: This attribute is optional.
-  - `count` - Contains the value representing the `count` as a [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-    - Restrictions: See the [[#The "count" parameter|"count" parameter]].
+  - `count` - Contains the value representing the `count` as a [OpenSearch 1.1 parameter names](#opensearch-11-parameters).
+    - Restrictions: See the [`count` parameter](#the-count-parameter).
     - Requirements: This attribute is optional.
-  - `startIndex` - Contains the value representing the `startIndex` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-    - Restrictions: See the [[#The "startIndex" parameter|"startIndex" parameter]].
+  - `startIndex` - Contains the value representing the `startIndex` as an [OpenSearch 1.1 parameter names](#opensearch-11-parameters).
+    - Restrictions: See the [`startIndex` parameter](#the-startindex-parameter).
     - Requirements: This attribute is optional.
-  - `startPage` - Contains the value representing the `startPage` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-    - Restrictions: See the [[#The "startPage" parameter|"startPage" parameter]].
+  - `startPage` - Contains the value representing the `startPage` as an [OpenSearch 1.1 parameter names](#opensearch-11-parameters).
+    - Restrictions: See the [`startPage` parameter](#the-startpage-parameter).
     - Requirements: This attribute is optional.
-  - `language` - Contains the value representing the `language` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-    - Restrictions: See the [[#The "language" parameter|"language" parameter]].
+  - `language` - Contains the value representing the `language` as an [OpenSearch 1.1 parameter names](#opensearch-11-parameters).
+    - Restrictions: See the [`language` parameter](#the-language-parameter).
     - Requirements: This attribute is optional.
-  - `inputEncoding` - Contains the value representing the `inputEncoding` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-    - Restrictions: See the [[#The "inputEncoding" parameter|"inputEncoding" parameter]].
+  - `inputEncoding` - Contains the value representing the `inputEncoding` as an [OpenSearch 1.1 parameter names](#opensearch-11-parameters).
+    - Restrictions: See the [`inputEncoding` parameter](#the-inputencoding-parameter).
     - Requirements: This attribute is optional.
-  - `outputEncoding` - Contains the value representing the `outputEncoding` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-    - Restrictions: See the [[#The "outputEncoding" parameter|"outputEncoding" parameter]].
+  - `outputEncoding` - Contains the value representing the `outputEncoding` as an [OpenSearch 1.1 parameter names](#opensearch-11-parameters).
+    - Restrictions: See the [`outputEncoding` parameter](#the-outputencoding-parameter).
     - Requirements: This attribute is optional.
 
 *Example:*
@@ -913,7 +913,7 @@ A role prefix associates a local role name with a namespace. All prefixes must b
 
 ### Local role values
 
-Local role values are not preceded by a prefix. Local role values are associated with the [[#Namespace|OpenSearch 1.1 namespace]].
+Local role values are not preceded by a prefix. Local role values are associated with the [OpenSearch 1.1 namespace](#namespace).
 
 The following role values are identified with the OpenSearch 1.1 namespace.  The list is exhaustive; only the role values listed below may appear in the OpenSearch 1.1 namespace.
 
@@ -1060,7 +1060,7 @@ The index of the first search result in the current set of search results.
 *If the `startIndex` element does not appear on the page then the search client should consider the current page to be the first page of search results.*
 
 - Restrictions: The value must an integer.
-- Default: The default value is equal to the value of the `indexOffset` attribute of the [[#The "Url" element|"Url" element"]] in the [[#OpenSearch description document|OpenSearch description document]].
+- Default: The default value is equal to the value of the `indexOffset` attribute of the [`Url` element](#the-url-element) in the [OpenSearch description document](#opensearch-description-document).
 - Requirements: The element may appear zero or one time.
 
 *Example:*
@@ -1087,7 +1087,7 @@ The number of search results returned per page.
 
 ### The `Query` element
 
-Defines a search query that can be performed by search clients. Please see the [[#OpenSearch Query element|OpenSearch Query element]] specification for more information.
+Defines a search query that can be performed by search clients. Please see the [OpenSearch `Query` element](#opensearch-query-element) specification for more information.
 
 *Search results should include a `Query` element of `type="request"` that can be used to recreate the search request that generate the current search response.*
 
@@ -1101,13 +1101,13 @@ Defines a search query that can be performed by search clients. Please see the [
 
 ## Response metadata in HTML/XHTML
 
-OpenSearch response metadata may be included in well-formed HTML/XHTML via the [http://www.w3.org/TR/1999/REC-html401-19991224/struct/global.html#h-7.4.4.2 HTML 4.0.1 "meta" element].
+OpenSearch response metadata may be included in well-formed HTML/XHTML via the [HTML 4.0.1 "meta" element](http://www.w3.org/TR/1999/REC-html401-19991224/struct/global.html#h-7.4.4.2).
 
-The following meta element `name` attribute values are recognized under the profile associated with the [[#Namespace|OpenSearch 1.1 namespace]]:
+The following meta element `name` attribute values are recognized under the profile associated with the [OpenSearch 1.1 namespace](#namespace):
 
-- `"totalResults"` - Corresponds to value of the [[#The "totalResults" element|"totalResults" element]].
-- `"startIndex"` - Corresponds to value of the [[#The "startIndex" element|"startIndex" element]].
-- `"itemsPerPage"` - Corresponds to value of the [[#The "itemsPerPage" element|"itemsPerPage" element]].
+- `"totalResults"` - Corresponds to value of the [`totalResults` element](#the-totalresults-element).
+- `"startIndex"` - Corresponds to value of the [`startIndex` element](#the-startindex-element).
+- `"itemsPerPage"` - Corresponds to value of the [`itemsPerPage` element](#the-itemsperpage-element).
 
 *Example of a page of search results in the XHTML 1.0 format:*
 
@@ -1154,4 +1154,4 @@ Joel Tesler `<tesler@a9.com>`, Michael Fagan `<mifa@a9.com>`, Joe Gregorio `<joe
 
 # License
 
-This document is made available by [http://a9.com A9.com] subject to the terms of the [http://creativecommons.org/licenses/by-sa/2.5/ Creative Commons Attribution-ShareAlike 2.5 License].
+This document is made available by [A9.com](https://a9.com) subject to the terms of the [Creative Commons Attribution-ShareAlike 2.5 License](https://creativecommons.org/licenses/by-sa/2.5/).
