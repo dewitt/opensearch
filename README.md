@@ -10,7 +10,7 @@ website [here](mediawiki/).
 
 # What is this repository?
 
-This respository is a port of the opensearch.org website. The original source
+This respository is a migration of the opensearch.org website. The original source
 export can be found in the [src/](src/) subdirectory, and the migrated files
 can be found in the [mediawiki/](mediawiki/) subdirectory. The current version
 of the specification has been ported to Markdown format and is available
