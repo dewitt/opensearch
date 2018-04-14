@@ -14,7 +14,7 @@ This respository is a migration of the opensearch.org website. The original sour
 export can be found in the [src/](src/) subdirectory, and the migrated files
 can be found in the [mediawiki/](mediawiki/) subdirectory. The current version
 of the specification has been ported to Markdown format and is available
-[here](opensearch-1.1-draft-6.md).
+[here](opensearch-1-1-draft-6.md).
 
 # Why was this repository created?
 
