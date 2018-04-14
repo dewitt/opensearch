@@ -169,7 +169,7 @@ The root node of the OpenSearch description document.
 
 ```xml
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-  <!--- ... --->
+  <!-- ... -->
 </OpenSearchDescription>
 ```
 
@@ -521,12 +521,12 @@ The following restrictions apply:
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"
       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
-  <!-- ... --->
+  <!-- ... -->
   <link rel="search"
         href="http://example.com/opensearchdescription.xml"
         type="application/opensearchdescription+xml"
         title="Content Search" />
-  <!-- ... --->
+  <!-- ... -->
 </feed>
 ```
 
@@ -537,12 +537,12 @@ The following restrictions apply:
 <rss version="2.0"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <!--- ... --->
+    <!-- ... -->
     <atom:link rel="search"
                href="http://example.com/opensearchdescription.xml"
                type="application/opensearchdescription+xml"
                title="Content Search" />
-    <!--- ... --->
+    <!-- ... -->
   </channel>
 </rss>
 ```
@@ -565,7 +565,7 @@ The following restrictions apply:
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
   <head profile="http://a9.com/-/spec/opensearch/1.1/">
-    <!--- ... --->
+    <!-- ... -->
     <link rel="search"
           type="application/opensearchdescription+xml"
           href="http://example.com/content-search.xml"
@@ -574,10 +574,10 @@ The following restrictions apply:
           type="application/opensearchdescription+xml"
           href="http://example.com/comment-search.xml"
           title="Comments search" />
-    <!--- ... --->
+    <!-- ... -->
   </head>
   <body>
-    <!--- ... --->
+    <!-- ... -->
   </body>
 </html>
 ```
@@ -912,7 +912,7 @@ The OpenSearch`Query` element can be used to define a specific search request th
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"
       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
-  <!--- ... --->
+  <!-- ... -->
   <opensearch:Query role="request" searchTerms="General Motors annual report" />
   <opensearch:Query role="related" searchTerms="GM" title="General Motors stock symbol" />
   <opensearch:Query role="related" searchTerms="automotive industry revenue" />
