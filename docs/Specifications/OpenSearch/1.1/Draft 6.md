@@ -583,9 +583,9 @@ For the purposes of RFC 4288 section 4.10 this specification contains the regist
                    <http://www.opensearch.org/>
 ```
 
-== OpenSearch URL template syntax ==
+# OpenSearch URL template syntax
 
-=== Overview ===
+## Overview
 
 The OpenSearch URL template format can be used to represent a parameterized form of the URL by which a search engine is queried.
 
@@ -593,67 +593,71 @@ The OpenSearch URL template format can be used to represent a parameterized form
 
 *By default, parameter names are considered part of the OpenSearch 1.1 template namespace, and definitions for a set of core search parameter names are provided in this specification.  However, search engines and search clients can adopt new parameter names using an extensibility mechanism based on the XML namespace prefix conventions.*
 
-=== Examples ===
+## Examples
 
 *Example of a search URL template that contains a template parameter:*
 
-  http://example.com/search?q={searchTerms}
+`http://example.com/search?q={searchTerms}`
 
 *Example of a search URL template that contains an optional template parameter:*
 
-  http://example.com/feed/{startPage?}
+`http://example.com/feed/{startPage?}`
 
 *Example of a search URL template that contains an optional template parameter in an extended namespace, shown in the context of a [[#The "Url" element|Url element]]:*
 
-  <Url type="application/rss+xml" 
-       xmlns:example="http://example.com/opensearchextensions/1.0/"
-       template="http://example.com?q={searchTerms}&amp;c={example:color?}"/>
+```xml
+<Url type="application/rss+xml" 
+     xmlns:example="http://example.com/opensearchextensions/1.0/"
+    template="http://example.com?q={searchTerms}&amp;c={example:color?}"/>
+```
 
-=== Context ===
+## Context
 
 This specification refers to the use of the OpenSearch URL template syntax specifically within the context of the [[#The "Url" element|"Url" element]] in an [[#OpenSearch description document|OpenSearch description document]].
 
-=== Template grammar ===
+## Template grammar
 
 The grammar of an OpenSearch URL template is defined by the following set of ABNF rules, as specified in RFC 2234.
 
 The grammar rules defined in this document build upon a subset of the rules defined for the Uniform Resource Identifier (URI): Generic Syntax in RFC 3986.  For brevity, rules already stated in RFC 3986 are referenced in this document by rule name alone and are not restated here in their entirety.
 
-  ttemplate      = tscheme ":" thier-part [ "?" tquery ] [ "#" tfragment ]
-  tscheme        = *( scheme / tparameter )
-  thier-part     = "//" tauthority ( tpath-abempty / tpath-absolute / tpath-rootless / path-empty )
-  tauthority     = [ tuserinfo "@" ] thost [ ":" tport ]
-  tuserinfo      = *( userinfo / tparameter )
-  thost          = *( host / tparameter )
-  tport          = *( port / tparameter )
-  tpath-abempty  = *( "/" tsegment )
-  tsegment       = *( segment / tparameter )
-  tpath-absolute = "/" [ tsegment-nz *( "/" tsegment ) ]
-  tsegment-nz    = *( segment-nz / tparameter )
-  tpath-rootless = tsegment-nz *( "/" tsegment )
-  tparameter     = "{" tqname [ tmodifier ] "}"
-  tqname         = [ tprefix ":" ] tlname
-  tprefix        = *pchar
-  tlname         = *pchar
-  tmodifier      = "?"
-  tquery         = *( query / tparameter )
-  tfragement     = *( fragement / tparameter )
+```
+ttemplate      = tscheme ":" thier-part [ "?" tquery ] [ "#" tfragment ]
+tscheme        = *( scheme / tparameter )
+thier-part     = "//" tauthority ( tpath-abempty / tpath-absolute / tpath-rootless / path-empty )
+tauthority     = [ tuserinfo "@" ] thost [ ":" tport ]
+tuserinfo      = *( userinfo / tparameter )
+thost          = *( host / tparameter )
+tport          = *( port / tparameter )
+tpath-abempty  = *( "/" tsegment )
+tsegment       = *( segment / tparameter )
+tpath-absolute = "/" [ tsegment-nz *( "/" tsegment ) ]
+tsegment-nz    = *( segment-nz / tparameter )
+tpath-rootless = tsegment-nz *( "/" tsegment )
+tparameter     = "{" tqname [ tmodifier ] "}"
+tqname         = [ tprefix ":" ] tlname
+tprefix        = *pchar
+tlname         = *pchar
+tmodifier      = "?"
+tquery         = *( query / tparameter )
+tfragement     = *( fragement / tparameter )
+```
 
-=== Substitution rules ===
+## Substitution rules
 
 The search client **must** replace every instance of a template parameter with a value before the search request is performed.
 
 *If a search engine wishes to indicate that a template parameter is optional and can be replaced with the empty string, then the "?" notation described in the section on [[#Optional template parameters|optional template parameters]] should be used.*
 
-### Parameter names ###
+### Parameter names
 
-A parameter name consists of an optional parameter name prefix followed by the local parameter name.  If the parameter name prefix is present then it will be separated from the local parameter name with the ":" character.  All parameter names are associated with a parameter namespace.  In the case of unqualified parameter names, the local parameter name is implicitly associated with the OpenSearch 1.1 namespace.  In the case of fully qualified parameter names, the local parameter name is explicitly associated with an external namespace via the parameter name prefix.
+A parameter name consists of an optional parameter name prefix followed by the local parameter name.  If the parameter name prefix is present then it will be separated from the local parameter name with the `":"` character.  All parameter names are associated with a parameter namespace.  In the case of unqualified parameter names, the local parameter name is implicitly associated with the OpenSearch 1.1 namespace.  In the case of fully qualified parameter names, the local parameter name is explicitly associated with an external namespace via the parameter name prefix.
 
-### Case sensitivity of parameter names ###
+### Case sensitivity of parameter names
 
 Both the parameter name prefix and the local parameter name are case sensitive.
 
-### Parameter name prefix ###
+### Parameter name prefix
 
 A parameter name prefix associates a local parameter name with a parameter namespace.  All parameter name prefixes must be previously declared as an [http://www.w3.org/TR/REC-xml-names/ XML namespace] prefix on the containing element or ancestor elements.
 
@@ -661,15 +665,17 @@ A parameter name prefix associates a local parameter name with a parameter names
 
 *Example of two equivalent URL templates that will be processed identically by search clients:*
 
-  <Url type="application/rss+xml" 
-       xmlns:a="http://example.com/extensions/"
-       template="http://example.com?q={a:localname?}"/>
-  
-  <Url type="application/rss+xml" 
-       xmlns:b="http://example.com/extensions/"
-       template="http://example.com?q={b:localname?}"/>
+```xml
+<Url type="application/rss+xml" 
+     xmlns:a="http://example.com/extensions/"
+     template="http://example.com?q={a:localname?}"/>
 
-### Unqualified parameter names ###
+<Url type="application/rss+xml" 
+     xmlns:b="http://example.com/extensions/"
+     template="http://example.com?q={b:localname?}"/>
+```
+
+### Unqualified parameter names
 
 Unqualified parameter names consist of only a local parameter name and do not include a parameter name prefix.  Unqualified parameter names in OpenSearch URL templates are implicitly associated with the [[#Namespace|OpenSearch 1.1 namespace]].
 
@@ -677,34 +683,38 @@ Unqualified parameter names consist of only a local parameter name and do not in
 
 *Example of an unqualified parameter name:*
 
-  <Url type="application/rss+xml" 
-       template="http://example.com/?q={searchTerms}"/>
+```xml
+<Url type="application/rss+xml" 
+     template="http://example.com/?q={searchTerms}"/>
+```
 
-### Fully qualified parameter names ###
+### Fully qualified parameter names
 
-Fully qualified parameter names consist of a parameter name prefix, followed by the ":" character, followed by the local parameter name.  Fully qualified parameter names are associated with the namespace identified by the paramater name prefix, as it appears as an XML namespace declaration on the containing element or ancestor elements.
+Fully qualified parameter names consist of a parameter name prefix, followed by the `":"` character, followed by the local parameter name.  Fully qualified parameter names are associated with the namespace identified by the paramater name prefix, as it appears as an XML namespace declaration on the containing element or ancestor elements.
 
 *Example of a fully qualified parameter name:*
 
-  <Url type="application/rss+xml" 
-       xmlns:example="http://example.com/opensearchextensions/1.0/"
-       template="http://example.com?f={example:format?}"/>
+```xml
+<Url type="application/rss+xml" 
+     xmlns:example="http://example.com/opensearchextensions/1.0/"
+     template="http://example.com?f={example:format?}"/>
+```
 
-### Required template parameters ###
+### Required template parameters
 
 Required template parameters are template parameters that do not contain a template parameter modifier.  The search client may use the default value if one is known, but may not use the empty string as a value.
 
 *Example of a required template parameter:*
 
-  {searchTerms}
+`{searchTerms}`
 
-### Optional template parameters ###
+### Optional template parameters
 
-Optional template parameters are template parameters that contain a template parameter modifier equal to "?".  The search client may use the empty string as a value if no other value is available.
+Optional template parameters are template parameters that contain a template parameter modifier equal to `"?"`.  The search client may use the empty string as a value if no other value is available.
 
 *Example of an optional template parameter:*
 
-  {startPage?}
+`{startPage?}`
 
 === OpenSearch 1.1 parameters ===
 
@@ -712,51 +722,51 @@ The following local parameter names are identified with the OpenSearch 1.1 names
 
 Search clients should be prepared to substitute reasonable values for these parameter names when they appear in an OpenSearch URL template.
 
-### The "searchTerms" parameter ###
+### The `searchTerms` parameter
 
 Replaced with the keyword or keywords desired by the search client.
 
-: Restrictions: The value must be URL-encoded.
+- Restrictions: The value must be URL-encoded.
 
-### The "count" parameter ###
+### The `count` parameter
 
-Replaced with the number of search results per page desired by the search client.
+- Replaced with the number of search results per page desired by the search client.
 
-*Search clients should anticipate that the value of the "count" parameter may not be honored by the search engine, and should rely exclusively on the contents of [[#The "itemsPerPage" element|the "itemsPerPage" response element]] in calculating actual page size.*
+*Search clients should anticipate that the value of the `count` parameter may not be honored by the search engine, and should rely exclusively on the contents of [[#The "itemsPerPage" element|the "itemsPerPage" response element]] in calculating actual page size.*
 
 : Restrictions:  The value must be a non-negative integer.
 
-### The "startIndex" parameter ###
+### The `startIndex` parameter
 
 Replaced with the index of the first search result desired by the search client.
 
-: Restrictions:  The value must be an integer.
-: Default:  The value specified by the "indexOffset" attribute of the containing [[#The "Url" element|Url element]].
+- Restrictions:  The value must be an integer.
+- Default:  The value specified by the `indexOffset` attribute of the containing [[#The "Url" element|Url element]].
 
-### The "startPage" parameter ###
+### The `startPage` parameter
 
 Replaced with the page number of the set of search results desired by the search client.
 
-: Restrictions: The value must be an integer.
-: Default: The value specified by the "pageOffset" attribute of the containing [[#The "Url" element|Url element]].
+- Restrictions: The value must be an integer.
+- Default: The value specified by the `pageOffset` attribute of the containing [[#The "Url" element|Url element]].
 
-### The "language" parameter ###
+### The `language` parameter
 
 Replaced with a string that indicates that the search client desires search results in the specified language.
 
 *An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "Language" element|"Language" element]] for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of "*".   The [[#The "language" parameter|"language" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to allow the search client to choose among the available languages.*
 
-: Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag XML 1.0 Language Identification], as specified by RFC 5646.  In addition, a value of "*" will signify that the search client desires search results in any language.
-: Default: "*"
+- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag XML 1.0 Language Identification], as specified by RFC 5646.  In addition, a value of `"*"` will signify that the search client desires search results in any language.
+- Default: `"*"`
 
-### The "inputEncoding" parameter ###
+### The `inputEncoding` parameter
 
 Replaced with a string that indicates that the search client is performing the search request encoded with the specified character encoding.
 
 *An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "InputEncoding" element|"InputEncoding" element]] for each character encoding that can be used to encode search requests.   The [[#The "inputEncoding" parameter|"inputEncoding" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to require the search client to identify which encoding is being used to encode the current search request.*
 
-: Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
-: Default: "UTF-8"
+- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
+- Default: `"UTF-8"`
 
 ### The "outputEncoding" parameter ###
 
@@ -764,129 +774,144 @@ Replaced with a string that indicates that the search client desires a search re
 
 *An [[#OpenSearch description document|OpenSearch description document]] should include one [[#The "OutputEncoding" element|"OutputEncoding" element]] for each character encoding that can be used to encode search responses.   The [[#The "outputEncoding" parameter|"outputEncoding" template parameter]] in the [[#OpenSearch URL template|OpenSearch URL template]] can be used to allow the search client to choose a character encoding in the search response.*
 
-: Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
-: Default: "UTF-8"
+- Restrictions: The value must conform to the [http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding XML 1.0 Character Encodings], as specified by the [http://www.iana.org/assignments/character-sets IANA Character Set Assignments].
+- Default: `"UTF-8"`
 
-== OpenSearch Query element ==
+# OpenSearch `Query` element
 
-=== Overview ===
+## Overview
 
-The OpenSearch Query element can be used to define a specific search request that can be performed by a search client.
+The OpenSearch`Query` element can be used to define a specific search request that can be performed by a search client.
 
-*The Query element attributes correspond to the search parameters in a URL template.  The core set of search parameters are explicitly defined as Query attributes, and custom parameters can be added via namespaces as needed.*
+*The Query element attributes correspond to the search parameters in a URL template.  The core set of search parameters are explicitly defined as `Query` attributes, and custom parameters can be added via namespaces as needed.*
 
-*Authors should provide at least one Query element of role="example" in each OpenSearch description document so that search clients can test the search engine.  Search engines should include a Query element of role="request" in each search response so that search clients can recreate the current search.*
+*Authors should provide at least one `Query` element of `role="example"` in each OpenSearch description document so that search clients can test the search engine.  Search engines should include a Query element of `role="request"` in each search response so that search clients can recreate the current search.*
 
-=== Examples ===
+## Examples
 
-*Example of a Query element used in an OpenSearch description document to provide an example search request for search clients:*
+*Example of a `Query` element used in an OpenSearch description document to provide an example search request for search clients:*
 
-  <Query role="example" searchTerms="cat" />
+```xml
+<Query role="example" searchTerms="cat" />
+```
 
-*Example of a Query element used in an OpenSearch response to echo back the original search request:*
+*Example of a `Query` element used in an OpenSearch response to echo back the original search request:*
 
-  <Query role="request" searchTerms="cat" startPage="1" />
+```xml
+<Query role="request" searchTerms="cat" startPage="1" />
+```
 
-*Example of a Query element used in an OpenSearch response to correct the spelling of "OpenSurch":*
+*Example of a `Query` element used in an OpenSearch response to correct the spelling of "OpenSurch":*
 
-  <Query role="correction" searchTerms="OpenSearch" totalResults="854000" title="Spelling correction" />
+```xml
+<Query role="correction" searchTerms="OpenSearch" totalResults="854000" title="Spelling correction" />
+```
 
-*Example of a Query element using an extended parameter:*
+*Example of a `Query` element using an extended parameter:*
 
-  <Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
-         role="example"
-         searchTerms="cat"
-         custom:color="blue"
-         title="Sample search" />
+```xml
+<Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
+       role="example"
+       searchTerms="cat"
+       custom:color="blue"
+       title="Sample search" />
+```
 
-*Example of a Query element using a extended role:*
+*Example of a `Query` element using a extended role:*
 
-  <Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
-         role="custom:synonym"
-         title="Synonym of 'cat'"
-         searchTerms="feline" />
+```xml
+<Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
+       role="custom:synonym"
+       title="Synonym of 'cat'"
+       searchTerms="feline" />
+```
 
-*Detailed example of a set of Query elements used in the context of an Atom-based OpenSearch response:*
+*Detailed example of a set of `Query` elements used in the context of an Atom-based OpenSearch response:*
 
-  <?xml version="1.0" encoding="UTF-8"?>
-  <feed xmlns="http://www.w3.org/2005/Atom" 
-        xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
-    <!--- ... --->
-    <opensearch:Query role="request" searchTerms="General Motors annual report" />
-    <opensearch:Query role="related" searchTerms="GM" title="General Motors stock symbol" />
-    <opensearch:Query role="related" searchTerms="automotive industry revenue" />
-    <opensearch:Query role="subset" searchTerms="General Motors annual report 2005"
-    <opensearch:Query role="superset" searchTerms="General Motors" />
-    <!-- ... -->
-  </feed>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <!--- ... --->
+  <opensearch:Query role="request" searchTerms="General Motors annual report" />
+  <opensearch:Query role="related" searchTerms="GM" title="General Motors stock symbol" />
+  <opensearch:Query role="related" searchTerms="automotive industry revenue" />
+  <opensearch:Query role="subset" searchTerms="General Motors annual report 2005"
+  <opensearch:Query role="superset" searchTerms="General Motors" />
+  <!-- ... -->
+</feed>
+```
 
-=== The "Query" element ===
+## The `Query` element
 
 Describes a specific search request that can be made by the search client.
 
-: Attributes:
-:: `role` - Contains a string identifying how the search client should interpret the search request defined by this Query element.
-::: Restrictions: See the [[#Role values|role values]] specification for allowed role values.
-::: Requirements: This attribute is **required**.  
-:: `title` - Contains a human-readable plain text string describing the search request.
-::: Restrictions: The value must contain 256 or fewer characters of plain text.  The value must not contain HTML or other markup.
-::: Requirements: This attribute is optional.
-:: `totalResults` - Contains the expected number of results to be found if the search request were made.
-::: Restrictions: The value is a non-negative integer.
-::: Requirements: This attribute is optional.
-:: `searchTerms` - Contains the value representing the "searchTerms" as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "searchTerms" parameter|"searchTerms" parameter]].
-::: Requirements: This attribute is optional.
-:: `count` - Contains the value representing the "count" as a [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "count" parameter|"count" parameter]].
-::: Requirements: This attribute is optional.
-:: `startIndex` - Contains the value representing the "startIndex" as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "startIndex" parameter|"startIndex" parameter]].
-::: Requirements: This attribute is optional.
-:: `startPage` - Contains the value representing the "startPage" as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "startPage" parameter|"startPage" parameter]].
-::: Requirements: This attribute is optional.
-:: `language` - Contains the value representing the "language" as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "language" parameter|"language" parameter]].
-::: Requirements: This attribute is optional.
-:: `inputEncoding` - Contains the value representing the "inputEncoding" as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "inputEncoding" parameter|"inputEncoding" parameter]].
-::: Requirements: This attribute is optional.
-:: `outputEncoding` - Contains the value representing the "outputEncoding" as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
-::: Restrictions: See the [[#The "outputEncoding" parameter|"outputEncoding" parameter]].
-::: Requirements: This attribute is optional.
+- Attributes:
+  - `role` - Contains a string identifying how the search client should interpret the search request defined by this Query element.
+    - Restrictions: See the [[#Role values|role values]] specification for allowed role values.
+    - Requirements: This attribute is **required**.  
+  - `title` - Contains a human-readable plain text string describing the search request.
+    - Restrictions: The value must contain 256 or fewer characters of plain text.  The value must not contain HTML or other markup.
+    - Requirements: This attribute is optional.
+  - `totalResults` - Contains the expected number of results to be found if the search request were made.
+    - Restrictions: The value is a non-negative integer.
+    - Requirements: This attribute is optional.
+  -    - Restrictions: See the [[#The "searchTerms" parameter|"searchTerms" parameter]].
+    - Requirements: This attribute is optional.
+  - `count` - Contains the value representing the `count` as a [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
+    - Restrictions: See the [[#The "count" parameter|"count" parameter]].
+    - Requirements: This attribute is optional.
+  - `startIndex` - Contains the value representing the `startIndex` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
+    - Restrictions: See the [[#The "startIndex" parameter|"startIndex" parameter]].
+    - Requirements: This attribute is optional.
+  - `startPage` - Contains the value representing the `startPage` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
+    - Restrictions: See the [[#The "startPage" parameter|"startPage" parameter]].
+    - Requirements: This attribute is optional.
+  - `language` - Contains the value representing the `language` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
+    - Restrictions: See the [[#The "language" parameter|"language" parameter]].
+    - Requirements: This attribute is optional.
+  - `inputEncoding` - Contains the value representing the `inputEncoding` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
+    - Restrictions: See the [[#The "inputEncoding" parameter|"inputEncoding" parameter]].
+    - Requirements: This attribute is optional.
+  - `outputEncoding` - Contains the value representing the `outputEncoding` as an [[#OpenSearch 1.1 parameters|OpenSearch 1.1 parameter]].
+    - Restrictions: See the [[#The "outputEncoding" parameter|"outputEncoding" parameter]].
+    - Requirements: This attribute is optional.
 
 *Example:*
 
-  <Query role="example" searchTerms="cat" />
+```xml
+<Query role="example" searchTerms="cat" />
+```
 
-=== Query element extensibility ===
+## Query element extensibility
 
 The Query element may contain additional attributes if the extended attributes are associated with a namespace.  Search clients should interpret extended attributes to represent the corresponding template parameter by the same name in the specified namespace.
 
 *Example of a Query element representing a search request that contains an extended attribute that corresponds to an extended search parameter:*
 
- <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
-                        xmlns:custom="http://example.com/opensearchextensions/1.0/">
-   <Url type="text/html"
-        template="http://example.com/search?color={custom:color?}" />
-   <Query role="example"  custom:color="blue" />
-   <!-- ... -->
- </OpenSearchDescription>
+```xml
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:custom="http://example.com/opensearchextensions/1.0/">
+  <Url type="text/html"
+       template="http://example.com/search?color={custom:color?}" />
+  <Query role="example"  custom:color="blue" />
+  <!-- ... -->
+</OpenSearchDescription>
+```
 
-=== Role values ===
+## Role values
 
-A role value consists of an optional prefix followed by the local role value.  If the prefix is present it will be separated from the local role value with the ":" character.  All role values are associated with a namespace, either implicitly in the case of local role values, or explicitly via a prefix in the case of fully qualified role values.
+A role value consists of an optional prefix followed by the local role value.  If the prefix is present it will be separated from the local role value with the `":"` character.  All role values are associated with a namespace, either implicitly in the case of local role values, or explicitly via a prefix in the case of fully qualified role values.
 
-### Role extensibility ###
+### Role extensibility
 
 The role attribute may take on values beyond those specified in this document provided they are fully qualified with a prefix and associated with a declared namespace.  Clients that encounter unrecognized role values should continue to process the document as if the Query element containing the unrecognized role value did not appear.
 
-### Role prefix ###
+### Role prefix
 
 A role prefix associates a local role name with a namespace. All prefixes must be previously declared as an XML namespace prefix on the containing Query element or ancestor elements. 
 
-### Local role values ###
+### Local role values
 
 Local role values are not preceded by a prefix. Local role values are associated with the [[#Namespace|OpenSearch 1.1 namespace]].
 
@@ -894,223 +919,239 @@ The following role values are identified with the OpenSearch 1.1 namespace.  The
 
 Role values:
 
-: `"request"`
-::   Represents the search query that can be performed to retrieve the same set of search results.
-: `"example"`
-::   Represents a search query that can be performed to demonstrate the search engine. 
-: `"related"`
-::   Represents a search query that can be performed to retrieve similar but different search results.
-: `"correction"`
-::   Represents a search query that can be performed to improve the result set, such as with a spelling correction.
-: `"subset"`
-::   Represents a search query that will narrow the current set of search results.
-: `"superset"`
-::  Represents a search query that will broaden the current set of search results.
+- `"request"`
+  -  Represents the search query that can be performed to retrieve the same set of search results.
+- `"example"`
+  - Represents a search query that can be performed to demonstrate the search engine. 
+- `"related"`
+  - Represents a search query that can be performed to retrieve similar but different search results.
+- `"correction"`
+  - Represents a search query that can be performed to improve the result set, such as with a spelling correction.
+- `"subset"`
+  - Represents a search query that will narrow the current set of search results.
+- `"superset"`
+  - Represents a search query that will broaden the current set of search results.
 
 
 *Example of a local role value:*
 
-  <Query role="related" 
-         title="A related search"
-         searchTerms="tiger" />
+```xml
+<Query role="related" 
+       title="A related search"
+       searchTerms="tiger" />
+```
 
-### Fully qualified role values ###
+### Fully qualified role values
 
 Fully qualified role values are preceded by a prefix.  Fully qualified role values are associated with the namespace identified by the prefix on the containing Query element or ancestor elements.
 
 *Example of a fully qualified role value:*
 
-  <Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
-         role="custom:synonym"
-         title="Synonyms of 'cat'"
-         searchTerms="feline" />
+```xml
+<Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
+      role="custom:synonym"
+       title="Synonyms of 'cat'"
+       searchTerms="feline" />
+```
 
-== OpenSearch response elements ==
+# OpenSearch response elements
 
 The OpenSearch response elements can be used by search engines to augment existing XML formats with search-related metadata.
 
 *OpenSearch response elements are typically found augmenting search results returned in list-based XML syndication formats, such as RSS 2.0 and Atom 1.0, but may be used in other contexts without restriction.*
 
-=== Examples of OpenSearch responses ===
+## Examples of OpenSearch responses
 
-### Example of OpenSearch response elements in RSS 2.0 ###
+### Example of OpenSearch response elements in RSS 2.0
 
 *Example of a page of search results in the RSS 2.0 format:*
 
-  <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0" 
-       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
-       xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-      <title>Example.com Search: New York history</title>
-      <link>http://example.com/New+York+history</link>
-      <description>Search results for "New York history" at Example.com</description>
-      <opensearch:totalResults>4230000</opensearch:totalResults>
-      <opensearch:startIndex>21</opensearch:startIndex>
-      <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
-      <atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>
-      <opensearch:Query role="request" searchTerms="New York History" startPage="1" />
-      <item>
-        <title>New York History</title>
-        <link>http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html</link>
-        <description>
-          ... Harlem.NYC - A virtual tour and information on 
-          businesses ...  with historic photos of Columbia's own New York 
-          neighborhood ... Internet Resources for the City's History. ...
-        </description>
-      </item>
-      <!-- ... -->
-    </channel>
-  </rss>
-
-### Example of OpenSearch response elements in Atom 1.0 ###
-
-*Example of a page of search results in the Atom 1.0 format:*
-
-  <?xml version="1.0" encoding="UTF-8"?>
-  <feed xmlns="http://www.w3.org/2005/Atom" 
-        xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
-    <title>Example.com Search: New York history</title> 
-    <link href="http://example.com/New+York+history"/>
-    <updated>2003-12-13T18:30:02Z</updated>
-    <author> 
-      <name>Example.com, Inc.</name>
-    </author> 
-    <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Example.com Search: New York history</title>
+    <link>http://example.com/New+York+history</link>
+    <description>Search results for "New York history" at Example.com</description>
     <opensearch:totalResults>4230000</opensearch:totalResults>
     <opensearch:startIndex>21</opensearch:startIndex>
     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+    <atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>
     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />
-    <link rel="alternate" href="http://example.com/New+York+History?pw=3" type="text/html"/>
-    <link rel="self" href="http://example.com/New+York+History?pw=3&amp;format=atom" type="application/atom+xml"/>
-    <link rel="first" href="http://example.com/New+York+History?pw=1&amp;format=atom" type="application/atom+xml"/>
-    <link rel="previous" href="http://example.com/New+York+History?pw=2&amp;format=atom" type="application/atom+xml"/>
-    <link rel="next" href="http://example.com/New+York+History?pw=4&amp;format=atom" type="application/atom+xml"/>
-    <link rel="last" href="http://example.com/New+York+History?pw=42299&amp;format=atom" type="application/atom+xml"/>
-    <link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>
-    <entry>
+    <item>
       <title>New York History</title>
-      <link href="http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html"/>
-      <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
-      <updated>2003-12-13T18:30:02Z</updated>
-      <content type="text">
+      <link>http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html</link>
+      <description>
         ... Harlem.NYC - A virtual tour and information on 
         businesses ...  with historic photos of Columbia's own New York 
         neighborhood ... Internet Resources for the City's History. ...
-      </content>
-    </entry>
-    <!-- 9 additional <entry> elements appear here -->  
-  </feed>
+      </description>
+    </item>
+    <!-- ... -->
+  </channel>
+</rss>
+```
 
-=== Elements ===
+### Example of OpenSearch response elements in Atom 1.0
 
-### The "totalResults" element ###
+*Example of a page of search results in the Atom 1.0 format:*
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <title>Example.com Search: New York history</title> 
+  <link href="http://example.com/New+York+history"/>
+  <updated>2003-12-13T18:30:02Z</updated>
+  <author> 
+    <name>Example.com, Inc.</name>
+  </author> 
+  <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
+  <opensearch:totalResults>4230000</opensearch:totalResults>
+  <opensearch:startIndex>21</opensearch:startIndex>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:Query role="request" searchTerms="New York History" startPage="1" />
+  <link rel="alternate" href="http://example.com/New+York+History?pw=3" type="text/html"/>
+  <link rel="self" href="http://example.com/New+York+History?pw=3&amp;format=atom" type="application/atom+xml"/>
+  <link rel="first" href="http://example.com/New+York+History?pw=1&amp;format=atom" type="application/atom+xml"/>
+  <link rel="previous" href="http://example.com/New+York+History?pw=2&amp;format=atom" type="application/atom+xml"/>
+  <link rel="next" href="http://example.com/New+York+History?pw=4&amp;format=atom" type="application/atom+xml"/>
+  <link rel="last" href="http://example.com/New+York+History?pw=42299&amp;format=atom" type="application/atom+xml"/>
+  <link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>
+  <entry>
+    <title>New York History</title>
+    <link href="http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html"/>
+    <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+    <updated>2003-12-13T18:30:02Z</updated>
+    <content type="text">
+      ... Harlem.NYC - A virtual tour and information on 
+      businesses ...  with historic photos of Columbia's own New York 
+      neighborhood ... Internet Resources for the City's History. ...
+    </content>
+  </entry>
+  <!-- 9 additional <entry> elements appear here -->  
+</feed>
+```
+
+## Elements
+
+### The `totalResults` element ###
 
 The number of search results available for the current search.
 
-*If the totalResults element does not appear on the page then the search client should consider the current page to be the last page of search results.*
+*If the `totalResults` element does not appear on the page then the search client should consider the current page to be the last page of search results.*
 
-: Restrictions: The value must be a non-negative integer.
-: Default: The default value is equal to the offset index of the last search result on the current page. 
-: Requirements: The element may appear zero or one time.
+- Restrictions: The value must be a non-negative integer.
+- Default: The default value is equal to the offset index of the last search result on the current page. 
+- Requirements: The element may appear zero or one time.
 
 *Example:*
 
-  <totalResults>492420</totalResults>
+```xml
+<totalResults>492420</totalResults>
+```
 
-### The "startIndex" element ###
+### The `startIndex` element
 
 The index of the first search result in the current set of search results.
 
-*If the startIndex element does not appear on the page then the search client should consider the current page to be the first page of search results.*
+*If the `startIndex` element does not appear on the page then the search client should consider the current page to be the first page of search results.*
 
-: Restrictions: The value must an integer.
-: Default: The default value is equal to the value of the "indexOffset" attribute of the [[#The "Url" element|"Url" element"]] in the [[#OpenSearch description document|OpenSearch description document]].
-: Requirements: The element may appear zero or one time.
+- Restrictions: The value must an integer.
+- Default: The default value is equal to the value of the `indexOffset` attribute of the [[#The "Url" element|"Url" element"]] in the [[#OpenSearch description document|OpenSearch description document]].
+- Requirements: The element may appear zero or one time.
 
 *Example:*
 
-  <startIndex>11</startIndex>
+```xml
+<startIndex>11</startIndex>
+```
 
-### The "itemsPerPage" element ###
+### The `itemsPerPage` element
 
 The number of search results returned per page.
 
-*If the itemsPerPage element does not appear on the page then the search client should use the number of items of the current page as the default page size.*
+*If the `itemsPerPage` element does not appear on the page then the search client should use the number of items of the current page as the default page size.*
 
-: Restrictions: The value must a non-negative integer.
-: Default: The default value is equal to the number of search results on the current page. 
-: Requirements: The element may appear zero or one time.
-
-*Example:*
-
-  <itemsPerPage>10</itemsPerPage>
-
-### The "Query" element ###
-
-Defines a search query that can be performed by search clients.   Please see the [[#OpenSearch Query element|OpenSearch Query element]] specification for more information.
-
-*Search results should include a Query element of type="request" that can be used to recreate the search request that generate the current search response.*
-
-: Requirements: The element may appear zero or more times.
+- Restrictions: The value must a non-negative integer.
+- Default: The default value is equal to the number of search results on the current page. 
+- Requirements: The element may appear zero or one time.
 
 *Example:*
 
-  <Query role="request" searchTerms="cat" />
+```xml
+<itemsPerPage>10</itemsPerPage>
+```
 
-=== Response metadata in HTML/XHTML ===
+### The `Query` element
+
+Defines a search query that can be performed by search clients. Please see the [[#OpenSearch Query element|OpenSearch Query element]] specification for more information.
+
+*Search results should include a `Query` element of `type="request"` that can be used to recreate the search request that generate the current search response.*
+
+- Requirements: The element may appear zero or more times.
+
+*Example:*
+
+```xml
+<Query role="request" searchTerms="cat" />
+```
+
+## Response metadata in HTML/XHTML
 
 OpenSearch response metadata may be included in well-formed HTML/XHTML via the [http://www.w3.org/TR/1999/REC-html401-19991224/struct/global.html#h-7.4.4.2 HTML 4.0.1 "meta" element].
 
-The following meta element "name" attribute values are recognized under the profile associated with the [[#Namespace|OpenSearch 1.1 namespace]]:
+The following meta element `name` attribute values are recognized under the profile associated with the [[#Namespace|OpenSearch 1.1 namespace]]:
 
-: `"totalResults"` - Corresponds to value of the [[#The "totalResults" element|"totalResults" element]].
-: `"startIndex"` - Corresponds to value of the [[#The "startIndex" element|"startIndex" element]].
-: `"itemsPerPage"` - Corresponds to value of the [[#The "itemsPerPage" element|"itemsPerPage" element]].
+- `"totalResults"` - Corresponds to value of the [[#The "totalResults" element|"totalResults" element]].
+- `"startIndex"` - Corresponds to value of the [[#The "startIndex" element|"startIndex" element]].
+- `"itemsPerPage"` - Corresponds to value of the [[#The "itemsPerPage" element|"itemsPerPage" element]].
 
 *Example of a page of search results in the XHTML 1.0 format:*
 
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head profile="http://a9.com/-/spec/opensearch/1.1/" >
-      <title>Example.com Search: New York history</title>
-      <link rel="search"
-            type="application/opensearchdescription+xml" 
-            href="http://example.com/opensearchdescription.xml"
-            title="Example.com Web Search" />
-      <meta name="totalResults" content="4230000"/>
-      <meta name="startIndex" content"1"/>
-      <meta name="itemsPerPage" content="10"/>
-    </head>
-    <body>
-      <ul>
-        <li>
-          <a href="http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html">
-            New York History
-          </a>
-          <div>
-            ... Harlem.NYC - A virtual tour and information on 
-            businesses ...  with historic photos of Columbia's own New York 
-            neighborhood ... Internet Resources for the City's History. ...
-          </div>
-        </li>
-        <!-- ... -->
-      </ul>
-    </body>
-  </html>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head profile="http://a9.com/-/spec/opensearch/1.1/" >
+    <title>Example.com Search: New York history</title>
+    <link rel="search"
+          type="application/opensearchdescription+xml" 
+          href="http://example.com/opensearchdescription.xml"
+          title="Example.com Web Search" />
+    <meta name="totalResults" content="4230000"/>
+    <meta name="startIndex" content"1"/>
+    <meta name="itemsPerPage" content="10"/>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html">
+          New York History
+        </a>
+        <div>
+          ... Harlem.NYC - A virtual tour and information on 
+          businesses ...  with historic photos of Columbia's own New York 
+          neighborhood ... Internet Resources for the City's History. ...
+        </div>
+      </li>
+      <!-- ... -->
+    </ul>
+  </body>
+</html>
+```
 
-== Author ==
+# Author
 
-DeWitt Clinton <dewitt@opensearch.org>
+DeWitt Clinton `<dewitt@opensearch.org>`
 
-== Contributors ==
+# Contributors
 
-Joel Tesler <tesler@a9.com>, Michael Fagan <mifa@a9.com>, Joe Gregorio <joe@bitworking.org>, Aaron Sauve <aaronsa@microsoft.com>, James Snell <jasnell@us.ibm.com>
+Joel Tesler `<tesler@a9.com>`, Michael Fagan `<mifa@a9.com>`, Joe Gregorio `<joe@bitworking.org>`, Aaron Sauve `<aaronsa@microsoft.com>`, James Snell `<jasnell@us.ibm.com>`
 
-== License ==
+# License
 
 This document is made available by [http://a9.com A9.com] subject to the terms of the [http://creativecommons.org/licenses/by-sa/2.5/ Creative Commons Attribution-ShareAlike 2.5 License].
-
-[[Category:Specification]]
