@@ -5,8 +5,8 @@ OpenSearch is a collection of simple formats for the sharing of search results.
 The most recent version of the specification is [OpenSearch 1.1 Draft
 6](opensearch-1-1-draft-6.md).
 
-You can view the complete original content of the opensearch.org
-website [here](mediawiki/).
+You can access the complete original source wikitext content mirrored [here](mediawiki/), 
+or view the last cached copy of the website on [archive.org](http://web.archive.org/web/20180101090350/http://www.opensearch.org/Specifications/OpenSearch/1.1).
 
 # What is this repository?
 
