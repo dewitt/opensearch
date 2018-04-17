@@ -1535,6 +1535,5 @@ Joel Tesler, Michael Fagan, Joe Gregorio, Aaron Sauve, James Snell
 
 ## License
 
-This document is made available subject to the terms of the 
-[Creative Commons Attribution-ShareAlike 4.0 License]
-(https://creativecommons.org/licenses/by-sa/4.0/).
+This work is licensed under a 
+[Creative Commons Attribution-ShareAlike 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/).
