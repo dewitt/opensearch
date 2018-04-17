@@ -1527,16 +1527,14 @@ This document is maintained at
 
 ## Author
 
-DeWitt Clinton `<dewitt@opensearch.org>`
+DeWitt Clinton
 
 ## Contributors
 
-Joel Tesler `<tesler@a9.com>`, Michael Fagan `<mifa@a9.com>`, Joe Gregorio
-`<joe@bitworking.org>`, Aaron Sauve `<aaronsa@microsoft.com>`, James Snell
-`<jasnell@us.ibm.com>`
+Joel Tesler, Michael Fagan, Joe Gregorio, Aaron Sauve, James Snell
 
 ## License
 
-This document is made available by [A9.com](https://a9.com) subject to the
-terms of the [Creative Commons Attribution-ShareAlike 2.5
-License](https://creativecommons.org/licenses/by-sa/2.5/).
+This document is made available subject to the terms of the 
+[Creative Commons Attribution-ShareAlike 4.0 License]
+(https://creativecommons.org/licenses/by-sa/4.0/).
