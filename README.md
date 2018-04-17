@@ -16,16 +16,6 @@ can be found in the [mediawiki/](mediawiki/) subdirectory. The current version
 of the specification has been ported to Markdown format and is available
 [here](opensearch-1-1-draft-6.md).
 
-# Why was this repository created?
-
-The opensearch.org website was originally created by A9.com in 2005 to host
-the contents of the OpenSearch specification under the terms of the [Creative
-Commons 2.5 BY-SA](http://creativecommons.org/licenses/by-sa/2.5/) license.
-That site was maintained by the community from 2006 until 2018 using a
-MediaWiki instance hosted at a private ISP. This new git-based repository
-offers the same content in a modern hosting environment with better tooling
-and version control.
-
 # How do I get involved?
 
 Generally speaking, the specification has been unchanged and stable for over a
