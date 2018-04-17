@@ -10,7 +10,7 @@ The most recent version of the specification is [OpenSearch 1.1 Draft
 This respository is a migration of the opensearch.org website. The raw
 export files can be found in the [src/](src/) subdirectory, the extracted 
 wiki text can be found in the [mediawiki/](mediawiki/) subdirectory, and
-a cached copy of the html can be found on [archive.org](http://web.archive.org/web/20180101090350/http://www.opensearch.org/Specifications/OpenSearch/1.1).
+a cached copy of the html can be found on [archive.org](http://web.archive.org/web/20180414030459/http://www.opensearch.org/Home).
 
 # How do I get involved?
 
