@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="verify-v1" content="rm0uHnYFDyvqJQRl+zv28hhpNU3G3hILU5tO0ge2pbQ=" />
+    		<meta name="keywords" content="Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft 1" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="OpenSearch (English)" />
+    <title>Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft 1 - OpenSearch</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/skins/opensearch/main.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/skins/opensearch/print.css" />
+    <script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"></script>    <script type="text/javascript" src="/skins/common/wikibits.js"></script>
+            <style>.editsection { display: none; }</style>
+       </head>
+
+  <body >
+
+   <div id="page">
+
+    <div id="header">
+     <div id="logo">
+      <a title="Home" href="/Home">Home</a>
+     </div>
+
+     <form id="search-form" name="searchForm" method="get" action="/Special:Search">
+      <fieldset>
+       <input id="search-input" class="search-input"  name="search" type="search" placeholder="Search OpenSearch.org" autosave="OpenSearch" results="10" 
+	    accesskey="f" value="" />
+       <input type="submit" name="go" class="search-submit" id="search-submit" value="Search" /> 
+      </fieldset>
+     </form>  
+
+    </div> 
+
+    <div id="content">
+     
+       <div class="post">
+        <div class="entrytext">
+
+         <a name="top" id="contentTop"></a>
+         
+         <h1 class="articleTitle">
+           <a href="/Home">Home</a> &raquo; Community &raquo; Proposal &raquo; Specifications &raquo; OpenSearch &raquo; Extensions &raquo; SRU &raquo; 1.0 &raquo; Draft 1         </h1>
+
+         <div id="articleContent">
+          <div id="contentSub"></div>
+                              <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Notice"><span class="tocnumber">1</span> <span class="toctext">Notice</span></a></li>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">2</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Namespace"><span class="tocnumber">3</span> <span class="toctext">Namespace</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22queryType.22_parameter"><span class="tocnumber">5.1</span> <span class="toctext">The "queryType" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22query.22_parameter"><span class="tocnumber">5.2</span> <span class="toctext">The "query" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22startRecord.22_parameter"><span class="tocnumber">5.3</span> <span class="toctext">The "startRecord" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22maximumRecords.22_parameter"><span class="tocnumber">5.4</span> <span class="toctext">The "maximumRecords" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22recordPacking.22_parameter"><span class="tocnumber">5.5</span> <span class="toctext">The "recordPacking" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22recordSchema.22_parameter"><span class="tocnumber">5.6</span> <span class="toctext">The "recordSchema" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22resultSetTTL.22_parameter"><span class="tocnumber">5.7</span> <span class="toctext">The "resultSetTTL" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22sortKeys.22_parameter"><span class="tocnumber">5.8</span> <span class="toctext">The "sortKeys" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22stylesheet.22_parameter"><span class="tocnumber">5.9</span> <span class="toctext">The "stylesheet" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22rendering.22_parameter"><span class="tocnumber">5.10</span> <span class="toctext">The "rendering" parameter</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Accept_Parameters"><span class="tocnumber">6</span> <span class="toctext">Accept Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22httpAccept.22_parameter"><span class="tocnumber">6.1</span> <span class="toctext">The "httpAccept" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22httpAcceptCharset.22_parameter"><span class="tocnumber">6.2</span> <span class="toctext">The "httpAcceptCharset" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22httpAcceptEncoding.22_parameter"><span class="tocnumber">6.3</span> <span class="toctext">The "httpAcceptEncoding" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22httpAcceptLanguage.22_parameter"><span class="tocnumber">6.4</span> <span class="toctext">The "httpAcceptLanguage" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22httpAcceptRanges.22_parameter"><span class="tocnumber">6.5</span> <span class="toctext">The "httpAcceptRanges" parameter</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Facet_Parameters"><span class="tocnumber">7</span> <span class="toctext">Facet Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22facetLimit.22_parameter"><span class="tocnumber">7.1</span> <span class="toctext">The "facetLimit" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22facetSort.22_parameter"><span class="tocnumber">7.2</span> <span class="toctext">The "facetSort" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22facetRangeField.22_parameter"><span class="tocnumber">7.3</span> <span class="toctext">The "facetRangeField" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22facetLowValue.22_parameter"><span class="tocnumber">7.4</span> <span class="toctext">The "facetLowValue" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22facetHighValue.22_parameter"><span class="tocnumber">7.5</span> <span class="toctext">The "facetHighValue" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22facetCount.22_parameter"><span class="tocnumber">7.6</span> <span class="toctext">The "facetCount" parameter</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Extension_Parameters"><span class="tocnumber">8</span> <span class="toctext">Extension Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22extension.22_parameter"><span class="tocnumber">8.1</span> <span class="toctext">The "extension" parameter</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Author"><span class="tocnumber">9</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-1"><a href="#License"><span class="tocnumber">10</span> <span class="toctext">License</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Notice"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=1" title="Edit section: Notice">edit</a>]</span> <span class="mw-headline"> Notice </span></h2>
+<p><b>This is a draft document for public review.</b>
+</p>
+<a name="Introduction"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=2" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline"> Introduction </span></h2>
+<p>This OpenSearch SRU Extension allows SRU (Search and Retrieval via URL) queries to be used within OpenSearch contexts. It makes the full SRU request parameter set available to OpenSearch implementations. This SRU Extension is aligned with the SRU 2.0 specification.
+</p><p>For further information on SRU see:
+</p>
+<ol><li> <a href="http://www.loc.gov/standards/sru/" class="external text" title="http://www.loc.gov/standards/sru/" rel="nofollow">SRU Home Page</a>
+</li><li> <a href="http://www.loc.gov/standards/sru/specs/" class="external text" title="http://www.loc.gov/standards/sru/specs/" rel="nofollow">SRU 1.2 Specs (Stable)</a>
+</li><li> <a href="http://www.oasis-open.org/committees/documents.php?wg_abbrev=search-ws" class="external text" title="http://www.oasis-open.org/committees/documents.php?wg_abbrev=search-ws" rel="nofollow">SRU 2.0 Specs (Public Drafts)</a>
+</li></ol>
+<a name="Namespace"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=3" title="Edit section: Namespace">edit</a>]</span> <span class="mw-headline"> Namespace </span></h2>
+<p>The XML namespace of the OpenSearch SRU Extension is:
+</p>
+<pre>http://a9.com/-/opensearch/extensions/sru/2.0/
+</pre>
+<p>This namespace and the corresponding namespace prefix "<code>sru</code>" must be included when the SRU Extension is used in an OpenSearch Description document.
+</p>
+<a name="Example"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline"> Example </span></h2>
+<p>Example of a detailed OpenSearch description document that describes a search engine that accept temporal search parameters.
+</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:sru="http://a9.com/-/opensearch/extensions/sru/2.0/"&gt;
+  &lt;!-- Admin Details --&gt;
+  &lt;ShortName&gt;nature.com&lt;/ShortName&gt;
+  &lt;LongName&gt;OpenSearch interface for nature.com&lt;/LongName&gt;
+  &lt;Description&gt;The nature.com OpenSearch service provides a structured resource discovery facility for content hosted on nature.com. The service implements the SRU (Search and Retrieval via URL) protocol for interacting with the nature.com database. It can be accessed both natively using the SRU protocol as well as by means of the widely adopted OpenSearch conventions. &lt;/Description&gt;
+  &lt;Tags&gt;nature.com opensearch sru&lt;/Tags&gt;
+  &lt;Contact&gt;interfaces@nature.com&lt;/Contact&gt;
+  &lt;!-- URL Template for ATOM --&gt;
+  &lt;Url type="application/atom+xml"
+       indexOffset="1"
+       template="http://www.nature.com/opensearch/request?version=1.1&amp;operation=searchRetrieve&amp;query={searchTerms}&amp;queryType={sru:queryType?}&amp;httpAccept=application/atom%2Bxml&amp;recordPacking=unpacked&amp;startRecord={startIndex?}&amp;maximumRecords={count?}&amp;sortKeys={sru:sortKeys?}&amp;stylesheet={sru:stylesheet?}"/&gt;
+  &lt;!-- URL Template for SRU --&gt;
+  &lt;Url type="application/sru+xml"
+       indexOffset="1"
+       template="http://www.nature.com/opensearch/request?version=1.1&amp;operation=searchRetrieve&amp;query={searchTerms}&amp;queryType={sru:queryType?}&amp;httpAccept=application/sru%2Bxml&amp;startRecord={startIndex?}&amp;maximumRecords={count?}&amp;sortKeys={sru:sortKeys?}&amp;stylesheet={sru:stylesheet?}"/&gt;
+  &lt;!-- Example Queries --&gt;
+  &lt;Query role="example" sru:queryType="searchTerms" searchTerms="vampire" /&gt;
+  &lt;Query role="example" sru:queryType="cql" searchTerms="vampire" /&gt;
+  &lt;Query role="example" sru:queryType="cql" searchTerms="cql.keywords=vampire" /&gt;
+  &lt;Query role="example" sru:queryType="cql" sru:sortKeys="title,pam,1" searchTerms="cql.keywords=vampire" /&gt;
+  &lt;Query role="example" sru:queryType="cql" sru:stylesheet="http://example.org/example.xsl" searchTerms="cql.keywords=vampire" /&gt;
+  &lt;!-- Control Params --&gt;
+  &lt;Language&gt;en-us&lt;/Language&gt;
+  &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+  &lt;InputEncoding&gt;UTF-8&lt;/InputEncoding&gt;
+  &lt;SyndicationRight&gt;open&lt;/SyndicationRight&gt;
+  &lt;AdultContent&gt;false&lt;/AdultContent&gt;
+  &lt;Attribution&gt;© 2009 Nature Publishing Group.&lt;/Attribution&gt;
+&lt;/OpenSearchDescription&gt;
+</pre>
+<a name="Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=5" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline"> Parameters </span></h2>
+<a name="The_.22queryType.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=6" title="Edit section: The &quot;queryType&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "queryType" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;queryTerms={sru:queryType}
+
+</pre>
+<p>The SRU parameter "<code>queryType</code>" is a string indicating the type of query supplied in the SRU parameter "<code>query</code>" or OpenSearch parameter "<code>searchTerms</code>" - but see below for discussion of the parameter to be used. If "<code>queryType</code>" is omitted, the default is "<code>cql</code>", however this default may be overridden by the server, which may indicate a default query type via Explain. The server indicates all query types supported via Explain.
+</p><p>The string "<code>searchTerms</code>" is a reserved value for query type. When "<code>searchTerms</code>" is used as the query type, the query may (but need not) consist of a list of terms separated by space (e.g. “<code>cat hat rat</code>”). The server processes the query however it chooses.
+</p>
+<a name="The_.22query.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=7" title="Edit section: The &quot;query&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "query" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;query={sru:query}
+</pre>
+<p><i>(Note: This SRU parameter is provided for completeness only. The SRU parameter "<code>query</code>" is a synonym for the OpenSearch parameter "<code>searchTerms</code>" which should be used in preference in OpenSearch URL templates.)</i>
+</p><p>The SRU parameter "<code>query</code>" is a query expressed in the query language indicated by "<code>queryType</code>" (or the default, if "<code>queryType</code>" is omitted).
+</p>
+<a name="The_.22startRecord.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=8" title="Edit section: The &quot;startRecord&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "startRecord" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;startRecord={sru:startRecord}
+</pre>
+<p><i>(Note: This SRU parameter is provided for completeness only. The SRU parameter "<code>startRecord</code>" is a synonym for the OpenSearch parameter "<code>startIndex</code>" which should be used in preference in OpenSearch URL templates.)</i>
+</p><p>The SRU parameter "<code>startRecord</code>" specifies the start of the range of the result set records. This is a positive integer, optional, and its default if omitted is 1.
+</p>
+<a name="The_.22maximumRecords.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=9" title="Edit section: The &quot;maximumRecords&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "maximumRecords" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;maximumRecords={sru:maximumRecords}
+</pre>
+<p><i>(Note: This SRU parameter is provided for completeness only. The SRU parameter "<code>maximumRecords</code>" is a synonym for the OpenSearch parameter "<code>count</code>" which should be used in preference in OpenSearch URL templates.)</i>
+</p><p>The SRU parameter "<code>maximumRecords</code>" specifies that the number of records supplied is not to exceed maximumRecords. This is a non-negative integer, optional, and if omitted, the server may choose any value. (The server may return less than this number of records, for example if there are fewer matching records than requested, but MUST NOT return more.)
+</p>
+<a name="The_.22recordPacking.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=10" title="Edit section: The &quot;recordPacking&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "recordPacking" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;stylesheet={sru:recordPacking}
+</pre>
+<p>The SRU parameter "<code>recordPacking</code>" specifies a packing for record data whose value is "<code>string</code>" or "<code>xml</code>" (default is "<code>xml</code>" if omitted). If the value of the parameter is "<code>string</code>", then the server should perform the conversion (escape the relevant characters) before transferring records. If the value is "<code>xml</code>", then it should embed the XML directly into the response.
+</p>
+<a name="The_.22recordSchema.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=11" title="Edit section: The &quot;recordSchema&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "recordSchema" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;recordSchema={sru:recordSchema}
+</pre>
+<p>The SRU parameter "<code>recordSchema</code>" identifies the XML schema of the records to be supplied in the response. The value of the parameter is the short name that the server assigns to the identifier for the schema, as listed in the server’s Explain file. The default value if not supplied is determined by the server.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=dinosaur&amp;recordSchema=mods
+</pre>
+<a name="The_.22resultSetTTL.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=12" title="Edit section: The &quot;resultSetTTL&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "resultSetTTL" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;resulSetTTL={sru:resulSetTTL}
+</pre>
+<p>The SRU parameter "<code>resultSetTTL</code>" specifies a period of time (in seconds) that the server should maintain the result set to be created. (Note that the server may choose not to fulfill this request, and may respond with a different value.)
+</p>
+<a name="The_.22sortKeys.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=13" title="Edit section: The &quot;sortKeys&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "sortKeys" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;sortKeys={sru:sortKeys}
+</pre>
+<p>The SRU parameter "<code>sortKeys</code>" specifies a request for the server to sort the result set. The "<code>sortKeys</code>" parameter consists of one or more sort keys, each with sub-parameters:
+</p>
+<ul><li> <code>path</code>
+<ul><li> Mandatory. An XPath expression for a tagpath to be used in the sort. 
+</li></ul>
+</li><li> <code>sortSchema</code>
+<ul><li> Optional. A short name for a URI identifying an XML schema to which the XPath expression applies. (The short name to URI mapping is included in the server’s Explain file.) 
+</li></ul>
+</li><li> <code>ascending</code>
+<ul><li> Optional. Boolean, default "<code>true</code>". 
+</li></ul>
+</li><li> <code>caseSensitive</code>
+<ul><li> Optional. Boolean, default "<code>false</code>". 
+</li></ul>
+</li><li> <code>missingValue</code>
+<ul><li> Optional. Default is "<code>highValue</code>". 
+</li></ul>
+</li></ul>
+<p>See the SRU specification for details on representing the "<code>sortKeys</code>" parameter value. But essentially this is a space-separated list of sort keys, with individual sort keys comprised of a comma-separated sequence of sub-parameters in the order listed above.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;sortKeys=title,onix date,onix,,0
+</pre>
+<p>This example specifies a sort primarily by "<code>title</code>" from the "<code>onix</code>" schema (with defaults of "<code>ascending</code>", "<code>insensitive</code>" and "<code>highValue</code>" for non-specified sub-parameters), and secondarily by "<code>date</code>" also from the "<code>onix</code>" schema and "<code>insensitive</code>" (with defaults of "<code>ascending</code>" and "highValue" for non-specified sub-parameters).
+</p>
+<a name="The_.22stylesheet.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=14" title="Edit section: The &quot;stylesheet&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "stylesheet" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;stylesheet={sru:stylesheet}
+</pre>
+<p>The SRU parameter "<code>stylesheet</code>" specifies the URL for a stylesheet to be used for the display of the response to the user.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=dinosaur&amp;stylesheet=master.xsl
+</pre>
+<a name="The_.22rendering.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=15" title="Edit section: The &quot;rendering&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "rendering" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;rendering={sru:rendering}
+</pre>
+<p>The SRU parameter "<code>rendering</code>" determines whether the stylesheet is to be rendered by the server or client. Its value is "<code>client</code>" or "<code>server</code>". If omitted, the default is "<code>client</code>".
+</p>
+<a name="Accept_Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=16" title="Edit section: Accept Parameters">edit</a>]</span> <span class="mw-headline"> Accept Parameters </span></h2>
+<a name="The_.22httpAccept.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=17" title="Edit section: The &quot;httpAccept&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "httpAccept" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;httpAccept={sru:httpAccept}
+</pre>
+<p>The SRU parameter "<code>httpAccept</code>" may be supplied to indicate the preferred format of the response in lieu of the "<code>Accept</code>" header field described in the HTTP Protocol specification. (For reference, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" class="external free" title="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" rel="nofollow">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a>.) The value is an internet media type. For example if the client wants the response to be supplied in the ATOM format, the value of the parameter is "<code>application/atom+xml</code>".
+</p><p>The default value for the response type is "<code>application/sru+xml</code>".
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=dinosaur&amp;httpAccept=application/atom+xml
+</pre>
+<p>This example specifies a query ("<code>dinosaur</code>") to an SRU server with results returned as an ATOM document.
+</p>
+<a name="The_.22httpAcceptCharset.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=18" title="Edit section: The &quot;httpAcceptCharset&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "httpAcceptCharset" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;httpAcceptCharset={sru:httpAcceptCharset}
+</pre>
+<p>The SRU parameter "<code>httpAcceptCharset</code>" may be supplied in lieu of the "<code>Accept-Charset</code>" header field described in the HTTP Protocol specification. (For reference, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" class="external free" title="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" rel="nofollow">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a>.)
+</p>
+<a name="The_.22httpAcceptEncoding.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=19" title="Edit section: The &quot;httpAcceptEncoding&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "httpAcceptEncoding" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;httpAcceptEncoding={sru:httpAcceptEncoding}
+</pre>
+<p>The SRU parameter "<code>httpAcceptEncoding</code>" may be supplied in lieu of the "<code>Accept-Encoding</code>" header field described in the HTTP Protocol specification. (For reference, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" class="external free" title="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" rel="nofollow">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a>.)
+</p>
+<a name="The_.22httpAcceptLanguage.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=20" title="Edit section: The &quot;httpAcceptLanguage&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "httpAcceptLanguage" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;httpAcceptLanguage={sru:httpAcceptLanguage}
+</pre>
+<p>The SRU parameter "<code>httpAcceptLanguage</code>" may be supplied in lieu of the "<code>Accept-Language</code>" header field described in the HTTP Protocol specification. (For reference, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" class="external free" title="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" rel="nofollow">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a>.)
+</p>
+<a name="The_.22httpAcceptRanges.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=21" title="Edit section: The &quot;httpAcceptRanges&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "httpAcceptRanges" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;httpAcceptRanges={sru:httpAcceptRanges}
+</pre>
+<p>The SRU parameter "<code>httpAcceptRanges</code>" may be supplied in lieu of the "<code>Accept-Ranges</code>" header field described in the HTTP Protocol specification. (For reference, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" class="external free" title="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" rel="nofollow">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a>.)
+</p>
+<a name="Facet_Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=22" title="Edit section: Facet Parameters">edit</a>]</span> <span class="mw-headline"> Facet Parameters </span></h2>
+<a name="The_.22facetLimit.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=23" title="Edit section: The &quot;facetLimit&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "facetLimit" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;facetLimit={sru:facetLimit}
+</pre>
+<p>The SRU parameter "<code>facetLimit</code>" specifies the maximum number of counts that should be reported per facet field. The "<code>facetLimit</code>" parameter can be specified on a per field basis to indicate a separate limit for certain fields.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetLimit:dc.subject=100
+</pre>
+<p>This example sets the limit to 100 for the "<code>dc.subject</code>" index.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetLimit=10&amp;facetLimit:dc.subject=100
+</pre>
+<p>This example sets the limit to 100 for "<code>dc.subject</code>" and 10 for all other fields.
+The "<code>facetStart</code>" parameter
+</p>
+<pre>http://example.com/?query={searchTerms}&amp;facetStart={sru:facetStart}
+</pre>
+<p>The SRU parameter "<code>facetStart</code>" specifies an offset (1-based) into the list of counts, to allow paging. The default value is 1 (meaning start with the first count). This parameter can be specified on a per field basis.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetStart=10
+</pre>
+<p>This example means begin with the 10th count.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetStart:dc.subject=10
+</pre>
+<p>This example means begin with the 10th count for "<code>dc.subject</code>".
+</p>
+<a name="The_.22facetSort.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=24" title="Edit section: The &quot;facetSort&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "facetSort" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;facetSort={sru:facetSort}
+</pre>
+<p>The SRU parameter "<code>facetSort</code>" is a sort specification for the facet results. It is non-repeatable, and has the following components:
+</p>
+<ul><li> <code>sortBy</code>
+<ul><li> One of the following:
+<ul><li> "<code>recordCount</code>"
+</li><li> "<code>alphanumeric</code>" 
+</li></ul>
+</li></ul>
+</li><li> <code>order</code>
+<ul><li> Optional, one of:
+<ul><li> "<code>ascending</code>" (default for "<code>alphanumeric</code>")
+</li><li> "<code>descending</code>" (default for "<code>recordCount</code>" or "<code>occurrence</code>") 
+</li></ul>
+</li></ul>
+</li><li> <code>caseSensitivity</code>
+<ul><li> Optional, and meaningful only for "<code>alphanumeric</code>". One of:
+<ul><li> "<code>caseSensitive</code>"
+</li><li> "<code>caseInsensitive</code>" (default) 
+</li></ul>
+</li></ul>
+</li></ul>
+<p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetSort=recordCount
+</pre>
+<p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetSort=alphanumeric,descending,caseSensitive
+</pre>
+<a name="The_.22facetRangeField.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=25" title="Edit section: The &quot;facetRangeField&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "facetRangeField" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;facetRangeField={sru:facetRangeField}
+</pre>
+<p>The SRU parameter "<code>facetRangeField</code>" specifies the name of an index to be treated as a range facet. It is repeatable.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetRangeField=dateOfPublication
+</pre>
+<a name="The_.22facetLowValue.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=26" title="Edit section: The &quot;facetLowValue&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "facetLowValue" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;facetLowValue={sru:facetLowValue}
+</pre>
+<p>The SRU parameter "<code>facetLowValue</code>" specifies the lowest value of the specified facet range field for which facet counts should be reported.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetLowValue:dateOfPublication=20010101
+</pre>
+<a name="The_.22facetHighValue.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=27" title="Edit section: The &quot;facetHighValue&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "facetHighValue" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;facetHighValue={sru:facetHighValue}
+</pre>
+<p>The SRU parameter "<code>facetHighValue</code>" specifies the highest value of the specified facet range field for which facet counts should be reported.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetHighValue:dateOfPublication=20040404
+</pre>
+<a name="The_.22facetCount.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=28" title="Edit section: The &quot;facetCount&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "facetCount" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;facetCount={sru:facetCount}
+</pre>
+<p>The SRU parameter "<code>facetCount</code>" may be used to request the facet count for a specific term. The parameter may be repeated, but should not be used in conjunction with any other facet parameter.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;facetCount:dc.subject=history
+</pre>
+<a name="Extension_Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=29" title="Edit section: Extension Parameters">edit</a>]</span> <span class="mw-headline"> Extension Parameters </span></h2>
+<a name="The_.22extension.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=30" title="Edit section: The &quot;extension&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "extension" parameter </span></h3>
+<pre>http://example.com/?query={searchTerms}&amp;x-...={sru:extension}
+</pre>
+<p>The SRU extension parameter takes on the name of the extension. It must begin with "<code>x-</code>" (lowercase <code>x</code> followed by hyphen). SRU will never include an official extension with a name beginning with "<code>x-</code>", so this will never clash with a mainstream extension name.
+</p><p>See the SRU specification for details on naming the SRU extension parameter.
+</p><p>Example:
+</p>
+<pre>http://example.com/?query=news&amp;x-info4-onSearchFail=scan
+</pre>
+<a name="Author"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=31" title="Edit section: Author">edit</a>]</span> <span class="mw-headline"> Author </span></h2>
+<p>Tony Hammond &lt;t.hammond@nature.com&gt;
+</p>
+<a name="License"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1&amp;action=edit&amp;section=32" title="Edit section: License">edit</a>]</span> <span class="mw-headline"> License </span></h2>
+<p>This document is made available subject to the terms of the <a href="http://creativecommons.org/licenses/by-sa/2.5/" class="external text" title="http://creativecommons.org/licenses/by-sa/2.5/" rel="nofollow">Creative Commons Attribution-ShareAlike 2.5 License</a>.
+</p>
+<!-- Saved in parser cache with key wikidb-opensearch_:pcache:idhash:1765-0!1!0!!en!2 and timestamp 20180418174708 -->
+<div class="printfooter">
+</div>
+                   </div>
+
+
+         
+        </div>
+
+       </div>
+
+    </div>
+
+    <div id="footer">
+
+    <ul class="nav-bottom">
+
+            
+     <li id="n-OpenSearch-home"><a href="/Home">OpenSearch home</a></li>
+            
+     <li id="n-About-OpenSearch.org"><a href="/About_OpenSearch.org">About OpenSearch.org</a></li>
+     
+      
+          <li id="userPages-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=Community/Proposal/Specifications/OpenSearch/Extensions/SRU/1.0/Draft_1">Log in / Create account</a></li>
+     
+     </ul>
+
+     <div id="copyright">
+      <div>  Except where otherwise noted all portions of this website are licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons License</a>.</div>
+     </div>
+    </div>
+
+   </div>
+   <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-68277-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+   </script>
+  </body>
+</html>

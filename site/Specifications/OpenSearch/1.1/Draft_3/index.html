@@ -1,0 +1,1073 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="verify-v1" content="rm0uHnYFDyvqJQRl+zv28hhpNU3G3hILU5tO0ge2pbQ=" />
+    		<meta name="keywords" content="Specifications/OpenSearch/1.1/Draft 3" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="OpenSearch (English)" />
+    <title>Specifications/OpenSearch/1.1/Draft 3 - OpenSearch</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/skins/opensearch/main.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/skins/opensearch/print.css" />
+    <script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"></script>    <script type="text/javascript" src="/skins/common/wikibits.js"></script>
+            <style>.editsection { display: none; }</style>
+       </head>
+
+  <body >
+
+   <div id="page">
+
+    <div id="header">
+     <div id="logo">
+      <a title="Home" href="/Home">Home</a>
+     </div>
+
+     <form id="search-form" name="searchForm" method="get" action="/Special:Search">
+      <fieldset>
+       <input id="search-input" class="search-input"  name="search" type="search" placeholder="Search OpenSearch.org" autosave="OpenSearch" results="10" 
+	    accesskey="f" value="" />
+       <input type="submit" name="go" class="search-submit" id="search-submit" value="Search" /> 
+      </fieldset>
+     </form>  
+
+    </div> 
+
+    <div id="content">
+     
+       <div class="post">
+        <div class="entrytext">
+
+         <a name="top" id="contentTop"></a>
+         
+         <h1 class="articleTitle">
+           <a href="/Home">Home</a> &raquo; <a href="http://www.opensearch.org/Specifications">Specifications</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch">OpenSearch</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1">1.1</a> &raquo; Draft 3         </h1>
+
+         <div id="articleContent">
+          <div id="contentSub"><span class="subpages">&lt; <a href="/Specifications" title="Specifications">Specifications</a> | <a href="/Specifications/OpenSearch" title="Specifications/OpenSearch">OpenSearch</a> | <a href="/Specifications/OpenSearch/1.1" title="Specifications/OpenSearch/1.1">1.1</a></span></div>
+                              <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Notice"><span class="tocnumber">1</span> <span class="toctext">Notice</span></a></li>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">2</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1"><a href="#Namespace"><span class="tocnumber">3</span> <span class="toctext">Namespace</span></a></li>
+<li class="toclevel-1"><a href="#OpenSearch_description_document"><span class="tocnumber">4</span> <span class="toctext">OpenSearch description document</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Overview_2"><span class="tocnumber">4.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2"><a href="#Examples"><span class="tocnumber">4.2</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-2"><a href="#Type"><span class="tocnumber">4.3</span> <span class="toctext">Type</span></a></li>
+<li class="toclevel-2"><a href="#Extensibility"><span class="tocnumber">4.4</span> <span class="toctext">Extensibility</span></a></li>
+<li class="toclevel-2"><a href="#OpenSearch_description_elements"><span class="tocnumber">4.5</span> <span class="toctext">OpenSearch description elements</span></a>
+<ul>
+<li class="toclevel-3"><a href="#The_.22OpenSearchDescription.22_element"><span class="tocnumber">4.5.1</span> <span class="toctext">The "OpenSearchDescription" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22ShortName.22_element"><span class="tocnumber">4.5.2</span> <span class="toctext">The "ShortName" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Description.22_element"><span class="tocnumber">4.5.3</span> <span class="toctext">The "Description" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Url.22_element"><span class="tocnumber">4.5.4</span> <span class="toctext">The "Url" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Contact.22_element"><span class="tocnumber">4.5.5</span> <span class="toctext">The "Contact" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Tags.22_element"><span class="tocnumber">4.5.6</span> <span class="toctext">The "Tags" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22LongName.22_element"><span class="tocnumber">4.5.7</span> <span class="toctext">The "LongName" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Image.22_element"><span class="tocnumber">4.5.8</span> <span class="toctext">The "Image" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Query.22_element"><span class="tocnumber">4.5.9</span> <span class="toctext">The "Query" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Developer.22_element"><span class="tocnumber">4.5.10</span> <span class="toctext">The "Developer" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Attribution.22_element"><span class="tocnumber">4.5.11</span> <span class="toctext">The "Attribution" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22SyndicationRight.22_element"><span class="tocnumber">4.5.12</span> <span class="toctext">The "SyndicationRight" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22AdultContent.22_element"><span class="tocnumber">4.5.13</span> <span class="toctext">The "AdultContent" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Language.22_element"><span class="tocnumber">4.5.14</span> <span class="toctext">The "Language" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22InputEncoding.22_element"><span class="tocnumber">4.5.15</span> <span class="toctext">The "InputEncoding" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22OutputEncoding.22_element"><span class="tocnumber">4.5.16</span> <span class="toctext">The "OutputEncoding" element</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Autodiscovery"><span class="tocnumber">4.6</span> <span class="toctext">Autodiscovery</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Autodiscovery_in_RSS.2FAtom"><span class="tocnumber">4.6.1</span> <span class="toctext">Autodiscovery in RSS/Atom</span></a></li>
+<li class="toclevel-3"><a href="#Autodiscovery_in_HTML.2FXHTML"><span class="tocnumber">4.6.2</span> <span class="toctext">Autodiscovery in HTML/XHTML</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#OpenSearch_URL_template_syntax"><span class="tocnumber">5</span> <span class="toctext">OpenSearch URL template syntax</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Overview_3"><span class="tocnumber">5.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2"><a href="#Examples_2"><span class="tocnumber">5.2</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-2"><a href="#Context"><span class="tocnumber">5.3</span> <span class="toctext">Context</span></a></li>
+<li class="toclevel-2"><a href="#Template_grammar"><span class="tocnumber">5.4</span> <span class="toctext">Template grammar</span></a></li>
+<li class="toclevel-2"><a href="#Substitution_rules"><span class="tocnumber">5.5</span> <span class="toctext">Substitution rules</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Parameter_names"><span class="tocnumber">5.5.1</span> <span class="toctext">Parameter names</span></a></li>
+<li class="toclevel-3"><a href="#Case_sensitivity_of_parameter_names"><span class="tocnumber">5.5.2</span> <span class="toctext">Case sensitivity of parameter names</span></a></li>
+<li class="toclevel-3"><a href="#Parameter_name_prefix"><span class="tocnumber">5.5.3</span> <span class="toctext">Parameter name prefix</span></a></li>
+<li class="toclevel-3"><a href="#Unqualified_parameter_names"><span class="tocnumber">5.5.4</span> <span class="toctext">Unqualified parameter names</span></a></li>
+<li class="toclevel-3"><a href="#Fully_qualified_parameter_names"><span class="tocnumber">5.5.5</span> <span class="toctext">Fully qualified parameter names</span></a></li>
+<li class="toclevel-3"><a href="#Required_template_parameters"><span class="tocnumber">5.5.6</span> <span class="toctext">Required template parameters</span></a></li>
+<li class="toclevel-3"><a href="#Optional_template_parameters"><span class="tocnumber">5.5.7</span> <span class="toctext">Optional template parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#OpenSearch_1.1_parameters"><span class="tocnumber">5.6</span> <span class="toctext">OpenSearch 1.1 parameters</span></a>
+<ul>
+<li class="toclevel-3"><a href="#The_.22searchTerms.22_parameter"><span class="tocnumber">5.6.1</span> <span class="toctext">The "searchTerms" parameter</span></a></li>
+<li class="toclevel-3"><a href="#The_.22count.22_parameter"><span class="tocnumber">5.6.2</span> <span class="toctext">The "count" parameter</span></a></li>
+<li class="toclevel-3"><a href="#The_.22startIndex.22_parameter"><span class="tocnumber">5.6.3</span> <span class="toctext">The "startIndex" parameter</span></a></li>
+<li class="toclevel-3"><a href="#The_.22startPage.22_parameter"><span class="tocnumber">5.6.4</span> <span class="toctext">The "startPage" parameter</span></a></li>
+<li class="toclevel-3"><a href="#The_.22language.22_parameter"><span class="tocnumber">5.6.5</span> <span class="toctext">The "language" parameter</span></a></li>
+<li class="toclevel-3"><a href="#The_.22inputEncoding.22_parameter"><span class="tocnumber">5.6.6</span> <span class="toctext">The "inputEncoding" parameter</span></a></li>
+<li class="toclevel-3"><a href="#The_.22outputEncoding.22_parameter"><span class="tocnumber">5.6.7</span> <span class="toctext">The "outputEncoding" parameter</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#OpenSearch_Query_element"><span class="tocnumber">6</span> <span class="toctext">OpenSearch Query element</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Overview_4"><span class="tocnumber">6.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2"><a href="#Examples_3"><span class="tocnumber">6.2</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-2"><a href="#The_.22Query.22_element_2"><span class="tocnumber">6.3</span> <span class="toctext">The "Query" element</span></a></li>
+<li class="toclevel-2"><a href="#Query_element_extensibility"><span class="tocnumber">6.4</span> <span class="toctext">Query element extensibility</span></a></li>
+<li class="toclevel-2"><a href="#Role_values"><span class="tocnumber">6.5</span> <span class="toctext">Role values</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Role_extensibility"><span class="tocnumber">6.5.1</span> <span class="toctext">Role extensibility</span></a></li>
+<li class="toclevel-3"><a href="#Role_prefix"><span class="tocnumber">6.5.2</span> <span class="toctext">Role prefix</span></a></li>
+<li class="toclevel-3"><a href="#Local_role_values"><span class="tocnumber">6.5.3</span> <span class="toctext">Local role values</span></a></li>
+<li class="toclevel-3"><a href="#Fully_qualified_role_values"><span class="tocnumber">6.5.4</span> <span class="toctext">Fully qualified role values</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#OpenSearch_response_elements"><span class="tocnumber">7</span> <span class="toctext">OpenSearch response elements</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Examples_of_OpenSearch_responses"><span class="tocnumber">7.1</span> <span class="toctext">Examples of OpenSearch responses</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Example_of_OpenSearch_response_elements_in_RSS_2.0"><span class="tocnumber">7.1.1</span> <span class="toctext">Example of OpenSearch response elements in RSS 2.0</span></a></li>
+<li class="toclevel-3"><a href="#Example_of_OpenSearch_response_elements_in_Atom_1.0"><span class="tocnumber">7.1.2</span> <span class="toctext">Example of OpenSearch response elements in Atom 1.0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Elements"><span class="tocnumber">7.2</span> <span class="toctext">Elements</span></a>
+<ul>
+<li class="toclevel-3"><a href="#The_.22totalResults.22_element"><span class="tocnumber">7.2.1</span> <span class="toctext">The "totalResults" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22startIndex.22_element"><span class="tocnumber">7.2.2</span> <span class="toctext">The "startIndex" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22itemsPerPage.22_element"><span class="tocnumber">7.2.3</span> <span class="toctext">The "itemsPerPage" element</span></a></li>
+<li class="toclevel-3"><a href="#The_.22Query.22_element_3"><span class="tocnumber">7.2.4</span> <span class="toctext">The "Query" element</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Response_metadata_in_HTML.2FXHTML"><span class="tocnumber">7.3</span> <span class="toctext">Response metadata in HTML/XHTML</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Author"><span class="tocnumber">8</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-1"><a href="#Contributors"><span class="tocnumber">9</span> <span class="toctext">Contributors</span></a></li>
+<li class="toclevel-1"><a href="#License"><span class="tocnumber">10</span> <span class="toctext">License</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Notice"></a><h2> <span class="mw-headline"> Notice </span></h2>
+<p><b>This is a draft document for public review.</b>
+</p>
+<a name="Overview"></a><h2> <span class="mw-headline"> Overview </span></h2>
+<p>This document defines the OpenSearch description document, the OpenSearch Query element, the OpenSearch URL template syntax, and the OpenSearch response elements.  Collectively these formats may be referred to as "OpenSearch 1.1" or simply "OpenSearch".
+</p><p><i>Search clients can use OpenSearch description documents to learn about the public interface of a search engine.  These description documents contain parameterized URL templates that indicate how the search client should make search requests.  Search engines can use the OpenSearch response elements to add search metadata to results in a variety of content formats.</i>
+</p>
+<a name="Namespace"></a><h2> <span class="mw-headline"> Namespace </span></h2>
+<p>The XML Namespaces URI for the XML data formats described in this specification is:
+</p>
+<dl><dd> <code>http://a9.com/-/spec/opensearch/1.1/</code>
+</dd></dl>
+<a name="OpenSearch_description_document"></a><h2> <span class="mw-headline"> OpenSearch description document </span></h2>
+<a name="Overview_2"></a><h3> <span class="mw-headline"> Overview </span></h3>
+<p>An OpenSearch description document can be used to describe the web interface of a search engine.
+</p>
+<a name="Examples"></a><h3> <span class="mw-headline"> Examples </span></h3>
+<p><i>Example of a simple OpenSearch description document:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"&gt;
+   &lt;ShortName&gt;Web Search&lt;/ShortName&gt;
+   &lt;Description&gt;Use Example.com to search the Web.&lt;/Description&gt;
+   &lt;Tags&gt;example web&lt;/Tags&gt;
+   &lt;Contact&gt;admin@example.com&lt;/Contact&gt;
+   &lt;Url type="application/rss+xml" 
+        template="http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}&amp;amp;format=rss"/&gt;
+ &lt;/OpenSearchDescription&gt;
+</pre>
+<p><i>Example of a detailed OpenSearch description document:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"&gt;
+   &lt;ShortName&gt;Web Search&lt;/ShortName&gt;
+   &lt;Description&gt;Use Example.com to search the Web.&lt;/Description&gt;
+   &lt;Tags&gt;example web&lt;/Tags&gt;
+   &lt;Contact&gt;admin@example.com&lt;/Contact&gt;
+   &lt;Url type="application/atom+xml"
+        template="http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}&amp;amp;format=atom"/&gt;
+   &lt;Url type="application/rss+xml"
+        template="http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}&amp;amp;format=rss"/&gt;
+   &lt;Url type="text/html" 
+        template="http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}"/&gt;
+   &lt;LongName&gt;Example.com Web Search&lt;/LongName&gt;
+   &lt;Image height="64" width="64" type="image/png"&gt;http://example.com/websearch.png&lt;/Image&gt;
+   &lt;Image height="16" width="16" type="image/vnd.microsoft.icon"&gt;http://example.com/websearch.ico&lt;/Image&gt;
+   &lt;Query role="example" searchTerms="cat" /&gt;
+   &lt;Developer&gt;Example.com Development Team&lt;/Developer&gt;
+   &lt;Attribution&gt;
+     Search data Copyright 2005, Example.com, Inc., All Rights Reserved
+   &lt;/Attribution&gt;
+   &lt;SyndicationRight&gt;open&lt;/SyndicationRight&gt;
+   &lt;AdultContent&gt;false&lt;/AdultContent&gt;
+   &lt;Language&gt;en-us&lt;/Language&gt;
+   &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+   &lt;InputEncoding&gt;UTF-8&lt;/InputEncoding&gt;
+ &lt;/OpenSearchDescription&gt;
+</pre>
+<a name="Type"></a><h3> <span class="mw-headline"> Type </span></h3>
+<p>OpenSearch description documents are referred to via the following type:
+</p>
+<dl><dd> <code>application/opensearchdescription+xml</code>
+</dd></dl>
+<p><i>This type is pending IANA registration.</i>
+</p>
+<a name="Extensibility"></a><h3> <span class="mw-headline"> Extensibility </span></h3>
+<p>OpenSearch description documents can be extended with foreign markup provided that all foreign elements and attributes are associated with an explicit XML namespace distinct from that of the core OpenSearch format.  When possible, the foreign XML namespace URI should resolve to a document that indicates the intention and format of the extension.  Clients that encounter unrecognized foreign markup should continue to process the document as if the markup did not appear.
+</p>
+<a name="OpenSearch_description_elements"></a><h3> <span class="mw-headline"> OpenSearch description elements </span></h3>
+<a name="The_.22OpenSearchDescription.22_element"></a><h4> <span class="mw-headline"> The "OpenSearchDescription" element </span></h4>
+<p>The root node of the OpenSearch description document.
+</p>
+<dl><dd> Parent: None
+</dd><dd> Requirements: The element <b>must</b> appear exactly once as the root node of the document.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"&gt;
+    &lt;!--- ... ---&gt;
+ &lt;/OpenSearchDescription&gt;
+</pre>
+<a name="The_.22ShortName.22_element"></a><h4> <span class="mw-headline"> The "ShortName" element </span></h4>
+<p>Contains a brief human-readable title that identifies this search engine.
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must contain 16 or fewer characters of plain text.  The value must not contain HTML or other markup.
+</dd><dd> Requirements: This element <b>must</b> appear exactly once.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;ShortName&gt;Web Search&lt;/ShortName&gt;
+</pre>
+<a name="The_.22Description.22_element"></a><h4> <span class="mw-headline"> The "Description" element </span></h4>
+<p>Contains a human-readable text description of the search engine.
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must contain 1024 or fewer characters of plain text.  The value must not contain HTML or other markup.
+</dd><dd> Requirements: This element <b>must</b> appear exactly once.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Description&gt;Use Example.com to search the Web.&lt;/Description&gt;
+</pre>
+<a name="The_.22Url.22_element"></a><h4> <span class="mw-headline"> The "Url" element </span></h4>
+<p>Describes an interface by which a search client can make search requests of the search engine.
+</p><p><i>OpenSearch provides support for both index-based and page-based search engines.  By default, both the first search result and the first page of search results are numbered "1".   Search engines can use the "indexOffset" and "pageOffset" attributes to inform search clients of different starting values.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Attributes:
+<dl><dd> <code>template</code> - Contains the search URL template to be processed according to the <a href="#OpenSearch_URL_template_syntax" title="">OpenSearch URL template syntax</a>.
+<dl><dd> Requirements: This attribute is <b>required</b>.
+</dd></dl>
+</dd><dd> <code>type</code> - Contains the MIME type of the search result format. 
+<dl><dd> Restrictions: The value must be a valid MIME type.
+</dd><dd> Requirements: This attribute is <b>required</b>.
+</dd></dl>
+</dd><dd> <code>indexOffset</code> - Contains the index number of the first search result.
+<dl><dd> Restrictions: The value must be an integer.
+</dd><dd> Default: "1"
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>pageOffset</code> - Contains the page number of the first set of search results.
+<dl><dd> Restrictions: The value must be an integer.
+</dd><dd> Default: "1".
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd></dl>
+</dd><dd> Requirements: This element <b>must</b> appear one or more times.
+</dd></dl>
+<p><br />
+<i>Example of a Url element describing the interface used to retrieve search results over RSS:</i>
+</p>
+<pre> &lt;Url type="application/rss+xml"
+      template="http://example.com/?q={searchTerms}&amp;amp;pw={startPage?}" /&gt;
+</pre>
+<p><i>Example of a Url element describing the interface used to retrieve 0-based search results over XHTML:</i>
+</p>
+<pre> &lt;Url type="application/xhtml+xml"
+      indexOffset="0"
+      template="http://example.com/search?q={searchTerms}&amp;amp;start={startIndex?}" /&gt;
+</pre>
+<a name="The_.22Contact.22_element"></a><h4> <span class="mw-headline"> The "Contact" element </span></h4>
+<p>Contains an email address at which the maintainer of the description document can be reached.
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must conform to the requirements of Section 3.4.1 "Addr-spec specification" in <a href="http://tools.ietf.org/html/rfc2822" class="external" title="http://tools.ietf.org/html/rfc2822">RFC 2822</a>.
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Contact&gt;admin@example.com&lt;/Contact&gt;
+</pre>
+<a name="The_.22Tags.22_element"></a><h4> <span class="mw-headline"> The "Tags" element </span></h4>
+<p>Contains a set of words that are used as keywords to identify and categorize this search content.  Tags must be a single word and are delimited by the space character (' ').  
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must contain 256 or fewer characters of plain text.   The value must not contain HTML or other markup.
+</dd><dd> Requirements: This element may appear zero or one time.  
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Tags&gt;example web&lt;/Tags&gt;
+</pre>
+<a name="The_.22LongName.22_element"></a><h4> <span class="mw-headline"> The "LongName" element </span></h4>
+<p>Contains an extended human-readable title that identifies this search engine.
+</p><p><i>Search clients should use the value of the ShortName element if this element is not available.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must contain 48 or fewer characters of plain text.   The value must not contain HTML or other markup.
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;LongName&gt;Example.com Web Search&lt;/LongName&gt;
+</pre>
+<a name="The_.22Image.22_element"></a><h4> <span class="mw-headline"> The "Image" element </span></h4>
+<p>Contains a URL that identifies the location of an image that can be used in association with this search content.
+</p><p><i>Image sizes are offered as a hint to the search client.  The search client will chose the most appropriate image for the available space and should give preference to those listed first in the OpenSearch description document.  Square aspect ratios are recommended.  When possible, search engines should offer a 16x16 image of type "image/x-icon" or "image/vnd.microsoft.icon" (the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwui/html/msdn_icons.asp" class="external text" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwui/html/msdn_icons.asp" rel="nofollow">Microsoft ICON format</a>) and a 64x64 image of type "image/jpeg" or "image/png".</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Attributes:
+<dl><dd> <code>height</code> – Contains the height, in pixels, of this image.
+<dl><dd> Restrictions: The value must be a non-negative integer.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>width</code> – Contains the width, in pixels, of this image.
+<dl><dd> Restrictions: The value must be a non-negative integer.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>type</code> – Contains the the MIME type of this image.
+<dl><dd> Restrictions: The value must be a valid MIME type.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd></dl>
+</dd><dd> Restrictions: The value must be a URI.
+</dd><dd> Requirements: This element may appear zero, one, or more times.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Image height="16" width="16" type="image/x-icon"&gt;http://example.com/favicon.ico&lt;/Image&gt;
+ 
+ &lt;Image height="64" width="64" type="image/png"&gt;http://example.com/websearch.png&lt;/Image&gt;
+</pre>
+<a name="The_.22Query.22_element"></a><h4> <span class="mw-headline"> The "Query" element </span></h4>
+<p>Defines a search query that can be performed by search clients.   Please see the <a href="#OpenSearch_Query_element" title="">OpenSearch Query element</a> specification for more information.
+</p><p><i>OpenSearch description documents should include at least one Query element of role="example" that is expected to return search results.  Search clients may use this example query to validate that the search engine is working properly.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Requirements: This element may appear zero or more times.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Query role="example" searchTerms="cat" /&gt;
+</pre>
+<a name="The_.22Developer.22_element"></a><h4> <span class="mw-headline"> The "Developer" element </span></h4>
+<p>Contains the human-readable name or identifier of the creator or maintainer of the description document.
+</p><p><i>The developer is the person or entity that created the description document, and may or may not be the owner, author, or copyright holder of the source of the content itself.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must contain 64 or fewer characters of plain text.  The value must not contain HTML or other markup.
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Developer&gt;Example.com Development Team&lt;/Developer&gt;
+</pre>
+<a name="The_.22Attribution.22_element"></a><h4> <span class="mw-headline"> The "Attribution" element </span></h4>
+<p>Contains a list of all sources or entities that should be credited for the content contained in the search feed.
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must contain 256 or fewer characters of plain text.   The value must not contain HTML or other markup.
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Attribution&gt;Search data copyright Example.com, Inc.&lt;/Attribution&gt;
+</pre>
+<a name="The_.22SyndicationRight.22_element"></a><h4> <span class="mw-headline"> The "SyndicationRight" element </span></h4>
+<p>Contains a value that indicates the degree to which the search results provided by this search engine can be queried, displayed, and redistributed.
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Values: The value must be one of the following strings (case insensitive):
+<dl><dd> <code>"open"</code> –
+<dl><dd> The search client may request search results.
+</dd><dd> The search client may display the search results to end users.
+</dd><dd> The search client may send the search results to other search clients.
+</dd></dl>
+</dd><dd> <code>"limited"</code> – 
+<dl><dd> The search client may request search results.
+</dd><dd> The search client may display the search results to end users.
+</dd><dd> The search client may not send the search results to other search clients.  
+</dd></dl>
+</dd><dd> <code>"private"</code> –
+<dl><dd> The search client may request search results.
+</dd><dd> The search client may not display the search results to end users.
+</dd><dd> The search client may not send the search results to other search clients.  
+</dd></dl>
+</dd><dd> <code>"closed"</code> - 
+<dl><dd> The search client may not request search results.
+</dd></dl>
+</dd></dl>
+</dd><dd> Default: "open"
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;SyndicationRight&gt;open&lt;/SyndicationRight&gt;
+</pre>
+<a name="The_.22AdultContent.22_element"></a><h4> <span class="mw-headline"> The "AdultContent" element </span></h4>
+<p>Contains a boolean value that should be set to true if the search results may contain material intended only for adults.
+</p><p><i>As there are no universally applicable guidelines as to what constitutes "adult" content, the search engine should make a good faith effort to indicate when there is a possibility that search results may contain material inappropriate for all audiences.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Values: 
+<dl><dd> The values "false", "FALSE", "0", "no", and "NO" will be considered boolean FALSE; all other strings will be considered boolean TRUE.
+</dd></dl>
+</dd><dd> Default: "false"
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;AdultContent&gt;false&lt;/AdultContent&gt;
+</pre>
+<a name="The_.22Language.22_element"></a><h4> <span class="mw-headline"> The "Language" element </span></h4>
+<p>Contains a string that indicates that the search engine supports search results in the specified language.
+</p><p><i>An <a href="#OpenSearch_description_document" title="">OpenSearch description document</a> should include one <a href="#The_.22Language.22_element" title="">"Language" element</a> for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of "*".   The <a href="#The_.22language.22_parameter" title="">"language" template parameter</a> in the <a href="#OpenSearch_URL_template" title="">OpenSearch URL template</a> can be used to allow the search client to choose among the available languages.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must conform to the <a href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag" class="external text" title="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag" rel="nofollow">XML 1.0 Language Identification</a>, as specified by <a href="http://tools.ietf.org/html/rfc3066" class="external" title="http://tools.ietf.org/html/rfc3066">RFC 3066</a>.  In addition, the value of "*" will signify that the search engine does not restrict search results to any particular language.
+</dd><dd> Default: "*".
+</dd><dd> Requirements: This element may appear zero, one, or more times.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Language&gt;en-us&lt;/Language&gt;
+ 
+ &lt;Language&gt;*&lt;/Language&gt;
+</pre>
+<a name="The_.22InputEncoding.22_element"></a><h4> <span class="mw-headline"> The "InputEncoding" element </span></h4>
+<p>Contains a string that indicates that the search engine supports search requests encoded with the specified character encoding.
+</p><p><i>An <a href="#OpenSearch_description_document" title="">OpenSearch description document</a> should include one <a href="#The_.22InputEncoding.22_element" title="">"InputEncoding" element</a> for each character encoding that can be used to encode search requests.   The <a href="#The_.22inputEncoding.22_parameter" title="">"inputEncoding" template parameter</a> in the <a href="#OpenSearch_URL_template" title="">OpenSearch URL template</a> can be used to require the search client to identify which encoding is being used to encode the current search request.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must conform to the <a href="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" class="external text" title="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" rel="nofollow">XML 1.0 Character Encodings</a>, as specified by the <a href="http://www.iana.org/assignments/character-sets" class="external text" title="http://www.iana.org/assignments/character-sets" rel="nofollow">IANA Character Set Assignments</a>.
+</dd><dd> Default: "UTF-8".
+</dd><dd> Requirements: This element may appear zero, one, or more times.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;InputEncoding&gt;UTF-8&lt;/InputEncoding&gt;
+</pre>
+<a name="The_.22OutputEncoding.22_element"></a><h4> <span class="mw-headline"> The "OutputEncoding" element </span></h4>
+<p>Contains a string that indicates that the search engine supports search responses encoded with the specified character encoding.
+</p><p><i>An <a href="#OpenSearch_description_document" title="">OpenSearch description document</a> should include one <a href="#The_.22OutputEncoding.22_element" title="">"OutputEncoding" element</a> for each character encoding that can be used to encode search responses.   The <a href="#The_.22outputEncoding.22_parameter" title="">"outputEncoding" template parameter</a> in the <a href="#OpenSearch_URL_template" title="">OpenSearch URL template</a> can be used to allow the search client to choose a character encoding in the search response.</i>
+</p>
+<dl><dd> Parent: OpenSearchDescription
+</dd><dd> Restrictions: The value must conform to the <a href="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" class="external text" title="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" rel="nofollow">XML 1.0 Character Encodings</a>, as specified by the <a href="http://www.iana.org/assignments/character-sets" class="external text" title="http://www.iana.org/assignments/character-sets" rel="nofollow">IANA Character Set Assignments</a>.
+</dd><dd> Default: "UTF-8".
+</dd><dd> Requirements: This element may appear zero, one, or more times.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+</pre>
+<a name="Autodiscovery"></a><h3> <span class="mw-headline"> Autodiscovery </span></h3>
+<p><i>Search engines that publish OpenSearch description documents can assist search clients in the discovery of OpenSearch interfaces through the use of "link" elements.  Search engines that support OpenSearch should include a reference to the related OpenSearch description document on each page of search results.</i>
+</p>
+<a name="Autodiscovery_in_RSS.2FAtom"></a><h4> <span class="mw-headline"> Autodiscovery in RSS/Atom </span></h4>
+<p>RSS and Atom documents may reference related <a href="#OpenSearch_description_document" title="">OpenSearch description documents</a> via the Atom 1.0 "link" element, as specified in Section 4.2.7 of <a href="http://tools.ietf.org/html/rfc4287" class="external" title="http://tools.ietf.org/html/rfc4287">RFC 4287</a>.
+</p><p><i>The "rel" attribute of the link element should contain the value "search" when referring to OpenSearch description documents.  This relationship value is pending IANA registration.  The reuse of the Atom link element is recommended in the context of other syndication formats that do natively support comparable functionality.</i>
+</p><p>The following restrictions apply:
+</p>
+<ul><li> The "type" attribute must contain the value "application/opensearchdescription+xml".
+</li><li> The "rel" attribute must contain the value "search".  
+</li><li> The "href" attribute must contain a URI that resolves to an OpenSearch description document.
+</li><li> The "title" attribute may contain a human-readable plain text string describing the search engine.
+</li></ul>
+<p><i>Example of Atom-based search results that include an OpenSearch autodiscovery link element:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;feed xmlns="http://www.w3.org/2005/Atom" 
+       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"&gt;
+   &lt;!-- ... ---&gt;
+   &lt;link rel="search"
+         href="http://example.com/opensearchdescription.xml" 
+         type="application/opensearchdescription+xml" 
+         title="Content Search" /&gt;
+   &lt;!-- ... ---&gt;
+ &lt;/feed&gt;
+</pre>
+<p><br />
+<i>Example of RSS-based search results that include an OpenSearch autodiscovery link element:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;rss version="2.0" 
+      xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+   &lt;channel&gt;
+     &lt;!--- ... ---&gt;
+     &lt;atom:link rel="search"
+                href="http://example.com/opensearchdescription.xml" 
+                type="application/opensearchdescription+xml" 
+                title="Content Search" /&gt;
+     &lt;!--- ... ---&gt;
+   &lt;/channel&gt;
+ &lt;/rss&gt;
+</pre>
+<a name="Autodiscovery_in_HTML.2FXHTML"></a><h4> <span class="mw-headline"> Autodiscovery in HTML/XHTML </span></h4>
+<p>HTML and XHTML documents may reference related <a href="#OpenSearch_description_document" title="">OpenSearch description documents</a> via the <a href="http://www.w3.org/TR/REC-html40/struct/links.html#h-12.3" class="external text" title="http://www.w3.org/TR/REC-html40/struct/links.html#h-12.3" rel="nofollow">HTML 4.0 &lt;link/&gt; element</a>.
+</p><p>The following restrictions apply:
+</p>
+<ul><li> The "type" attribute must contain the value "application/opensearchdescription+xml".
+</li><li> The "rel" attribute must contain the value "search".  
+</li><li> The "href" attribute must contain a URI that resolves to an OpenSearch description document.
+</li><li> The "title" attribute may contain a human-readable plain text string describing the search engine.
+</li><li> The HTML &lt;head/&gt; element should include a "profile" attribute that contains the value "http://a9.com/-/spec/opensearch/1.1/".
+</li></ul>
+<p><i>Example of an HTML document that includes OpenSearch autodiscovery link elements:</i>
+</p>
+<pre> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+ &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"&gt;
+   &lt;head profile="http://a9.com/-/spec/opensearch/1.1/"&gt;
+     &lt;!--- ... ---&gt;
+     &lt;link rel="search"
+           type="application/opensearchdescription+xml" 
+           href="http://example.com/content-search.xml"
+           title="Content search" /&gt;
+     &lt;link rel="search"
+           type="application/opensearchdescription+xml" 
+           href="http://example.com/comment-search.xml"
+           title="Comments search" /&gt;
+     &lt;!--- ... ---&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+     &lt;!--- ... ---&gt;
+   &lt;/body&gt;
+ &lt;/html&gt;
+</pre>
+<a name="OpenSearch_URL_template_syntax"></a><h2> <span class="mw-headline"> OpenSearch URL template syntax </span></h2>
+<a name="Overview_3"></a><h3> <span class="mw-headline"> Overview </span></h3>
+<p>The OpenSearch URL template format can be used to represent a parameterized form of the URL by which a search engine is queried.
+</p><p><i>The search client will process the URL template and attempt to replace each instance of a template parameter, generally represented in the form <code>{name}</code>, with a value determined at query time.</i>
+</p><p><i>By default, parameter names are considered part of the OpenSearch 1.1 template namespace, and definitions for a set of core search parameter names are provided in this specification.  However, search engines and search clients can adopt new parameter names using an extensibility mechanism based on the XML namespace prefix conventions.</i>
+</p>
+<a name="Examples_2"></a><h3> <span class="mw-headline"> Examples </span></h3>
+<p><i>Example of a search URL template that contains a template parameter:</i>
+</p>
+<pre> http://example.com/search?q={searchTerms}
+</pre>
+<p><i>Example of a search URL template that contains an optional template parameter:</i>
+</p>
+<pre> http://example.com/feed/{startPage?}
+</pre>
+<p><i>Example of a search URL template that contains an optional template parameter in an extended namespace, shown in the context of a <a href="#The_.22Url.22_element" title="">Url element</a>:</i>
+</p>
+<pre> &lt;Url type="application/rss+xml" 
+      xmlns:example="http://example.com/opensearchextensions/1.0/"
+      template="http://example.com?q={searchTerms}&amp;amp;c={example:color?}"/&gt;
+</pre>
+<a name="Context"></a><h3> <span class="mw-headline"> Context </span></h3>
+<p>This specification refers to the use of the OpenSearch URL template syntax specifically within the context of the <a href="#The_.22Url.22_element" title="">"Url" element</a> in an <a href="#OpenSearch_description_document" title="">OpenSearch description document</a>.
+</p>
+<a name="Template_grammar"></a><h3> <span class="mw-headline"> Template grammar </span></h3>
+<p>The grammar of an OpenSearch URL template is defined by the following set of ABNF rules, as specified in <a href="http://tools.ietf.org/html/rfc2234" class="external" title="http://tools.ietf.org/html/rfc2234">RFC 2234</a>.
+</p><p>The grammar rules defined in this document build upon a subset of the rules defined for the Uniform Resource Identifier (URI): Generic Syntax in <a href="http://tools.ietf.org/html/rfc3986" class="external" title="http://tools.ietf.org/html/rfc3986">RFC 3986</a>.  For brevity, rules already stated in <a href="http://tools.ietf.org/html/rfc3986" class="external" title="http://tools.ietf.org/html/rfc3986">RFC 3986</a> are referenced in this document by rule name alone and are not restated here in their entirety.
+</p>
+<pre> ttemplate      = tscheme ":" thier-part [ "?" tquery ] [ "#" tfragment ]
+ tscheme        = *( scheme / tparameter )
+ thier-part     = "//" tauthority ( tpath-abempty / tpath-absolute / tpath-rootless / path-empty )
+ tauthority     = [ tuserinfo "@" ] thost [ ":" tport ]
+ tuserinfo      = *( userinfo / tparameter )
+ thost          = *( host / tparameter )
+ tport          = *( port / tparameter )
+ tpath-abempty  = *( "/" tsegment )
+ tsegment       = *( segment / tparameter )
+ tpath-absolute = "/" [ tsegment-nz *( "/" tsegment ) ]
+ tsegment-nz    = *( segment-nz / tparameter )
+ tpath-rootless = tsegment-nz *( "/" tsegment )
+ tparameter     = "{" tqname [ tmodifier ] "}"
+ tqname         = [ tprefix ":" ] tlname
+ tprefix        = *pchar
+ tlname         = *pchar
+ tmodifier      = "?"
+ tquery         = *( query / tparameter )
+ tfragement     = *( fragement / tparameter )
+</pre>
+<a name="Substitution_rules"></a><h3> <span class="mw-headline"> Substitution rules </span></h3>
+<p>The search client <b>must</b> replace every instance of a template parameter with a value before the search request is performed.
+</p><p><i>If a search engine wishes to indicate that a template parameter is optional and can be replaced with the empty string, then the "?" notation described in the section on <a href="#Optional_template_parameters" title="">optional template parameters</a> should be used.</i>
+</p>
+<a name="Parameter_names"></a><h4> <span class="mw-headline"> Parameter names </span></h4>
+<p>A parameter name consists of an optional parameter name prefix followed by the local parameter name.  If the parameter name prefix is present then it will be separated from the local parameter name with the ":" character.  All parameter names are associated with a parameter namespace.  In the case of unqualified parameter names, the local parameter name is implicitly associated with the OpenSearch 1.1 namespace.  In the case of fully qualified parameter names, the local parameter name is explicitly associated with an external namespace via the parameter name prefix.
+</p>
+<a name="Case_sensitivity_of_parameter_names"></a><h4> <span class="mw-headline"> Case sensitivity of parameter names </span></h4>
+<p>Both the parameter name prefix and the local parameter name are case sensitive.
+</p>
+<a name="Parameter_name_prefix"></a><h4> <span class="mw-headline"> Parameter name prefix </span></h4>
+<p>A parameter name prefix associates a local parameter name with a parameter namespace.  All parameter name prefixes must be previously declared as an <a href="http://www.w3.org/TR/REC-xml-names/" class="external text" title="http://www.w3.org/TR/REC-xml-names/" rel="nofollow">XML namespace</a> prefix on the containing element or ancestor elements.
+</p><p><i>The choice of prefix is at the discretion of the author of the OpenSearch description document.  Search clients should make no assumption as to the meaning of any particular literal prefix string, and should rely exclusively on the mapping of prefix strings to XML namespace declarations when parsing fully qualified parameter names.</i>
+</p><p><i>Example of two equivalent URL templates that will be processed identically by search clients:</i>
+</p>
+<pre> &lt;Url type="application/rss+xml" 
+      xmlns:a="http://example.com/extensions/"
+      template="http://example.com?q={a:localname?}"/&gt;
+ 
+ &lt;Url type="application/rss+xml" 
+      xmlns:b="http://example.com/extensions/"
+      template="http://example.com?q={b:localname?}"/&gt;
+</pre>
+<a name="Unqualified_parameter_names"></a><h4> <span class="mw-headline"> Unqualified parameter names </span></h4>
+<p>Unqualified parameter names consist of only a local parameter name and do not include a parameter name prefix.  Unqualified parameter names in OpenSearch URL templates are implicitly associated with the <a href="#Namespace" title="">OpenSearch 1.1 namespace</a>.
+</p><p><i>This specification includes an exhaustive list of all unqualified <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter names</a>.</i>
+</p><p><i>Example of an unqualified parameter name:</i>
+</p>
+<pre> &lt;Url type="application/rss+xml" 
+      template="http://example.com/?q={searchTerms}"/&gt;
+</pre>
+<a name="Fully_qualified_parameter_names"></a><h4> <span class="mw-headline"> Fully qualified parameter names </span></h4>
+<p>Fully qualified parameter names consist of a parameter name prefix, followed by the ":" character, followed by the local parameter name.  Fully qualified parameter names are associated with the namespace identified by the paramater name prefix, as it appears as an XML namespace declaration on the containing element or ancestor elements.
+</p><p><i>Example of a fully qualified parameter name:</i>
+</p>
+<pre> &lt;Url type="application/rss+xml" 
+      xmlns:example="http://example.com/opensearchextensions/1.0/"
+      template="http://example.com?f={example:format?}"/&gt;
+</pre>
+<a name="Required_template_parameters"></a><h4> <span class="mw-headline"> Required template parameters </span></h4>
+<p>Required template parameters are template parameters that do not contain a template parameter modifier.  The search client may use the default value if one is known, but may not use the empty string as a value.
+</p><p><i>Example of a required template parameter:</i>
+</p>
+<pre> {searchTerms}
+</pre>
+<a name="Optional_template_parameters"></a><h4> <span class="mw-headline"> Optional template parameters </span></h4>
+<p>Optional template parameters are template parameters that contain a template parameter modifier equal to "?".  The search client may use the empty string as a value if no other value is available.
+</p><p><i>Example of an optional template parameter:</i>
+</p>
+<pre> {startPage?}
+</pre>
+<a name="OpenSearch_1.1_parameters"></a><h3> <span class="mw-headline"> OpenSearch 1.1 parameters </span></h3>
+<p>The following local parameter names are identified with the OpenSearch 1.1 namespace.  The list is exhaustive; only the local parameter names listed below may appear unqualified in an OpenSearch URL template.
+</p><p>Search clients should be prepared to substitute reasonable values for these parameter names when they appear in an OpenSearch URL template.
+</p>
+<a name="The_.22searchTerms.22_parameter"></a><h4> <span class="mw-headline"> The "searchTerms" parameter </span></h4>
+<p>Replaced with the keyword or keywords desired by the search client.
+</p>
+<dl><dd> Restrictions: The value must be URL-encoded.
+</dd></dl>
+<a name="The_.22count.22_parameter"></a><h4> <span class="mw-headline"> The "count" parameter </span></h4>
+<p>Replaced with the number of search results per page desired by the search client.
+</p><p><i>Search clients should anticipate that the value of the "count" parameter may not be honored by the search engine, and should rely exclusively on the contents of <a href="#The_.22itemsPerPage.22_element" title="">the "itemsPerPage" response element</a> in calculating actual page size.</i>
+</p>
+<dl><dd> Restrictions:  The value must be a non-negative integer.
+</dd></dl>
+<a name="The_.22startIndex.22_parameter"></a><h4> <span class="mw-headline"> The "startIndex" parameter </span></h4>
+<p>Replaced with the index of the first search result desired by the search client.
+</p>
+<dl><dd> Restrictions:  The value must be an integer.
+</dd><dd> Default:  The value specified by the "indexOffset" attribute of the containing <a href="#The_.22Url.22_element" title="">Url element</a>.
+</dd></dl>
+<a name="The_.22startPage.22_parameter"></a><h4> <span class="mw-headline"> The "startPage" parameter </span></h4>
+<p>Replaced with the page number of the set of search results desired by the search client.
+</p>
+<dl><dd> Restrictions: The value must be an integer.
+</dd><dd> Default: The value specified by the "pageOffset" attribute of the containing <a href="#The_.22Url.22_element" title="">Url element</a>.
+</dd></dl>
+<a name="The_.22language.22_parameter"></a><h4> <span class="mw-headline"> The "language" parameter </span></h4>
+<p>Replaced with a string that indicates that the search client desires search results in the specified language.
+</p><p><i>An <a href="#OpenSearch_description_document" title="">OpenSearch description document</a> should include one <a href="#The_.22Language.22_element" title="">"Language" element</a> for each language that the search engine supports.  If the search engine also supports queries for any arbitrary language then the OpenSearch description document should include a Language element with a value of "*".   The <a href="#The_.22language.22_parameter" title="">"language" template parameter</a> in the <a href="#OpenSearch_URL_template" title="">OpenSearch URL template</a> can be used to allow the search client to choose among the available languages.</i>
+</p>
+<dl><dd> Restrictions: The value must conform to the <a href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag" class="external text" title="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-lang-tag" rel="nofollow">XML 1.0 Language Identification</a>, as specified by <a href="http://tools.ietf.org/html/rfc3066" class="external" title="http://tools.ietf.org/html/rfc3066">RFC 3066</a>.  In addition, a value of "*" will signify that the search client desires search results in any language.
+</dd><dd> Default: "*"
+</dd></dl>
+<a name="The_.22inputEncoding.22_parameter"></a><h4> <span class="mw-headline"> The "inputEncoding" parameter </span></h4>
+<p>Replaced with a string that indicates that the search client is performing the search request encoded with the specified character encoding.
+</p><p><i>An <a href="#OpenSearch_description_document" title="">OpenSearch description document</a> should include one <a href="#The_.22InputEncoding.22_element" title="">"InputEncoding" element</a> for each character encoding that can be used to encode search requests.   The <a href="#The_.22inputEncoding.22_parameter" title="">"inputEncoding" template parameter</a> in the <a href="#OpenSearch_URL_template" title="">OpenSearch URL template</a> can be used to require the search client to identify which encoding is being used to encode the current search request.</i>
+</p>
+<dl><dd> Restrictions: The value must conform to the <a href="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" class="external text" title="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" rel="nofollow">XML 1.0 Character Encodings</a>, as specified by the <a href="http://www.iana.org/assignments/character-sets" class="external text" title="http://www.iana.org/assignments/character-sets" rel="nofollow">IANA Character Set Assignments</a>.
+</dd><dd> Default: "UTF-8"
+</dd></dl>
+<a name="The_.22outputEncoding.22_parameter"></a><h4> <span class="mw-headline"> The "outputEncoding" parameter </span></h4>
+<p>Replaced with a string that indicates that the search client desires a search response encoding with the specified character encoding.
+</p><p><i>An <a href="#OpenSearch_description_document" title="">OpenSearch description document</a> should include one <a href="#The_.22OutputEncoding.22_element" title="">"OutputEncoding" element</a> for each character encoding that can be used to encode search responses.   The <a href="#The_.22outputEncoding.22_parameter" title="">"outputEncoding" template parameter</a> in the <a href="#OpenSearch_URL_template" title="">OpenSearch URL template</a> can be used to allow the search client to choose a character encoding in the search response.</i>
+</p>
+<dl><dd> Restrictions: The value must conform to the <a href="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" class="external text" title="http://www.w3.org/TR/2004/REC-xml-20040204/#charencoding" rel="nofollow">XML 1.0 Character Encodings</a>, as specified by the <a href="http://www.iana.org/assignments/character-sets" class="external text" title="http://www.iana.org/assignments/character-sets" rel="nofollow">IANA Character Set Assignments</a>.
+</dd><dd> Default: "UTF-8"
+</dd></dl>
+<a name="OpenSearch_Query_element"></a><h2> <span class="mw-headline"> OpenSearch Query element </span></h2>
+<a name="Overview_4"></a><h3> <span class="mw-headline"> Overview </span></h3>
+<p>The OpenSearch Query element can be used to define a specific search request that can be performed by a search client.
+</p><p><i>The Query element attributes correspond to the search parameters in a URL template.  The core set of search parameters are explicitly defined as Query attributes, and custom parameters can be added via namespaces as needed.</i>
+</p><p><i>Authors should provide at least one Query element of role="example" in each OpenSearch description document so that search clients can test the search engine.  Search engines should include a Query element of role="request" in each search response so that search clients can recreate the current search.</i>
+</p>
+<a name="Examples_3"></a><h3> <span class="mw-headline"> Examples </span></h3>
+<p><i>Example of a Query element used in an OpenSearch description document to provide an example search request for search clients:</i>
+</p>
+<pre> &lt;Query role="example" searchTerms="cat" /&gt;
+</pre>
+<p><i>Example of a Query element used in an OpenSearch response to echo back the original search request:</i>
+</p>
+<pre> &lt;Query role="request" searchTerms="cat" startPage="1" /&gt;
+</pre>
+<p><i>Example of a Query element used in an OpenSearch response to correct the spelling of "OpenSurch":</i>
+</p>
+<pre> &lt;Query role="correction" searchTerms="OpenSearch" totalResults="854000" title="Spelling correction" /&gt;
+</pre>
+<p><i>Example of a Query element using an extended parameter:</i>
+</p>
+<pre> &lt;Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
+        role="example"
+        searchTerms="cat"
+        custom:color="blue"
+        title="Sample search" /&gt;
+</pre>
+<p><i>Example of a Query element using a extended role:</i>
+</p>
+<pre> &lt;Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
+        role="custom:synonym"
+        title="Synonym of 'cat'"
+        searchTerms="feline" /&gt;
+</pre>
+<p><i>Detailed example of a set of Query elements used in the context of an Atom-based OpenSearch response:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;feed xmlns="http://www.w3.org/2005/Atom" 
+       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"&gt;
+   &lt;!--- ... ---&gt;
+   &lt;opensearch:Query role="request" searchTerms="General Motors annual report" /&gt;
+   &lt;opensearch:Query role="related" searchTerms="GM" title="General Motors stock symbol" /&gt;
+   &lt;opensearch:Query role="related" searchTerms="automotive industry revenue" /&gt;
+   &lt;opensearch:Query role="subset" searchTerms="General Motors annual report 2005"
+   &lt;opensearch:Query role="superset" searchTerms="General Motors" /&gt;
+   &lt;!-- ... --&gt;
+ &lt;/feed&gt;
+</pre>
+<a name="The_.22Query.22_element_2"></a><h3> <span class="mw-headline"> The "Query" element </span></h3>
+<p>Describes a specific search request that can be made by the search client.
+</p>
+<dl><dd> Attributes:
+<dl><dd> <code>role</code> - Contains a string identifying how the search client should interpret the search request defined by this Query element.
+<dl><dd> Restrictions: See the <a href="#Role_values" title="">role values</a> specification for allowed role values.
+</dd><dd> Requirements: This attribute is <b>required</b>.  
+</dd></dl>
+</dd><dd> <code>title</code> - Contains a human-readable plain text string describing the search request.
+<dl><dd> Restrictions: The value must contain 256 or fewer characters of plain text.  The value must not contain HTML or other markup.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>totalResults</code> - Contains the expected number of results to be found if the search request were made.
+<dl><dd> Restrictions: The value is a non-negative integer.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>searchTerms</code> - Contains the value representing the "searchTerms" as an <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22searchTerms.22_parameter" title="">"searchTerms" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>count</code> - Contains the value representing the "count" as a <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22count.22_parameter" title="">"count" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>startIndex</code> - Contains the value representing the "startIndex" as an <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22startIndex.22_parameter" title="">"startIndex" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>startPage</code> - Contains the value representing the "startPage" as an <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22startPage.22_parameter" title="">"startPage" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>language</code> - Contains the value representing the "language" as an <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22language.22_parameter" title="">"language" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>inputEncoding</code> - Contains the value representing the "inputEncoding" as an <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22inputEncoding.22_parameter" title="">"inputEncoding" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd><dd> <code>outputEncoding</code> - Contains the value representing the "outputEncoding" as an <a href="#OpenSearch_1.1_parameters" title="">OpenSearch 1.1 parameter</a>.
+<dl><dd> Restrictions: See the <a href="#The_.22outputEncoding.22_parameter" title="">"outputEncoding" parameter</a>.
+</dd><dd> Requirements: This attribute is optional.
+</dd></dl>
+</dd></dl>
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Query role="example" searchTerms="cat" /&gt;
+</pre>
+<a name="Query_element_extensibility"></a><h3> <span class="mw-headline"> Query element extensibility </span></h3>
+<p>The Query element may contain additional attributes if the extended attributes are associated with a namespace.  Search clients should interpret extended attributes to represent the corresponding template parameter by the same name in the specified namespace.
+</p><p><i>Example of a Query element representing a search request that contains an extended attribute that corresponds to an extended search parameter:</i>
+</p>
+<pre>&lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:custom="http://example.com/opensearchextensions/1.0/"&gt;
+  &lt;Url type="text/html"
+       template="http://example.com/search?color={custom:color?}" /&gt;
+  &lt;Query role="example"  custom:color="blue" /&gt;
+  &lt;!-- ... --&gt;
+&lt;/OpenSearchDescription&gt;
+</pre>
+<a name="Role_values"></a><h3> <span class="mw-headline"> Role values </span></h3>
+<p>A role value consists of an optional prefix followed by the local role value.  If the prefix is present it will be separated from the local role value with the ":" character.  All role values are associated with a namespace, either implicitly in the case of local role values, or explicitly via a prefix in the case of fully qualified role values.
+</p>
+<a name="Role_extensibility"></a><h4> <span class="mw-headline"> Role extensibility </span></h4>
+<p>The role attribute may take on values beyond those specified in this document provided they are fully qualified with a prefix and associated with a declared namespace.  Clients that encounter unrecognized role values should continue to process the document as if the Query element containing the unrecognized role value did not appear.
+</p>
+<a name="Role_prefix"></a><h4> <span class="mw-headline"> Role prefix </span></h4>
+<p>A role prefix associates a local role name with a namespace. All prefixes must be previously declared as an XML namespace prefix on the containing Query element or ancestor elements. 
+</p>
+<a name="Local_role_values"></a><h4> <span class="mw-headline"> Local role values </span></h4>
+<p>Local role values are not preceded by a prefix. Local role values are associated with the <a href="#Namespace" title="">OpenSearch 1.1 namespace</a>.
+</p><p>The following role values are identified with the OpenSearch 1.1 namespace.  The list is exhaustive; only the role values listed below may appear in the OpenSearch 1.1 namespace.
+</p><p>Role values:
+</p>
+<dl><dd> <code>"request"</code>
+<dl><dd>   Represents the search query that can be performed to retrieve the same set of search results.
+</dd></dl>
+</dd><dd> <code>"example"</code>
+<dl><dd>   Represents a search query that can be performed to demonstrate the search engine. 
+</dd></dl>
+</dd><dd> <code>"related"</code>
+<dl><dd>   Represents a search query that can be performed to retrieve similar but different search results.
+</dd></dl>
+</dd><dd> <code>"correction"</code>
+<dl><dd>   Represents a search query that can be performed to improve the result set, such as with a spelling correction.
+</dd></dl>
+</dd><dd> <code>"subset"</code>
+<dl><dd>   Represents a search query that will narrow the current set of search results.
+</dd></dl>
+</dd><dd> <code>"superset"</code>
+<dl><dd>  Represents a search query that will broaden the current set of search results.
+</dd></dl>
+</dd></dl>
+<p><br />
+<i>Example of a local role value:</i>
+</p>
+<pre> &lt;Query role="related" 
+        title="A related search"
+        searchTerms="tiger" /&gt;
+</pre>
+<a name="Fully_qualified_role_values"></a><h4> <span class="mw-headline"> Fully qualified role values </span></h4>
+<p>Fully qualified role values are preceded by a prefix.  Fully qualified role values are associated with the namespace identified by the prefix on the containing Query element or ancestor elements.
+</p><p><i>Example of a fully qualified role value:</i>
+</p>
+<pre> &lt;Query xmlns:custom="http://example.com/opensearchextensions/1.0/"
+        role="custom:synonym"
+        title="Synonyms of 'cat'"
+        searchTerms="feline" /&gt;
+</pre>
+<a name="OpenSearch_response_elements"></a><h2> <span class="mw-headline"> OpenSearch response elements </span></h2>
+<p>The OpenSearch response elements can be used by search engines to augment existing XML formats with search-related metadata.
+</p><p><i>OpenSearch response elements are typically found augmenting search results returned in list-based XML syndication formats, such as RSS 2.0 and Atom 1.0, but may be used in other contexts without restriction.</i>
+</p>
+<a name="Examples_of_OpenSearch_responses"></a><h3> <span class="mw-headline"> Examples of OpenSearch responses </span></h3>
+<a name="Example_of_OpenSearch_response_elements_in_RSS_2.0"></a><h4> <span class="mw-headline"> Example of OpenSearch response elements in RSS 2.0 </span></h4>
+<p><i>Example of a page of search results in the RSS 2.0 format:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;rss version="2.0" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+      xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+   &lt;channel&gt;
+     &lt;title&gt;Example.com Search: New York history&lt;/title&gt;
+     &lt;link&gt;http://example.com/New+York+history&lt;/link&gt;
+     &lt;description&gt;Search results for "New York history" at Example.com&lt;/description&gt;
+     &lt;opensearch:totalResults&gt;4230000&lt;/opensearch:totalResults&gt;
+     &lt;opensearch:startIndex&gt;21&lt;/opensearch:startIndex&gt;
+     &lt;opensearch:itemsPerPage&gt;10&lt;/opensearch:itemsPerPage&gt;
+     &lt;atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/&gt;
+     &lt;opensearch:Query role="request" searchTerms="New York History" startPage="1" /&gt;
+     &lt;item&gt;
+       &lt;title&gt;New York History&lt;/title&gt;
+       &lt;link&gt;http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html&lt;/link&gt;
+       &lt;description&gt;
+         ... Harlem.NYC - A virtual tour and information on 
+         businesses ...  with historic photos of Columbia's own New York 
+         neighborhood ... Internet Resources for the City's History. ...
+       &lt;/description&gt;
+     &lt;/item&gt;
+   &lt;/channel&gt;
+ &lt;/rss&gt;
+</pre>
+<a name="Example_of_OpenSearch_response_elements_in_Atom_1.0"></a><h4> <span class="mw-headline"> Example of OpenSearch response elements in Atom 1.0 </span></h4>
+<p><i>Example of a page of search results in the Atom 1.0 format:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;feed xmlns="http://www.w3.org/2005/Atom" 
+       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"&gt;
+   &lt;title&gt;Example.com Search: New York history&lt;/title&gt; 
+   &lt;link href="http://example.com/New+York+history"/&gt;
+   &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+   &lt;author&gt; 
+     &lt;name&gt;Example.com, Inc.&lt;/name&gt;
+   &lt;/author&gt; 
+   &lt;id&gt;urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6&lt;/id&gt;
+   &lt;opensearch:totalResults&gt;4230000&lt;/opensearch:totalResults&gt;
+   &lt;opensearch:startIndex&gt;21&lt;/opensearch:startIndex&gt;
+   &lt;opensearch:itemsPerPage&gt;10&lt;/opensearch:itemsPerPage&gt;
+   &lt;opensearch:Query role="request" searchTerms="New York History" startPage="1" /&gt;
+   &lt;link rel="alternate" href="http://example.com/New+York+History?pw=3" type="text/html"/&gt;
+   &lt;link rel="self" href="http://example.com/New+York+History?pw=3&amp;amp;format=atom" type="application/atom+xml"/&gt;
+   &lt;link rel="first" href="http://example.com/New+York+History?pw=1&amp;amp;format=atom" type="application/atom+xml"/&gt;
+   &lt;link rel="previous" href="http://example.com/New+York+History?pw=2&amp;amp;format=atom" type="application/atom+xml"/&gt;
+   &lt;link rel="next" href="http://example.com/New+York+History?pw=4&amp;amp;format=atom" type="application/atom+xml"/&gt;
+   &lt;link rel="last" href="http://example.com/New+York+History?pw=42299&amp;amp;format=atom" type="application/atom+xml"/&gt;
+   &lt;link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/&gt;
+   &lt;entry&gt;
+     &lt;title&gt;New York History&lt;/title&gt;
+     &lt;link href="http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html"/&gt;
+     &lt;id&gt;urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a&lt;/id&gt;
+     &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+     &lt;content type="text"&gt;
+       ... Harlem.NYC - A virtual tour and information on 
+       businesses ...  with historic photos of Columbia's own New York 
+       neighborhood ... Internet Resources for the City's History. ...
+     &lt;/content&gt;
+   &lt;/entry&gt;
+ &lt;/feed&gt;
+</pre>
+<a name="Elements"></a><h3> <span class="mw-headline"> Elements </span></h3>
+<a name="The_.22totalResults.22_element"></a><h4> <span class="mw-headline"> The "totalResults" element </span></h4>
+<p>The number of search results available for the current search.
+</p><p><i>If the totalResults element does not appear on the page then the search client should consider the current page to be the last page of search results.</i>
+</p>
+<dl><dd> Restrictions: The value must be a non-negative integer.
+</dd><dd> Default: The default value is equal to the offset index of the last search result on the current page. 
+</dd><dd> Requirements: The element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;totalResults&gt;492420&lt;/totalResults&gt;
+</pre>
+<a name="The_.22startIndex.22_element"></a><h4> <span class="mw-headline"> The "startIndex" element </span></h4>
+<p>The index of the first search result in the current set of search results.
+</p><p><i>If the startIndex element does not appear on the page then the search client should consider the current page to be the first page of search results.</i>
+</p>
+<dl><dd> Restrictions: The value must an integer.
+</dd><dd> Default: The default value is equal to the value of the "indexOffset" attribute of the <a href="#The_.22Url.22_element" title="">"Url" element"</a> in the <a href="#OpenSearch_description_document" title="">OpenSearch description document</a>.
+</dd><dd> Requirements: The element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;startIndex&gt;11&lt;/startIndex&gt;
+</pre>
+<a name="The_.22itemsPerPage.22_element"></a><h4> <span class="mw-headline"> The "itemsPerPage" element </span></h4>
+<p>The number of search results returned per page.
+</p><p><i>If the itemsPerPage element does not appear on the page then the search client should use the number of items of the current page as the default page size.</i>
+</p>
+<dl><dd> Restrictions: The value must a non-negative integer.
+</dd><dd> Default: The default value is equal to the number of search results on the current page. 
+</dd><dd> Requirements: The element may appear zero or one time.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;itemsPerPage&gt;10&lt;/itemsPerPage&gt;
+</pre>
+<a name="The_.22Query.22_element_3"></a><h4> <span class="mw-headline"> The "Query" element </span></h4>
+<p>Defines a search query that can be performed by search clients.   Please see the <a href="#OpenSearch_Query_element" title="">OpenSearch Query element</a> specification for more information.
+</p><p><i>Search results should include a Query element of type="request" that can be used to recreate the search request that generate the current search response.</i>
+</p>
+<dl><dd> Requirements: The element may appear zero or more times.
+</dd></dl>
+<p><i>Example:</i>
+</p>
+<pre> &lt;Query role="request" searchTerms="cat" /&gt;
+</pre>
+<p><br />
+</p>
+<a name="Response_metadata_in_HTML.2FXHTML"></a><h3> <span class="mw-headline"> Response metadata in HTML/XHTML </span></h3>
+<p>OpenSearch response metadata may be included in well-formed HTML/XHTML via the <a href="http://www.w3.org/TR/1999/REC-html401-19991224/struct/global.html#h-7.4.4.2" class="external text" title="http://www.w3.org/TR/1999/REC-html401-19991224/struct/global.html#h-7.4.4.2" rel="nofollow">HTML 4.0.1 "meta" element</a>.
+</p><p>The following meta element "name" attribute values are recognized under the profile associated with the <a href="#Namespace" title="">OpenSearch 1.1 namespace</a>:
+</p>
+<dl><dd> <code>"totalResults"</code> - Corresponds to value of the <a href="#The_.22totalResults.22_element" title="">"totalResults" element</a>.
+</dd><dd> <code>"startIndex"</code> - Corresponds to value of the <a href="#The_.22startIndex.22_element" title="">"startIndex" element</a>.
+</dd><dd> <code>"itemsPerPage"</code> - Corresponds to value of the <a href="#The_.22itemsPerPage.22_element" title="">"itemsPerPage" element</a>.
+</dd></dl>
+<p><i>Example of a page of search results in the XHTML 1.0 format:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+ &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+   &lt;head profile="http://a9.com/-/spec/opensearch/1.1/" &gt;
+     &lt;title&gt;Example.com Search: New York history&lt;/title&gt;
+     &lt;link rel="search"
+           type="application/opensearchdescription+xml" 
+           href="http://example.com/opensearchdescription.xml"
+           title="Example.com Web Search" /&gt;
+     &lt;meta name="totalResults" content="4230000"/&gt;
+     &lt;meta name="startIndex" content"1"/&gt;
+     &lt;meta name="itemsPerPage" content="10"/&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html&quot;&gt;
+            New York History
+          &lt;/a&gt;
+          &lt;div&gt;
+            ... Harlem.NYC - A virtual tour and information on 
+            businesses ...  with historic photos of Columbia's own New York 
+            neighborhood ... Internet Resources for the City's History. ...
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;!-- ... --&gt;
+      &lt;/ul&gt;
+    &lt;/body&gt;
+ &lt;/html&gt;
+</pre>
+<a name="Author"></a><h2> <span class="mw-headline"> Author </span></h2>
+<p>DeWitt Clinton &lt;dewitt@opensearch.org&gt;
+</p>
+<a name="Contributors"></a><h2> <span class="mw-headline"> Contributors </span></h2>
+<p>Joel Tesler &lt;tesler@a9.com&gt;, Michael Fagan &lt;mifa@a9.com&gt;, Joe Gregorio &lt;joe@bitworking.org&gt;, Aaron Sauve &lt;aaronsa@microsoft.com&gt;, James Snell &lt;jasnell@us.ibm.com&gt;
+</p>
+<a name="License"></a><h2> <span class="mw-headline"> License </span></h2>
+<p>This document is made available by <a href="http://a9.com" class="external text" title="http://a9.com" rel="nofollow">A9.com</a> subject to the terms of the <a href="http://creativecommons.org/licenses/by-sa/2.5/" class="external text" title="http://creativecommons.org/licenses/by-sa/2.5/" rel="nofollow">Creative Commons Attribution-ShareAlike 2.5 License</a>.
+</p>
+<!-- Saved in parser cache with key wikidb-opensearch_:pcache:idhash:1408-0!1!0!!en!2!edit=0 and timestamp 20180418192659 -->
+<div class="printfooter">
+</div>
+          <div id="categoryLinks"><p class='catlinks'><a href="/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/Category:Specification" title="Category:Specification">Specification</a></span></p></div>         </div>
+
+
+         
+        </div>
+
+       </div>
+
+    </div>
+
+    <div id="footer">
+
+    <ul class="nav-bottom">
+
+            
+     <li id="n-OpenSearch-home"><a href="/Home">OpenSearch home</a></li>
+            
+     <li id="n-About-OpenSearch.org"><a href="/About_OpenSearch.org">About OpenSearch.org</a></li>
+     
+      
+          <li id="userPages-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=Specifications/OpenSearch/1.1/Draft_3">Log in / Create account</a></li>
+     
+     </ul>
+
+     <div id="copyright">
+      <div>  Except where otherwise noted all portions of this website are licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons License</a>.</div>
+     </div>
+    </div>
+
+   </div>
+   <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-68277-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+   </script>
+  </body>
+</html>

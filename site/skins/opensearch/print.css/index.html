@@ -1,0 +1,60 @@
+/* Print style, borrowing heavily from http://www.alistapart.com/articles/goingtoprint/ */
+
+body 
+{
+   background: white;
+   font-size: 12pt;
+}
+
+#content-box 
+{
+   width: auto;
+   margin: 0 5%;
+   padding: 0;
+   border: 0;
+   float: none !important;
+   color: black;
+   background: transparent none;
+}
+
+a.external:link, a.external:visited 
+{
+   color: #520;
+   background: transparent;
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+#content-box a.external:link:after, #content-box a.external:visited:after 
+{
+   content: " (" attr(href) ") ";
+   font-size: 90%;
+}
+
+#content-box a[href^="/"].external:after 
+{
+   content: " (http://www.unto.net" attr(href) ") ";
+}
+
+#sidebar, .editsection, .postmetadata, #footer, #toc
+{
+   display: none;   
+}
+
+.articleTitle
+{
+/*  text-align: right; */
+  font-size: 12pt;
+/*  display: none; */
+}
+
+pre 
+{
+   border: 1pt dashed black;
+   white-space: pre;
+   font-size: 8pt;
+   overflow: auto;
+   padding: 1em 0;
+   background: #FFFFFF;
+   color: #000000;
+}

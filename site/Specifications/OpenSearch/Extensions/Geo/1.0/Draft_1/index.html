@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="verify-v1" content="rm0uHnYFDyvqJQRl+zv28hhpNU3G3hILU5tO0ge2pbQ=" />
+    		<meta name="keywords" content="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 1,Specifications/OpenSearch/Extensions/Geo/1.0/Draft 2" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="OpenSearch (English)" />
+    <title>Specifications/OpenSearch/Extensions/Geo/1.0/Draft 1 - OpenSearch</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/skins/opensearch/main.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/skins/opensearch/print.css" />
+    <script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"></script>    <script type="text/javascript" src="/skins/common/wikibits.js"></script>
+            <style>.editsection { display: none; }</style>
+       </head>
+
+  <body >
+
+   <div id="page">
+
+    <div id="header">
+     <div id="logo">
+      <a title="Home" href="/Home">Home</a>
+     </div>
+
+     <form id="search-form" name="searchForm" method="get" action="/Special:Search">
+      <fieldset>
+       <input id="search-input" class="search-input"  name="search" type="search" placeholder="Search OpenSearch.org" autosave="OpenSearch" results="10" 
+	    accesskey="f" value="" />
+       <input type="submit" name="go" class="search-submit" id="search-submit" value="Search" /> 
+      </fieldset>
+     </form>  
+
+    </div> 
+
+    <div id="content">
+     
+       <div class="post">
+        <div class="entrytext">
+
+         <a name="top" id="contentTop"></a>
+         
+         <h1 class="articleTitle">
+           <a href="/Home">Home</a> &raquo; <a href="http://www.opensearch.org/Specifications">Specifications</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch">OpenSearch</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions">Extensions</a> &raquo; Geo &raquo; 1.0 &raquo; Draft 1         </h1>
+
+         <div id="articleContent">
+          <div id="contentSub"><span class="subpages">&lt; <a href="/Specifications" title="Specifications">Specifications</a> | <a href="/Specifications/OpenSearch" title="Specifications/OpenSearch">OpenSearch</a> | <a href="/Specifications/OpenSearch/Extensions" title="Specifications/OpenSearch/Extensions">Extensions</a></span></div>
+                              <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Notice"><span class="tocnumber">1</span> <span class="toctext">Notice</span></a></li>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">2</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Namespace"><span class="tocnumber">2.1</span> <span class="toctext">Namespace</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Namespace_2"><span class="tocnumber">4</span> <span class="toctext">Namespace</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22locationString.22_parameter"><span class="tocnumber">5.1</span> <span class="toctext">The "locationString" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22lat.22_and_.22lon.22_parameters"><span class="tocnumber">5.2</span> <span class="toctext">The "lat" and "lon" parameters</span></a></li>
+<li class="toclevel-2"><a href="#The_.22radius.22_parameters"><span class="tocnumber">5.3</span> <span class="toctext">The "radius" parameters</span></a></li>
+<li class="toclevel-2"><a href="#The_.22box.22_parameter"><span class="tocnumber">5.4</span> <span class="toctext">The "box" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22polygon.22_parameter"><span class="tocnumber">5.5</span> <span class="toctext">The "polygon" parameter</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Optional_Parameters"><span class="tocnumber">6</span> <span class="toctext">Optional Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Geo_response_elements"><span class="tocnumber">7</span> <span class="toctext">Geo response elements</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Atom_Response"><span class="tocnumber">7.1</span> <span class="toctext">Atom Response</span></a></li>
+<li class="toclevel-2"><a href="#KML_Response"><span class="tocnumber">7.2</span> <span class="toctext">KML Response</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Author"><span class="tocnumber">8</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-1"><a href="#Contributors"><span class="tocnumber">9</span> <span class="toctext">Contributors</span></a></li>
+<li class="toclevel-1"><a href="#License"><span class="tocnumber">10</span> <span class="toctext">License</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Notice"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=1" title="Edit section: Notice">edit</a>]</span> <span class="mw-headline"> Notice </span></h2>
+<p><b>This is a draft document for public review.</b>
+</p><p>A new version of this document is available <a href="/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_2" title="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 2">here</a>
+</p>
+<a name="Introduction"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=2" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline"> Introduction </span></h2>
+<p>Geospatial data is becoming increasingly available as the tools for specifying and sharing location are more ubiquitous and easy to use. The purpose of the OpenSearch-Geo extensions is to provide a standard mechanism to query a resource based on geographic extents, or location name. 
+</p><p>The geospatial results are based on the GeoRSS standards. Therefore, latitude/longitude order, bounding box parameters, and polygon are all using that standard.
+</p><p><b>Update</b>&nbsp;: New draft available (see <a href="/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_2" title="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 2">here</a>)
+</p><p><br />
+</p>
+<a name="Namespace"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=3" title="Edit section: Namespace">edit</a>]</span> <span class="mw-headline"> Namespace </span></h3>
+<p>Updated July 27, 2007: the OpenSearch Geo extension namespace was shortened to just "geo" instead of "opensearchgeo". This was to make the namespace more succinct.
+</p>
+<a name="Example"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline"> Example </span></h2>
+<p>Example of a detailed OpenSearch description document that describes a search engine that accept geospatial search parameters.
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                        xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"&gt;
+   &lt;ShortName&gt;Web Search&lt;/ShortName&gt;
+   &lt;Description&gt;Use Example.com to search the Web.&lt;/Description&gt;
+   &lt;Tags&gt;example web&lt;/Tags&gt;
+   &lt;Contact&gt;admin@example.com&lt;/Contact&gt;
+   &lt;Url type="application/vnd.google-earth.kml+xml"
+       template="http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;bbox={geo:box?}&amp;format=kml"/&gt;
+   &lt;Url type="application/atom+xml"
+       template="http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;bbox={geo:box?}&amp;format=atom"/&gt;
+   &lt;Url type="application/rss+xml"
+       template="http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;bbox={geo:box?}&amp;format=rss"/&gt;
+   &lt;Url type="text/html"
+       template="http://example.com/?q={searchTerms}&amp;bbox={geo:box?}&amp;pw={startPage?}"/&gt;
+   &lt;LongName&gt;Example.com Web Search&lt;/LongName&gt;
+   &lt;Image height="64" width="64" type="image/png"&gt;<a href="http://example.com/websearch.png" class="external free" title="http://example.com/websearch.png" rel="nofollow">http://example.com/websearch.png</a>&lt;/Image&gt;
+   &lt;Image height="16" width="16" type="image/vnd.microsoft.icon"&gt;http://example.com/websearch.ico&lt;/Image&gt;
+   &lt;Query role="example" searchTerms="cat" /&gt;
+   &lt;Developer&gt;Example.com Development Team&lt;/Developer&gt;
+   &lt;Attribution&gt;
+       Search data Copyright 2005, Example.com, Inc., All Rights Reserved
+   &lt;/Attribution&gt;
+   &lt;SyndicationRight&gt;open&lt;/SyndicationRight&gt;
+   &lt;AdultContent&gt;false&lt;/AdultContent&gt;
+   &lt;Language&gt;en-us&lt;/Language&gt;
+   &lt;OutputEncoding&gt;UTF-8&lt;/OutputEncoding&gt;
+   &lt;InputEncoding&gt;UTF-8&lt;/InputEncoding&gt;
+ &lt;/OpenSearchDescription&gt;
+</pre>
+<a name="Namespace_2"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=5" title="Edit section: Namespace">edit</a>]</span> <span class="mw-headline"> Namespace </span></h2>
+<p>The XML namespace of the OpenSearch Geo Extension is:
+</p>
+<dl><dd> <code>http://a9.com/-/opensearch/extensions/geo/1.0/</code>
+</dd></dl>
+<p>This namespace and a corresponding namespace prefix must be included when the extension is used in an OpenSearch Description document.
+</p>
+<a name="Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=6" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline"> Parameters </span></h2>
+<a name="The_.22locationString.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=7" title="Edit section: The &quot;locationString&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "locationString" parameter </span></h3>
+<p>Replaced with a string describing the location to perform the search. This location string will be parsed and geocoded by the search service. <b>Warning</b>&nbsp;: This element was changed on Draft 2 (see <a href="/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_2" title="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 2">here</a>)
+</p><p><br />
+Example URL template:
+</p><p><code>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;l={geo:locationString?}&amp;format=rss
+</pre>
+<p></code>
+</p><p>Example request:
+</p><p><code>
+</p>
+<pre> http://example.com/?q=pizza&amp;l=boston&amp;format=rss
+</pre>
+<p></code>
+</p>
+<a name="The_.22lat.22_and_.22lon.22_parameters"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=8" title="Edit section: The &quot;lat&quot; and &quot;lon&quot; parameters">edit</a>]</span> <span class="mw-headline"> The "lat" and "lon" parameters </span></h3>
+<p>Replaced with the "latitude, longitude", respectively, in decimal degrees in <a href="http://nsidc.org/data/atlas/epsg_4326.html" class="external text" title="http://nsidc.org/data/atlas/epsg_4326.html" rel="nofollow">EPSG:4326</a> (typical WGS84 coordinates as returned by a GPS receiver). This parameter should also include a "radius" parameter that specifies the search radius, in meters. If no radius is supplied, then the search service is free to use a default radius but should specify this radius in the returned result.
+</p><p>Example URL template:
+</p><p><code>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;lat={geo:lat?}&amp;lon={geo:lon?}&amp;r={geo:radius?}&amp;format=rss
+</pre>
+<p></code>
+</p><p>Example request:
+</p><p><code>
+</p>
+<pre> http://example.com/?q=pizza&amp;lat=43.25&amp;lon=-123.45&amp;format=rss
+</pre>
+<p></code>
+</p>
+<a name="The_.22radius.22_parameters"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=9" title="Edit section: The &quot;radius&quot; parameters">edit</a>]</span> <span class="mw-headline"> The "radius" parameters </span></h3>
+<p>The radius parameter, used with the lat and lon parameters, specifies the search distance from this point. The distance is in meters along the Earth's surface. 
+</p><p>Example:
+</p>
+<pre> http://example.com/?q=pizza&amp;lat=43.25&amp;lon=-123.45&amp;radius=10000&amp;format=rss
+</pre>
+<a name="The_.22box.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=10" title="Edit section: The &quot;box&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "box" parameter </span></h3>
+<p>Replaced with the bounding box to search for geospatial results within. The box is defined by "west, south, east, north" coordinates of longitude, latitude, in a <a href="http://nsidc.org/data/atlas/epsg_4326.html" class="external text" title="http://nsidc.org/data/atlas/epsg_4326.html" rel="nofollow">EPSG:4326</a> decimal degrees. This is also commonly referred to by minX, minY, maxX, maxY (where longitude is the X-axis, and latitude is the Y-axis), or also SouthWest corner and NorthEast corner. 
+</p>
+<pre> geo:box ~ west, south, east, north
+</pre>
+<p>Example URL template:
+</p><p><code>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;bbox={geo:box?}&amp;format=rss
+</pre>
+<p></code>
+</p><p>Example request:
+</p><p><code>
+</p>
+<pre> http://example.com/?q=pizza&amp;bbox=-111.032,42.943,-119.856,43.039&amp;format=rss
+</pre>
+<p></code>
+</p>
+<a name="The_.22polygon.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=11" title="Edit section: The &quot;polygon&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "polygon" parameter </span></h3>
+<p>Replaced with the latitude/longitude pairs describing a bounding area to perform a search within. The polygon is defined in latitude, longitude pairs, in clockwise order around the polygon, with the last point being the same as the first in order to close the polygon. 
+</p><p>Note: it is important to specify that the polygon is defined in clockwise order. Otherwise in some cases the search criteria would not be clear. For example, searching the polygon: -80, -170, 0, -170, 80, -170, 80, 170, 0, 170, -80, 170, -80, -170; it would not be clear if this was a nearly-global search or just a search along the date-time line (or anti-meridian). 
+</p><p><b>Warning</b>&nbsp;: This element was changed on Draft 2 (see <a href="/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_2" title="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 2">here</a>)
+</p><p>Example URL template:
+</p><p><code>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;p={geo:polygon?}&amp;format=rss
+</pre>
+<p></code>
+</p><p>Example request:
+</p><p><code>
+</p>
+<pre> http://example.com/?q=pizza&amp;p=45.256,-110.45,46.46,-109.48,43.84,-109.86,45.256,-110.45&amp;format=rss
+</pre>
+<p></code>
+</p>
+<a name="Optional_Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=12" title="Edit section: Optional Parameters">edit</a>]</span> <span class="mw-headline"> Optional Parameters </span></h2>
+<p>The search server should use the "?" flag in the URL template when requesting the source parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the extension. 
+</p><p>Therefore, if a service provides multiple optional geographic search parameters, these can be combined into a single definition of optional parameters:
+</p><p>Example:
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;p={geo:polygon?}&amp;lat={geo:lat?}&amp;lon={geo:lon?}&amp;d={geo:radius?}&amp;bbox={geo:box?}&amp;format=kml
+</pre>
+<a name="Geo_response_elements"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=13" title="Edit section: Geo response elements">edit</a>]</span> <span class="mw-headline"> Geo response elements </span></h2>
+<p>The OpenSearch-Geo response elements can be used by search engines to augment existing XML formats with search-related metadata. See the <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_response_elements" class="external text" title="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_response_elements" rel="nofollow">OpenSearch response</a> definition for a general overview of the response options. 
+</p><p>The following examples illustrate Geo-specific responses. For RSS and Atom responses, it is suggested to use the GeoRSS channel elements in addition to the OpenSearch-Geo elements.
+</p>
+<a name="Atom_Response"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=14" title="Edit section: Atom Response">edit</a>]</span> <span class="mw-headline"> Atom Response </span></h3>
+<p>Example request:
+</p><p><code>
+</p>
+<pre> http://example.com/New+York+History?pw=3&amp;format=atom&amp;bbox=-74.0667,40.69418,-73.9116,40.7722&quot;
+</pre>
+<p></code>
+</p><p>Example response:
+</p>
+<pre>   &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;feed xmlns="http://www.w3.org/2005/Atom" 
+          xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+          xmlns:georss="http://www.georss.org/georss"&gt;
+      &lt;title&gt;Example.com Search: New York history&lt;/title&gt; 
+      &lt;link href="http://example.com/New+York+history"/&gt;
+      &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+      &lt;author&gt; 
+        &lt;name&gt;Example.com, Inc.&lt;/name&gt;
+      &lt;/author&gt; 
+      &lt;id&gt;urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6&lt;/id&gt;
+      &lt;opensearch:totalResults&gt;4230000&lt;/opensearch:totalResults&gt;
+      &lt;opensearch:startIndex&gt;21&lt;/opensearch:startIndex&gt;
+      &lt;opensearch:itemsPerPage&gt;10&lt;/opensearch:itemsPerPage&gt;
+      &lt;opensearch:itemsPerPage&gt;10&lt;/opensearch:itemsPerPage&gt;
+      &lt;opensearch:Query role="request" searchTerms="New York History" startPage="3" geo:box="-74.0667,40.69418,-73.9116,40.7722"/&gt;
+      &lt;link rel="alternate" href="http://example.com/New+York+History?pw=3&amp;bbox=-74.0667,40.69418,-73.9116,40.7722&quot; type=&quot;text/html&quot;/&gt;
+       &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;&lt;nowiki&gt;http://example.com/opensearchdescription.xml"/&gt;
+      &lt;georss:box&gt;40.69418 -74.0667 40.7722 -73.9116&lt;/georss:box&gt;
+      &lt;entry&gt;
+        &lt;title&gt;New York History&lt;/title&gt;
+        &lt;link href="http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html"/&gt;
+        &lt;id&gt;urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a&lt;/id&gt;
+        &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+        &lt;georss:line&gt;40.73763 -73.9972 40.73519 -73.99167 40.737015 -73.99035 40.73643 -73.98914 40.734640 -73.990431 40.731617 -73.991504&lt;/georss:line&gt;
+        &lt;content type="text"&gt;
+          ... Union Square.NYC - A virtual tour and information on 
+          businesses ...  with historic photos of Columbia's own New York 
+          neighborhood ... Internet Resources for the City's History. ...
+        &lt;/content&gt;
+      &lt;/entry&gt;
+    &lt;/feed&gt;
+</pre>
+<a name="KML_Response"></a><h3><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=15" title="Edit section: KML Response">edit</a>]</span> <span class="mw-headline"> KML Response </span></h3>
+<p>KML is an acceptable and recommended response option for geospatial searches. KML allows for styling and complex responses, similar to HTML response for non-spatial queries.
+</p><p>Example request: 
+</p><p><code>
+</p>
+<pre> http://example.com/New+York+History?pw=3&amp;format=kml&amp;bbox=-74.0667,40.69418,-73.9116,40.7722&quot;
+</pre>
+<p></code>
+</p><p>Example response:
+</p><p><code>
+</p>
+<pre>   &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+   &lt;kml xmlns="http://earth.google.com/kml/2.2"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+     xmlns:opensearchgeo="http://a9.com/-/opensearch/extensions/geo/1.0/"&gt;
+      &lt;opensearch:totalResults&gt;4230000&lt;/opensearch:totalResults&gt;
+      &lt;opensearch:startIndex&gt;21&lt;/opensearch:startIndex&gt;
+      &lt;opensearch:itemsPerPage&gt;10&lt;/opensearch:itemsPerPage&gt;
+      &lt;opensearch:itemsPerPage&gt;10&lt;/opensearch:itemsPerPage&gt;
+      &lt;opensearch:Query role="request" searchTerms="New York History" startPage="3" geo:box="-74.0667,40.69418,-73.9116,40.7722"/&gt;
+      &lt;atom:link rel="alternate" href="http://example.com/New+York+History?pw=3&amp;bbox=-74.0667,40.69418,-73.9116,40.7722" type="text/html"/&gt;
+      &lt;atom:link rel="alternate" href="http://example.com/New+York+History?pw=3&amp;bbox=-74.0667,40.69418,-73.9116,40.7722&amp;format=atom" type="application/atom+xml"/&gt;       
+   &lt;Document&gt;
+     &lt;name&gt;NYCHistory.kml&lt;/name&gt;
+     &lt;open&gt;1&lt;/open&gt;
+     &lt;Placemark&gt;
+       &lt;name&gt;New York History&lt;/name&gt;
+       &lt;atom:link&gt;http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html&lt;/atom:link&gt;
+       &lt;LineString&gt;
+         &lt;coordinates&gt;
+           -73.9972,40.73763,0 -73.99167,40.73519,0 -73.99035,40.737015,0 
+           -73.98914,40.73643,0 -73.990431,40.734640,0 -73.991504,40.731617,0
+         &lt;/coordinates&gt;
+       &lt;/LineString&gt;
+     &lt;/Placemark&gt;
+   &lt;/Document&gt;
+   &lt;/kml&gt;
+</pre>
+<p></code>
+</p>
+<a name="Author"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=16" title="Edit section: Author">edit</a>]</span> <span class="mw-headline"> Author </span></h2>
+<p>Andrew Turner &lt;ajturner@highearthorbit.com&gt; 
+</p>
+<a name="Contributors"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=17" title="Edit section: Contributors">edit</a>]</span> <span class="mw-headline"> Contributors </span></h2>
+<p>DeWitt Clinton &lt;dewitt@opensearch.org&gt;
+</p>
+<a name="License"></a><h2><span class="editsection">[<a href="/index.php?title=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1&amp;action=edit&amp;section=18" title="Edit section: License">edit</a>]</span> <span class="mw-headline"> License </span></h2>
+<p>This document is made available subject to the terms of the <a href="http://creativecommons.org/licenses/by-sa/2.5/" class="external text" title="http://creativecommons.org/licenses/by-sa/2.5/" rel="nofollow">Creative Commons Attribution-ShareAlike 2.5 License</a>.
+</p>
+<!-- Saved in parser cache with key wikidb-opensearch_:pcache:idhash:1586-0!1!0!!en!2 and timestamp 20180419004135 -->
+<div class="printfooter">
+</div>
+          <div id="categoryLinks"><p class='catlinks'><a href="/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/Category:Specification" title="Category:Specification">Specification</a></span> | <span dir='ltr'><a href="/Category:Extension" title="Category:Extension">Extension</a></span></p></div>         </div>
+
+
+         
+        </div>
+
+       </div>
+
+    </div>
+
+    <div id="footer">
+
+    <ul class="nav-bottom">
+
+            
+     <li id="n-OpenSearch-home"><a href="/Home">OpenSearch home</a></li>
+            
+     <li id="n-About-OpenSearch.org"><a href="/About_OpenSearch.org">About OpenSearch.org</a></li>
+     
+      
+          <li id="userPages-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1">Log in / Create account</a></li>
+     
+     </ul>
+
+     <div id="copyright">
+      <div>  Except where otherwise noted all portions of this website are licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons License</a>.</div>
+     </div>
+    </div>
+
+   </div>
+   <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-68277-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+   </script>
+  </body>
+</html>

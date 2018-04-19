@@ -1,0 +1,381 @@
+/* HTML4 Elements */
+
+body
+{
+  font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  background-color: #FFFFFF;
+  background-image: none;
+  color: #222222;
+  padding: 0px;
+  margin: 0px;
+}
+
+html
+{
+  padding: 0px;
+  margin: 0px;
+}
+
+a 
+{
+  color: #555555; 
+  text-decoration: underline; 
+  cursor: pointer;
+}
+
+a:hover 
+{
+  color: #999999;
+}
+
+
+a:active 
+{
+  color: #000000;
+}
+
+a.external 
+{
+  padding-right: 15px;
+  background: url(images/external.png) center right no-repeat;
+}
+
+a.new
+{
+  text-decoration: none;
+  color: #992222;
+}
+
+a img 
+{
+  border: 0;
+  vertical-align: middle;
+}
+
+h1
+{
+  font-size: 1.5em;
+}
+
+h2
+{
+  font-size: 1.4em;
+}
+
+h3
+{
+  font-size: 1.2em;
+}
+
+h4
+{
+  font-size: 1.1em;
+}
+
+img.centered 
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+img.alignright 
+{
+  padding: 4px;
+  margin: 0 0 2px 7px;
+  display: inline;
+}
+
+
+img.alignleft 
+{
+  padding: 4px;
+  margin: 0 7px 2px 0;
+  display: inline;
+}
+
+ul
+{
+  list-style-type: square;
+}
+
+
+blockquote
+{
+  margin: 15px 30px 15px 10px;
+  padding-left: 20px;
+  border-left: 2px solid #CCCCCC;
+}
+
+code
+{
+  font-size: 1.2em;
+}
+
+pre
+{
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 1em;
+  margin-bottom: 5px;
+  border: 1px dashed #666666;;
+  color: #000000;
+  background-color: #F9F9F9;
+  overflow: auto;
+}
+
+small
+{
+  font-size: 1em;
+  font-family: serif;
+}
+
+
+/* Classes */
+
+.nav-middle
+{
+}
+
+.nav-middle li
+{
+  display: inline;
+  padding-right: 1em;
+}
+
+
+.nav-bottom
+{
+  font-size: .8em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-bottom li
+{
+  display: inline;
+  padding-right: 1em;
+}
+
+.post .title a 
+{
+  text-decoration: none;
+  font-size: 1.4em;
+  color: #222222;
+}
+
+.entrytext
+{
+ text-align: justify;
+}
+
+.postmetadata
+{
+  border: 1px solid #DDDDDD;
+  margin: 25px 0px 30px 0px;
+  font-size: .8em;
+  font-family: serif;
+}
+
+.alignright 
+{
+  text-align: right;
+  float: right;
+}
+  
+.alignleft 
+{
+  text-align: left;
+}
+
+
+.modifiable:hover .modified
+{
+  color: #FF0000;
+}
+
+.modifiable .mb
+{
+  color: #FF0000;
+  display: none;
+}
+
+
+.modifiable .ma
+{
+  color: #0000FF;
+}
+
+.modifiable:hover .mb
+{
+  color: #FF0000;
+  display: inline;
+}
+
+.modifiable:hover .ma
+{
+  color: #0000FF;
+  display: none;
+}
+
+.center 
+{
+  width: 100%;
+  text-align: center;
+}
+
+*.center * 
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subpages
+{
+  display: none;
+}
+
+/* Ids */
+
+#page 
+{
+  padding: 0px;
+}
+
+#header
+{
+  background: url(images/opensearch_background.png) repeat-x; 
+  border-bottom: 1pxsolid #CCCCCC;
+  margin-bottom: 40px;
+  text-indent: -2000px;
+  height: 75px;
+  z-index: 5;
+}
+
+#logo
+{
+  background: url(images/opensearch_logo.png) no-repeat;
+  float: left;
+  top: 0;
+  left: 0;
+  height: 75px;
+  width: 373px;
+}
+
+#logo a
+{
+  display: block;
+  height: 75px;
+  width: 373px;
+}
+
+#search-form
+{
+  float: right;
+  text-indent: 0px;
+  top: 0px;
+  right: 0;
+  height: 75px;
+  background: url(images/opensearch_right_bevel.png) no-repeat; 
+  background-position: top right;  
+}
+
+#search-form fieldset
+{
+  padding: 20px 20px 7px 10px;
+  margin: 0px;
+  border: 0px;
+}
+
+#search-input
+{
+  padding-left: 5px;
+  border: 1px solid #bbb;
+  width: 15em;
+}
+
+#search-submit
+{
+  border: 1px solid #bbb;
+  color: #333333;
+  width: auto;
+}
+
+#content
+{
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 25em;
+  max-width: 65em; 
+  text-align: left;  
+}
+
+.post
+{
+  padding: 10px 15px 10px 15px;
+}
+
+#footer
+{
+  margin-top: 40px;
+}
+
+#copyright
+{
+  font-size: .8em;
+  font-family: serif;
+  text-align: center;
+}
+
+
+/* Copied from monobook/main.css */
+
+
+#toc,
+.toc,
+.mw-warning {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
+	font-size: 95%;
+}
+#toc h2,
+.toc h2 {
+	display: inline;
+	border: none;
+	padding: 0;
+	font-size: 100%;
+	font-weight: bold;
+}
+#toc #toctitle,
+.toc #toctitle,
+#toc .toctitle,
+.toc .toctitle {
+	text-align: center;
+}
+#toc ul,
+.toc ul {
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: 0;
+	padding-left: 0;
+	text-align: left;
+}
+#toc ul ul,
+.toc ul ul {
+	margin: 0 0 0 2em;
+}
+#toc .toctoggle,
+.toc .toctoggle {
+	font-size: 94%;
+}
+
+.mw-warning {
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+}
+

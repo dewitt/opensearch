@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="verify-v1" content="rm0uHnYFDyvqJQRl+zv28hhpNU3G3hILU5tO0ge2pbQ=" />
+    		<meta name="keywords" content="Specifications/OpenSearch/Extensions/Referrer/1.0/Draft 1" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="OpenSearch (English)" />
+    <title>Specifications/OpenSearch/Extensions/Referrer/1.0/Draft 1 - OpenSearch</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/skins/opensearch/main.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/skins/opensearch/print.css" />
+    <script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"></script>    <script type="text/javascript" src="/skins/common/wikibits.js"></script>
+            <style>.editsection { display: none; }</style>
+       </head>
+
+  <body >
+
+   <div id="page">
+
+    <div id="header">
+     <div id="logo">
+      <a title="Home" href="/Home">Home</a>
+     </div>
+
+     <form id="search-form" name="searchForm" method="get" action="/Special:Search">
+      <fieldset>
+       <input id="search-input" class="search-input"  name="search" type="search" placeholder="Search OpenSearch.org" autosave="OpenSearch" results="10" 
+	    accesskey="f" value="" />
+       <input type="submit" name="go" class="search-submit" id="search-submit" value="Search" /> 
+      </fieldset>
+     </form>  
+
+    </div> 
+
+    <div id="content">
+     
+       <div class="post">
+        <div class="entrytext">
+
+         <a name="top" id="contentTop"></a>
+         
+         <h1 class="articleTitle">
+           <a href="/Home">Home</a> &raquo; <a href="http://www.opensearch.org/Specifications">Specifications</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch">OpenSearch</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions">Extensions</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Referrer">Referrer</a> &raquo; <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Referrer/1.0">1.0</a> &raquo; Draft 1         </h1>
+
+         <div id="articleContent">
+          <div id="contentSub"><span class="subpages">&lt; <a href="/Specifications" title="Specifications">Specifications</a> | <a href="/Specifications/OpenSearch" title="Specifications/OpenSearch">OpenSearch</a> | <a href="/Specifications/OpenSearch/Extensions" title="Specifications/OpenSearch/Extensions">Extensions</a> | <a href="/Specifications/OpenSearch/Extensions/Referrer" title="Specifications/OpenSearch/Extensions/Referrer">Referrer</a> | <a href="/Specifications/OpenSearch/Extensions/Referrer/1.0" title="Specifications/OpenSearch/Extensions/Referrer/1.0">1.0</a></span>(Redirected from <a href="/index.php?title=Specifications/OpenSearch/Extensions/Referrer&amp;redirect=no" title="Specifications/OpenSearch/Extensions/Referrer">Specifications/OpenSearch/Extensions/Referrer</a>)</div>
+                              <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Notice"><span class="tocnumber">1</span> <span class="toctext">Notice</span></a></li>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">2</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Namespace"><span class="tocnumber">3</span> <span class="toctext">Namespace</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22source.22_parameter"><span class="tocnumber">4.1</span> <span class="toctext">The "source" parameter</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example_URL_Template"><span class="tocnumber">5</span> <span class="toctext">Example URL Template</span></a></li>
+<li class="toclevel-1"><a href="#Source_Values"><span class="tocnumber">6</span> <span class="toctext">Source Values</span></a></li>
+<li class="toclevel-1"><a href="#Optional_Parameters"><span class="tocnumber">7</span> <span class="toctext">Optional Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Author"><span class="tocnumber">8</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-1"><a href="#Contributors"><span class="tocnumber">9</span> <span class="toctext">Contributors</span></a></li>
+<li class="toclevel-1"><a href="#License"><span class="tocnumber">10</span> <span class="toctext">License</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Notice"></a><h2> <span class="mw-headline"> Notice </span></h2>
+<p><b>This is a draft document for public review.</b>
+</p>
+<a name="Introduction"></a><h2> <span class="mw-headline"> Introduction </span></h2>
+<p>The OpenSearch Referrer extension allows search engines to request a query parameter from search clients to indicate the source of the search.  This parameter could be used to identify the particular search client, the version of the search client, additional information about the source of the search, or similar.
+</p>
+<a name="Namespace"></a><h2> <span class="mw-headline"> Namespace </span></h2>
+<p>The XML namespace of the OpenSearch Referrer Extension is:
+</p>
+<dl><dd> <code>http://a9.com/-/opensearch/extensions/referrer/1.0/</code>
+</dd></dl>
+<p>This namespace and a corresponding namespace prefix must be included when the extension is used in an OpenSearch Description document.
+</p>
+<a name="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<p>The OpenSearch Referrer Extension introduces the following parameter to be used in OpenSearch URL templates.
+</p>
+<a name="The_.22source.22_parameter"></a><h3> <span class="mw-headline"> The "source" parameter </span></h3>
+<p>Replaced with a string identifying the search client that performed the search request.
+</p>
+<a name="Example_URL_Template"></a><h2> <span class="mw-headline"> Example URL Template </span></h2>
+<p><i>Example: An OpenSearch URL template with an optional source parameter:</i>
+</p>
+<pre> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+   <b>xmlns:referrer="http://a9.com/-/opensearch/extensions/referrer/1.0/"</b>&gt;
+   &lt;Url type="application/atom+xml"
+     template="http://example.com/{searchTerms}?<b>src={referrer:source?}</b>"/&gt;
+   &lt;!-- ... --&gt;
+ &lt;/OpenSearchDescription&gt;
+</pre>
+<a name="Source_Values"></a><h2> <span class="mw-headline"> Source Values </span></h2>
+<p>Values for the <code>source</code> parameter are not dictated by this specification.  Search clients should make known and publish the list of values that they indend to send as a source parameter.
+</p><p>For example, Internet Explorer 7 could send one of the following values, depending on where in the browser a search originated:
+</p>
+<dl><dd> "IE-SearchBox"
+</dd></dl>
+<p>Or,
+</p>
+<dl><dd> "IE-Address"
+</dd></dl>
+<p>The A9.com website could send the following value:
+</p>
+<dl><dd> "a9.com"
+</dd></dl>
+<p>The Firefox web browser could send the following value:
+</p>
+<dl><dd> "firefox-a"
+</dd></dl>
+<p><br />
+<i>Note: Those values are used as examples only.  Please refer to the documentation for the particular search client to determine the actual "source" values.</i>
+</p>
+<a name="Optional_Parameters"></a><h2> <span class="mw-headline"> Optional Parameters </span></h2>
+<p>The search server should use the "<code>?</code>" flag in the URL template when requesting the <code>source</code> parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the extension.
+</p>
+<a name="Author"></a><h2> <span class="mw-headline"> Author </span></h2>
+<p>DeWitt Clinton &lt;dewitt@opensearch.org&gt;
+</p>
+<a name="Contributors"></a><h2> <span class="mw-headline"> Contributors </span></h2>
+<p>Michael Fagan &lt;mifa@a9.com&gt;
+</p>
+<a name="License"></a><h2> <span class="mw-headline"> License </span></h2>
+<p>This document is made available by <a href="http://a9.com" class="external text" title="http://a9.com" rel="nofollow">A9.com</a> subject to the terms of the <a href="http://creativecommons.org/licenses/by-sa/2.5/" class="external text" title="http://creativecommons.org/licenses/by-sa/2.5/" rel="nofollow">Creative Commons Attribution-ShareAlike 2.5 License</a>.
+</p>
+<!-- Saved in parser cache with key wikidb-opensearch_:pcache:idhash:1435-0!1!0!!en!2!edit=0 and timestamp 20180418213040 -->
+<div class="printfooter">
+</div>
+          <div id="categoryLinks"><p class='catlinks'><a href="/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/Category:Specification" title="Category:Specification">Specification</a></span> | <span dir='ltr'><a href="/Category:Extension" title="Category:Extension">Extension</a></span></p></div>         </div>
+
+
+         
+        </div>
+
+       </div>
+
+    </div>
+
+    <div id="footer">
+
+    <ul class="nav-bottom">
+
+            
+     <li id="n-OpenSearch-home"><a href="/Home">OpenSearch home</a></li>
+            
+     <li id="n-About-OpenSearch.org"><a href="/About_OpenSearch.org">About OpenSearch.org</a></li>
+     
+      
+          <li id="userPages-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=Specifications/OpenSearch/Extensions/Referrer/1.0/Draft_1">Log in / Create account</a></li>
+     
+     </ul>
+
+     <div id="copyright">
+      <div>  Except where otherwise noted all portions of this website are licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons License</a>.</div>
+     </div>
+    </div>
+
+   </div>
+   <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-68277-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+   </script>
+  </body>
+</html>

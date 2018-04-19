@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="verify-v1" content="rm0uHnYFDyvqJQRl+zv28hhpNU3G3hILU5tO0ge2pbQ=" />
+    		<meta name="keywords" content="Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft 1" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="OpenSearch (English)" />
+    <title>Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft 1 - OpenSearch</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/skins/opensearch/main.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/skins/opensearch/print.css" />
+    <script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"></script>    <script type="text/javascript" src="/skins/common/wikibits.js"></script>
+            <style>.editsection { display: none; }</style>
+       </head>
+
+  <body >
+
+   <div id="page">
+
+    <div id="header">
+     <div id="logo">
+      <a title="Home" href="/Home">Home</a>
+     </div>
+
+     <form id="search-form" name="searchForm" method="get" action="/Special:Search">
+      <fieldset>
+       <input id="search-input" class="search-input"  name="search" type="search" placeholder="Search OpenSearch.org" autosave="OpenSearch" results="10" 
+	    accesskey="f" value="" />
+       <input type="submit" name="go" class="search-submit" id="search-submit" value="Search" /> 
+      </fieldset>
+     </form>  
+
+    </div> 
+
+    <div id="content">
+     
+       <div class="post">
+        <div class="entrytext">
+
+         <a name="top" id="contentTop"></a>
+         
+         <h1 class="articleTitle">
+           <a href="/Home">Home</a> &raquo; Community &raquo; Proposal &raquo; Specifications &raquo; OpenSearch &raquo; Extensions &raquo; Mobile &raquo; 1.0 &raquo; Draft 1         </h1>
+
+         <div id="articleContent">
+          <div id="contentSub"></div>
+                              <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Notice"><span class="tocnumber">1</span> <span class="toctext">Notice</span></a></li>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">2</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Namespace"><span class="tocnumber">3</span> <span class="toctext">Namespace</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22userAgent.22_parameter"><span class="tocnumber">4.1</span> <span class="toctext">The "userAgent" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22subId.22_parameter"><span class="tocnumber">4.2</span> <span class="toctext">The "subId" parameter</span></a></li>
+<li class="toclevel-2"><a href="#The_.22mcc.22_and_.22mnc.22_parameters"><span class="tocnumber">4.3</span> <span class="toctext">The "mcc" and "mnc" parameters</span></a></li>
+<li class="toclevel-2"><a href="#Optional_Parameters"><span class="tocnumber">4.4</span> <span class="toctext">Optional Parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Atom_Extensions"><span class="tocnumber">5</span> <span class="toctext">Atom Extensions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#New_Relation_Values_for_Atom_Link_Elements"><span class="tocnumber">5.1</span> <span class="toctext">New Relation Values for Atom Link Elements</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Elements"><span class="tocnumber">6</span> <span class="toctext">Elements</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_.22device.22_element"><span class="tocnumber">6.1</span> <span class="toctext">The "device" element</span></a></li>
+<li class="toclevel-2"><a href="#The_.22subscriber.22_element"><span class="tocnumber">6.2</span> <span class="toctext">The "subscriber" element</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Nesting_Search_Results_into_Sections_using_Atom_Entries"><span class="tocnumber">7</span> <span class="toctext">Nesting Search Results into Sections using Atom Entries</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Suggested_Extensions_to_an_Atom_Entry_Element_for_Sections"><span class="tocnumber">7.1</span> <span class="toctext">Suggested Extensions to an Atom Entry Element for Sections</span></a></li>
+<li class="toclevel-2"><a href="#An_Example_Atom_Entry_Element_for_a_Section_of_Search_Results"><span class="tocnumber">7.2</span> <span class="toctext">An Example Atom Entry Element for a Section of Search Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Suggested_Extensions_to_an_Atom_Feed_Element_for_Mobile_Search"><span class="tocnumber">8</span> <span class="toctext">Suggested Extensions to an Atom Feed Element for Mobile Search</span></a></li>
+<li class="toclevel-1"><a href="#Related_Extensions"><span class="tocnumber">9</span> <span class="toctext">Related Extensions</span></a></li>
+<li class="toclevel-1"><a href="#Authors"><span class="tocnumber">10</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-1"><a href="#License"><span class="tocnumber">11</span> <span class="toctext">License</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Notice"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=1" title="Edit section: Notice">edit</a>]</span> <span class="mw-headline"> Notice </span></h2>
+<p><b>This is a draft document for public review.</b>
+</p>
+<a name="Introduction"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=2" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline"> Introduction </span></h2>
+<p>Mobile uses of the Internet differ from PC-based access patterns. The purpose of the OpenSearch Mobile extensions is to provide a standard mechanism for querying mobile-centric and PC-centric data providers and displaying results relevant for mobile subscribers and devices.
+</p><p>Mobile search requests include information about the device, operator and subscriber. Mobile search responses include answers, not links. Mobile search results are federated from numerous content sources and presented in categories.
+</p><p><i>Example of a search result that includes mobile elements:</i>
+</p>
+<pre> &lt;feed xmlns="http://www.w3.org/2005/Atom" 
+       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+       xmlns:advertisement="http://a9.com/-/opensearch/extensions/advertisement/1.0/"&gt;
+   &lt;!-- ... --&gt;
+   &lt;entry&gt;
+     &lt;!-- ... --&gt;
+   &lt;/entry&gt;
+   &lt;!-- ... --&gt;
+   &lt;m:device m:make="Motorola" m:model="V3r" m:id="mot_v3r_ver1"&gt;MOT-V3r&lt;/m:device&gt;
+   &lt;m:subscriber&gt;2065551212&lt;/m:subscriber&gt;
+ &lt;/feed&gt;
+</pre>
+<a name="Namespace"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=3" title="Edit section: Namespace">edit</a>]</span> <span class="mw-headline"> Namespace </span></h2>
+<p>The XML namespace of the OpenSearch Mobile Extension is:
+</p>
+<dl><dd> <code>http://a9.com/-/opensearch/extensions/mobile/1.0/</code>
+</dd></dl>
+<p>This namespace and a corresponding namespace prefix must be included when the extension is used in an OpenSearch response.
+</p>
+<a name="Parameters"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=4" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline"> Parameters </span></h2>
+<p>The OpenSearch Mobile extension introduces the following parameters.
+</p>
+<a name="The_.22userAgent.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=5" title="Edit section: The &quot;userAgent&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "userAgent" parameter </span></h3>
+<p>Replaced with a string describing the User-Agent of the mobile device for which to target search results. This string is parsed and managed by the search service.
+</p><p>If the search request includes the User-Agent as a header, then this parameter should not be included in the URL. If the User-Agent header is not provided, or is the value of a proxy or other intermediate server, then this parameter must be included.
+</p><p>When the User-Agent parameter is provided, the search engine may filter or format search results to target the specified mobile device.
+</p><p>An identifying substring of the User-Agent may be submitted only when the entire User-Agent is not available.
+</p><p><i>Example URL template:</i>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;userAgent={m:userAgent?}&amp;format=atom
+</pre>
+<p><i>Example request:</i>
+</p>
+<pre> http://example.com/?q=pizza&amp;userAgent=MOT-V3r%2F08.BD.20I%20MIB%2F2.2.1%20Profile%2FMIDP-2.0%20Configuration%2FCLDC-1.1&amp;format=atom
+</pre>
+<a name="The_.22subId.22_parameter"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=6" title="Edit section: The &quot;subId&quot; parameter">edit</a>]</span> <span class="mw-headline"> The "subId" parameter </span></h3>
+<p>Replaced with the unique identifier of the subscriber or handset.
+</p><p><i>Example URL template:</i>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;subId={m:subId?}&amp;format=atom
+</pre>
+<p><i>Example request:</i>
+</p>
+<pre> http://example.com/?q=pizza&amp;userAgent=MOT-V3r&amp;subId=A12C92JXV558&amp;format=atom
+</pre>
+<p><br />
+</p>
+<a name="The_.22mcc.22_and_.22mnc.22_parameters"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=7" title="Edit section: The &quot;mcc&quot; and &quot;mnc&quot; parameters">edit</a>]</span> <span class="mw-headline"> The "mcc" and "mnc" parameters </span></h3>
+<p>The mcc parameter specifies the <a href="http://en.wikipedia.org/wiki/Mobile_Country_Code" class="external text" title="http://en.wikipedia.org/wiki/Mobile_Country_Code" rel="nofollow">Mobile Country Code (MCC)</a> of the country, and the mnc parameter specifies the <a href="http://en.wikipedia.org/wiki/Mobile_network_code" class="external text" title="http://en.wikipedia.org/wiki/Mobile_network_code" rel="nofollow">Mobile Network Code (MNC)</a>of the operator network of the handset where the search request originated.
+</p><p>The MCC and MNC are used in combination to uniquely identify a mobile phone operator within the GSM, CDMA, iDEN and UMTS mobile networks and some satellite mobile networks.
+</p><p><i>Example URL template:</i>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;mcc={m:mcc?}&amp;mnc={m:mnc?}&amp;format=atom
+</pre>
+<p><i>Example request from a Verizon Wireless handset in the United States:</i>
+</p>
+<pre> http://example.com/?q=pizza&amp;userAgent=MOT-V3r&amp;mcc=310&amp;mnc=012&amp;format=atom
+</pre>
+<a name="Optional_Parameters"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=8" title="Edit section: Optional Parameters">edit</a>]</span> <span class="mw-headline"> Optional Parameters </span></h3>
+<p>The search server should use the "?" flag in the URL template when requesting the source parameter to indicate that this parameter is optional and that a search can still be performed even if the client does not recognize the extension.
+</p><p><i>Example:</i>
+</p>
+<pre> http://example.com/?q={searchTerms}&amp;pw={startPage?}&amp;userAgent={m:userAgent?}&amp;subId={m:subId?}&amp;mnc={m:mnc?}&amp;mcc={m:mcc?}&amp;format=atom
+</pre>
+<a name="Atom_Extensions"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=9" title="Edit section: Atom Extensions">edit</a>]</span> <span class="mw-headline"> Atom Extensions </span></h2>
+<a name="New_Relation_Values_for_Atom_Link_Elements"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=10" title="Edit section: New Relation Values for Atom Link Elements">edit</a>]</span> <span class="mw-headline"> New Relation Values for Atom Link Elements </span></h3>
+<p>To capture link relationships for mobile search results, this extension introduces the following new values of the <i>rel</i> attribute of the <a href="http://www.atompub.org/2005/07/11/draft-ietf-atompub-format-10.html#rfc.section.4.2.7" class="external text" title="http://www.atompub.org/2005/07/11/draft-ietf-atompub-format-10.html#rfc.section.4.2.7" rel="nofollow">Atom Link element</a>.
+</p>
+<table border="1">
+<tr>
+<td><b>rel Attribute Value</b></td>
+<td><b>Description</b></td>
+</tr>
+<tr>
+<td>next-page</td>
+<td>The value of the href attribute identifies the next full page of search results. </td>
+</tr>
+<tr>
+<td>page-#</td>
+<td>The value of the href attribute identifies a target page of search results. (i.e. page-2, page-3, etc.)</td>
+</tr>
+<tr>
+<td>section</td>
+<td>The value of the href attribute identifies a section of search results. (See below for the definition of "section".)</td>
+</tr>
+<tr>
+</tr><tr>
+<td>detail</td>
+<td>The value of the href attribute identifies a page containing details for a single search result. </td>
+</tr>
+<tr>
+<td>spelling</td>
+<td>The value of the href attribute identifies the first full page of search results for a spell-corrected search query. </td>
+</tr>
+</table>
+<p><br />
+</p>
+<a name="Elements"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=11" title="Edit section: Elements">edit</a>]</span> <span class="mw-headline"> Elements </span></h2>
+<p>The OpenSearch Mobile extension introduces the following elements.
+</p>
+<a name="The_.22device.22_element"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=12" title="Edit section: The &quot;device&quot; element">edit</a>]</span> <span class="mw-headline"> The "device" element </span></h3>
+<p>The <code>device</code> element is used to describe the mobile device targeted by the search results.
+</p>
+<dl><dd> Restrictions: The element value is a String that is the User-Agent provided in the search request, either as a parameter or in the request headers. 
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<table>
+<tr>
+<td><b>Attribute Name</b></td>
+<td><b>Attribute Value</b></td>
+</tr>
+<tr>
+<td>make</td>
+<td>The device make or manufacturer.</td>
+</tr>
+<tr>
+<td>model</td>
+<td>The model name of the device.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The search service's unique identifier for the device.</td>
+</tr>
+</table>
+<p><i>Examples of  <code>device</code> elements:</i>
+</p>
+<pre> &lt;m:device m:make="Motorola" m:model="V3r" m:id="mot_v3r_ver1"&gt;MOT-V3r&lt;/m:device&gt;
+</pre>
+<pre> &lt;m:device m:make="Nokia" m:model="N73" m:id="nokia_n73_ver1"&gt;NokiaN73&lt;/m:device&gt;
+</pre>
+<p><br />
+</p>
+<a name="The_.22subscriber.22_element"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=13" title="Edit section: The &quot;subscriber&quot; element">edit</a>]</span> <span class="mw-headline"> The "subscriber" element </span></h3>
+<p>The <code>subscriber</code> element is used to identify the mobile subscriber targeted by the search results.
+</p>
+<dl><dd> Restrictions: The element value is a String that is the unique identifier of the subscriber. The alphanumeric format of the identifier varies from operator to operator and is out of scope of this specification.
+</dd><dd> Requirements: This element may appear zero or one time.
+</dd></dl>
+<p><i>Examples of  <code>subscriber</code> elements:</i>
+</p>
+<pre> &lt;m:subscriber&gt;2065551212&lt;/m:subscriber&gt;
+</pre>
+<pre> &lt;m:subscriber&gt;1a854e9c02fd2520&lt;/m:subscriber&gt;
+</pre>
+<a name="Nesting_Search_Results_into_Sections_using_Atom_Entries"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=14" title="Edit section: Nesting Search Results into Sections using Atom Entries">edit</a>]</span> <span class="mw-headline"> Nesting Search Results into Sections using Atom Entries </span></h2>
+<p>Mobile search is not desktop web search. Mobile search results are presented in a federated format with search results categorized into sections. A section generally corresponds to a.
+</p><p>In OpenSearch Mobile, the relationship between sections and search results is expressed in the following way:
+</p>
+<ul><li> All immediate <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry element</a> children of the <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#feed.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#feed.entry" rel="nofollow">Atom Feed element</a> represent sections of mobile search results.
+</li><li> An <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry element</a> that represents a section of mobile search results contains zero or more immediate child <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry elements</a>, each representing an individual browsable or consumable mobile search result related to the section.
+</li><li> An <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry element</a> representing an individual mobile search result contains no child <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry elements</a>.
+</li><li> All <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.category" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.category" rel="nofollow">Atom Category elements</a> elements defined in an <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry element</a> representing a section of mobile search results are inherited by the immediate child <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry elements</a>, which represent individual search results related to the section.
+</li></ul>
+<p><br />
+</p>
+<a name="Suggested_Extensions_to_an_Atom_Entry_Element_for_Sections"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=15" title="Edit section: Suggested Extensions to an Atom Entry Element for Sections">edit</a>]</span> <span class="mw-headline"> Suggested Extensions to an Atom Entry Element for Sections </span></h3>
+<p>Here is a list of suggested extension elements for an <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#element.entry" rel="nofollow">Atom Entry element</a> that represents a section of mobile search results.
+</p>
+<table border="1">
+<tr>
+<td><b>Suggested Element</b></td>
+<td><b>Source</b></td>
+<td><b>Description</b></td>
+</tr>
+<tr>
+<td>totalResults</td>
+<td>OpenSearch</td>
+<td>The total number of mobile search results in this section.</td>
+</tr>
+<tr>
+<td>entry</td>
+<td>Atom</td>
+<td>A mobile search result item related to the section. (One atom:entry element per mobile search result.)</td>
+</tr>
+</table>
+<a name="An_Example_Atom_Entry_Element_for_a_Section_of_Search_Results"></a><h3><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=16" title="Edit section: An Example Atom Entry Element for a Section of Search Results">edit</a>]</span> <span class="mw-headline"> An Example Atom Entry Element for a Section of Search Results </span></h3>
+<p>Here is an example of a section of mobile search results.
+</p>
+<pre> &lt;atom:entry xs:type="m:sectionEntry" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"&gt;
+   &lt;atom:category term="local-directory" label="LOCAL_DIRECTORY"/&gt;
+   &lt;atom:title atom:type="TEXT"&gt;Local Business&lt;/atom:title&gt;
+   &lt;atom:link title="9 Results" rel="self" href="http://example.com/opensearch?q=..."/&gt;
+   &lt;opensearch:totalResults&gt;9&lt;/opensearch:totalResults&gt;
+   &lt;atom:entry&gt;
+     &lt;atom:title atom:type="TEXT"&gt;Cafe 5ive&lt;/atom:title&gt;
+     &lt;atom:link rel="self" href="http://example.com/opensearch?q=..."/&gt;
+   &lt;/atom:entry&gt;
+   &lt;atom:entry&gt;
+     &lt;atom:title atom:type="TEXT"&gt;M &amp; M Associates&lt;/atom:title&gt;
+     &lt;atom:link rel="self" href="http://example.com/opensearch?q=..."/&gt;
+   &lt;/atom:entry&gt;
+   &lt;atom:entry&gt;
+     &lt;atom:title atom:type="TEXT"&gt;Simons Espresso Cafe&lt;/atom:title&gt;
+     &lt;atom:link rel="self" href="http://example.com/opensearch?q=..."/&gt;
+   &lt;/atom:entry&gt;
+ &lt;/atom:entry&gt;
+</pre>
+<p><br />
+</p>
+<a name="Suggested_Extensions_to_an_Atom_Feed_Element_for_Mobile_Search"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=17" title="Edit section: Suggested Extensions to an Atom Feed Element for Mobile Search">edit</a>]</span> <span class="mw-headline"> Suggested Extensions to an Atom Feed Element for Mobile Search </span></h2>
+<p>Here is a list of suggested extension elements for an <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#feed.entry" class="external text" title="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#feed.entry" rel="nofollow">Atom Feed element</a> that represents a feed of mobile search results.
+</p>
+<table border="1">
+<tr>
+<td><b>Suggested Element</b></td>
+<td><b>OpenSearch Extension</b></td>
+<td><b>Description</b></td>
+</tr>
+<tr>
+<td>device</td>
+<td><a href="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1" rel="nofollow">Mobile</a></td>
+<td>The device targeted for search results.</td>
+</tr>
+<tr>
+<td>subscriber</td>
+<td><a href="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1" rel="nofollow">Mobile</a></td>
+<td>The subscriber targeted for search results.</td>
+</tr>
+<tr>
+<td>advertisement</td>
+<td><a href="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft_1" rel="nofollow">Advertisement</a></td>
+<td>An advertisement to display with mobile search results. (Multiple instances allowed.)</td>
+</tr>
+</table>
+<p><br />
+</p>
+<a name="Related_Extensions"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=18" title="Edit section: Related Extensions">edit</a>]</span> <span class="mw-headline"> Related Extensions </span></h2>
+<p>Designers of OpenSearch-compliant mobile search systems should consider supporting these additional extensions:
+</p>
+<ul><li> <a href="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Advertisement/1.0/Draft_1" rel="nofollow">Advertisement</a>
+</li><li> <a href="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Commerce/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Commerce/1.0/Draft_1" rel="nofollow">Commerce</a>
+</li><li> <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1" rel="nofollow">Geo</a>
+</li><li> <a href="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Spelling/1.0/Draft_1" class="external text" title="http://www.opensearch.org/Community/Proposal/Specifications/OpenSearch/Extensions/Spelling/1.0/Draft_1" rel="nofollow">Spelling</a>
+</li><li> <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Relevance/1.0" class="external text" title="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Relevance/1.0" rel="nofollow">Relevance</a>
+</li><li> <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.0" class="external text" title="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.0" rel="nofollow">Suggestions</a> (possibly with alternative output formats)
+</li></ul>
+<p><br />
+</p>
+<a name="Authors"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=19" title="Edit section: Authors">edit</a>]</span> <span class="mw-headline"> Authors </span></h2>
+<p>Gail Rahn Frederick, Damon Lanphear and Michael "Luni" Libes &lt;opensearch@medio.com&gt; (Medio Systems)
+</p>
+<a name="License"></a><h2><span class="editsection">[<a href="/index.php?title=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1&amp;action=edit&amp;section=20" title="Edit section: License">edit</a>]</span> <span class="mw-headline"> License </span></h2>
+<p>This document is made available by <a href="http://medio.com" class="external text" title="http://medio.com" rel="nofollow">Medio Systems</a> subject to the terms of the <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="external text" title="http://creativecommons.org/licenses/by-sa/3.0/" rel="nofollow">Creative Commons Attribution-ShareAlike 3.0 License</a>.
+</p>
+<!-- Saved in parser cache with key wikidb-opensearch_:pcache:idhash:1699-0!1!0!!en!2 and timestamp 20180418182901 -->
+<div class="printfooter">
+</div>
+          <div id="categoryLinks"><p class='catlinks'><a href="/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/Category:Specification" title="Category:Specification">Specification</a></span> | <span dir='ltr'><a href="/Category:Extension" title="Category:Extension">Extension</a></span></p></div>         </div>
+
+
+         
+        </div>
+
+       </div>
+
+    </div>
+
+    <div id="footer">
+
+    <ul class="nav-bottom">
+
+            
+     <li id="n-OpenSearch-home"><a href="/Home">OpenSearch home</a></li>
+            
+     <li id="n-About-OpenSearch.org"><a href="/About_OpenSearch.org">About OpenSearch.org</a></li>
+     
+      
+          <li id="userPages-login"><a href="/index.php?title=Special:Userlogin&amp;returnto=Community/Proposal/Specifications/OpenSearch/Extensions/Mobile/1.0/Draft_1">Log in / Create account</a></li>
+     
+     </ul>
+
+     <div id="copyright">
+      <div>  Except where otherwise noted all portions of this website are licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons License</a>.</div>
+     </div>
+    </div>
+
+   </div>
+   <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-68277-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+   </script>
+  </body>
+</html>
