@@ -276,7 +276,7 @@ starting with element index 0:*
 JSON:*
 
 ```xml
-<Url type="application/json"
+<Url type="application/x-suggestions+json"
      rel="suggestions"
      template="http://example.com/suggest?q={searchTerms}" />
 ```
