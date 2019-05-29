@@ -1,1 +1,1 @@
-#REDIRECT [[Home]]
+#REDIRECT [[Home.wiki|Home]]
