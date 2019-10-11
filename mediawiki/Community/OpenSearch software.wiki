@@ -37,6 +37,7 @@ These applications don't actively support OpenSearch, but the location of their 
 * [http://gitorious.org/qopensearch qopensearch - a set of Qt classes]
 * [http://www.clarience.com/en-GB/Catalog.aspx/Product/OpenSearch-Client-Library-for-.NET---v1.0/B6FD5C7B-BD79-4052-B2E8-A35D9AC720F9 .NET client library] by [http://www.clarience.com/ Clarience] (new!)
 * [https://github.com/nsidc/OpenSearchlight OpenSearchlight] - An OpenSearch client in JavaScript
+* [https://github.com/eoxc/opensearch opensearch-browser] JavaScript client supporting Time and Geo extensions
 
 == Other specifications that use OpenSearch ==
 
