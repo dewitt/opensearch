@@ -319,7 +319,7 @@ Rel values:
 - `"suggestions"`
   - Represents a request for search suggestions in the specified format. See
     the [OpenSearch Suggestions
-    extension](http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.1)
+    extension](mediawiki/Specifications/OpenSearch/Extensions/Suggestions/1.1/Draft%201.wiki)
     for further details.
 - `"self"`
   - Represents the canonical URL of this description document.
