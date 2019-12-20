@@ -1520,6 +1520,70 @@ profile associated with the [OpenSearch 1.1 namespace](#namespace):
 </html>
 ```
 
+### Response metadata in JSON
+
+OpenSearch response metadata may be included in a JSON object via the "opensearch" element.
+
+*Example of a page of search results in the HAL+JSON Draft-8 format*
+
+```json
+{
+  "_links": {
+    "alternate": {
+      "href": "http://example.com/New+York+History?pw=3",
+      "type": "text/html"
+    },
+    "self": {
+      "href": "http://example.com/New+York+History?pw=3&amp;format=hal%2Bjson"
+    },
+    "first": {
+      "href": "http://example.com/New+York+History?pw=1&amp;format=hal%2Bjson"
+    },
+    "next": {
+      "href": "http://example.com/New+York+History?pw=4&amp;format=hal%2Bjson"
+    },
+    "last": {
+      "href": "http://example.com/New+York+History?pw=42299&amp;format=hal%2Bjson"
+    },
+    "search": {
+      "href": "http://example.com/opensearchdescription.xml",
+      "type": "application/opensearchdescription+xml"
+    }
+  },
+  "_embedded": {
+    "item": [
+      {
+        "title": "New York History",
+        "description": "... Harlem.NYC - A virtual tour and information on businesses ... with historic photos of Columbia's own New York neighborhood ... Internet Resources for the City's History. ...",
+        "_links": {
+          "self": {
+            "href": "http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html",
+            "type": "text/html"
+          }
+        }
+      }
+    ]
+  },
+  "opensearch": {
+    "totalResults": 4230000,
+    "startIndex": 21,
+    "itemsPerPage": 10,
+    "Query": [
+      {
+        "role": "request",
+        "searchTerms": "New York Histry",
+        "startPage": 1
+      },
+      {
+        "role": "correction",
+        "searchTerms": "New York History",
+        "startPage": 1
+      }
+    ]
+  }
+}
+```
+
 ## Future Versions
 
 This document is maintained at
