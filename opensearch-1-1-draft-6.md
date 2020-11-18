@@ -1499,7 +1499,7 @@ profile associated with the [OpenSearch 1.1 namespace](#namespace):
           href="http://example.com/opensearchdescription.xml"
           title="Example.com Web Search" />
     <meta name="totalResults" content="4230000"/>
-    <meta name="startIndex" content"1"/>
+    <meta name="startIndex" content="1"/>
     <meta name="itemsPerPage" content="10"/>
   </head>
   <body>
