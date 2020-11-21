@@ -713,6 +713,54 @@ The following restrictions apply:
 </html>
 ```
 
+#### Autodiscovery in JSON
+
+JSON resources may reference related [OpenSearch description
+ documents](#opensearch-description-document) via the hypermedia
+element of the respective JSON hypermedia format.
+
+##### Autodiscovery in HAL+JSON
+
+HAL+JSON resources may reference related [OpenSearch description
+documents](#opensearch-description-document) via the [HAL Draft 8 `Link`
+object](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5).
+
+The following restrictions apply:
+
+- The `type` attribute must contain the value
+  `"application/opensearchdescription+xml"`.
+- The link object must contain the key `"search"`.
+- The `href` attribute must contain a URI that resolves to an OpenSearch
+  description document.
+- The `title` attribute may contain a human-readable plain text string
+  describing the search engine.
+- The Link object should include a `profile` link that contains
+  the value `"http://a9.com/-/spec/opensearch/1.1/"`.
+
+*Example of a HAL+JSON resource that include OpenSearch audodiscovery link elements:*
+
+```json
+{
+  "_links": {
+    "profile": {
+      "href": "http://a9.com/-/spec/opensearch/1.1/"
+    },
+    "search": [
+      {
+        "title": "Content search",
+        "href": "http://example.com/content-search.xml",
+        "type": "application/opensearchdescription+xml"
+      },
+      {
+        "title": "Comments search",
+        "href": "http://example.com/comment-search.xml",
+        "type": "application/opensearchdescription+xml"
+      }
+    ] 
+  }
+}
+```
+
 #### MIME type `application/opensearchdescription+xml`
 
 For the purposes of RFC 4288 section 4.10 this specification contains the
@@ -1518,6 +1566,73 @@ profile associated with the [OpenSearch 1.1 namespace](#namespace):
     </ul>
   </body>
 </html>
+```
+
+### Response metadata in JSON
+
+OpenSearch response metadata may be included in a JSON object via the "opensearch" element.
+
+*Example of a page of search results in the HAL+JSON Draft-8 format*
+
+```json
+{
+  "_links": {
+    "profile": {
+      "href": "http://a9.com/-/spec/opensearch/1.1/"
+    },
+    "alternate": {
+      "href": "http://example.com/New+York+History?pw=3",
+      "type": "text/html"
+    },
+    "self": {
+      "href": "http://example.com/New+York+History?pw=3&amp;format=hal%2Bjson"
+    },
+    "first": {
+      "href": "http://example.com/New+York+History?pw=1&amp;format=hal%2Bjson"
+    },
+    "next": {
+      "href": "http://example.com/New+York+History?pw=4&amp;format=hal%2Bjson"
+    },
+    "last": {
+      "href": "http://example.com/New+York+History?pw=42299&amp;format=hal%2Bjson"
+    },
+    "search": {
+      "href": "http://example.com/opensearchdescription.xml",
+      "type": "application/opensearchdescription+xml"
+    }
+  },
+  "_embedded": {
+    "item": [
+      {
+        "title": "New York History",
+        "description": "... Harlem.NYC - A virtual tour and information on businesses ... with historic photos of Columbia's own New York neighborhood ... Internet Resources for the City's History. ...",
+        "_links": {
+          "self": {
+            "href": "http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html",
+            "type": "text/html"
+          }
+        }
+      }
+    ]
+  },
+  "opensearch": {
+    "totalResults": 4230000,
+    "startIndex": 21,
+    "itemsPerPage": 10,
+    "Query": [
+      {
+        "role": "request",
+        "searchTerms": "New York Histry",
+        "startPage": 1
+      },
+      {
+        "role": "correction",
+        "searchTerms": "New York History",
+        "startPage": 1
+      }
+    ]
+  }
+}
 ```
 
 ## Future Versions
