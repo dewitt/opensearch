@@ -7,11 +7,13 @@ The most recent version of the specification is [OpenSearch 1.1 Draft
 
 # How is it related to the OpenSearch software project?
 
-The OpenSearch protocol (now found in this repository) was [launched in 2005](https://en.wikipedia.org/wiki/OpenSearch) by A9.com, an Amazon subsidiary, as a means for sharing search queries and search results in a standardized format.
+The OpenSearch protocol (this repository) was [launched in 2005](https://en.wikipedia.org/wiki/OpenSearch) by A9.com, an Amazon subsidiary, as a means for sharing search queries and search results in a standardized format.
 
 In 2021, Amazon.com [launched the open source OpenSearch search engine project](https://aws.amazon.com/blogs/opensource/introducing-opensearch/), unrelated to this effort aside from repurposing the name.
 
 The two projects will continue to [independently co-exist](https://opensearch.org/disambiguation.html), though the search protocol (this project) has largely remained stable and unchanged for over ten years, with no significant updates expected on the horizon.
+
+Neither effort is related to the Open Search Foundation project found [here](https://opensearchfoundation.org).
 
 # What is this repository?
 
