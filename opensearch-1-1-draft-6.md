@@ -50,7 +50,7 @@
     - [The `startPage` parameter](#the-startpage-parameter)
     - [The `language` parameter](#the-language-parameter)
     - [The `inputEncoding` parameter](#the-inputencoding-parameter)
-    - [The "outputEncoding" parameter](#the-outputencoding-parameter)
+    - [The `outputEncoding` parameter](#the-outputencoding-parameter)
 - [OpenSearch `Query` element](#opensearch-query-element)
   - [Overview](#overview)
   - [Examples](#examples)
