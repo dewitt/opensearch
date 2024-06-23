@@ -1060,7 +1060,7 @@ request.*
   Assignments](http://www.iana.org/assignments/character-sets).
 - Default: `"UTF-8"`
 
-#### The "outputEncoding" parameter
+#### The `outputEncoding` parameter
 
 Replaced with a string that indicates that the search client desires a search
 response encoding with the specified character encoding.
