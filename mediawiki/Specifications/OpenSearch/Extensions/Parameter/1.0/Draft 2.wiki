@@ -23,7 +23,7 @@ multipart/form-data".
 
 The XML Namespaces URI for the OpenSearch parameter extension is:
 
-: <nowiki>http://a9.com/-/spec/opensearch/extensions/parameters/1.0/</nowiki> 
+: <nowiki>http://a9.com/-/spec/opensearch/extensions/parameters/1.0/</nowiki>
 
 == Elements ==
 
@@ -67,33 +67,38 @@ Describes a name/value pair to be included in the search request.
 ::: Default: "1"
 ::: Requirements: This attribute is optional.
 :: <code>maximum</code> - Contains a string that identifies the maximum number of times this parameter must be included in the search request.  The literal string "*" will be interpreted to mean that the parameter may repeat an arbitrary number of times.
-::: Restrictions: The value must be a non-negative integer or the literal string "*".  
+::: Restrictions: The value must be a non-negative integer or the literal string "*".
 ::: Default: "1"
 ::: Requirements: This attribute is optional.
 :: <code>pattern</code> - Contains a string that specifies a regular expression against which the parameter's value. When present the element should also include a title attribute to inform the client application of the format expected.
-::: Restrictions: Must be a valid pattern according to the [http://www.ecma-international.org/publications/standards/Ecma-262.htm JavaScript] Pattern production.  
+::: Restrictions: Must be a valid pattern according to the [http://www.ecma-international.org/publications/standards/Ecma-262.htm JavaScript] Pattern production.
 ::: Default: ""
 ::: Requirements: This element may appear zero or one time.
 :: <code>title</code> - Contains a string with advisory information for the format and valid values of the parameter, such as would be appropriate for a tooltip.
-::: Restrictions: The value must contain 1024 or fewer characters of plain text. The value must not contain HTML or other markup.  
+::: Restrictions: The value must contain 1024 or fewer characters of plain text. The value must not contain HTML or other markup.
 ::: Default: ""
 ::: Requirements: This attribute is optional but recommended when a pattern attribute is present.
-:: <code>minExclusive</code> - Contains a string that identifies the minimum value for the element that cannot be reached. Applies only to numeric and date types.  
+:: <code>minExclusive</code> - Contains a string that identifies the minimum value for the element that cannot be reached. Applies only to numeric and date types.
 ::: Default: ""
 ::: Requirements: This element may appear zero or one time.
-:: <code>maxExclusive</code> - Contains a string that identifies maximum value for the element that cannot be reached. Applies only to numeric and date types.  
+:: <code>maxExclusive</code> - Contains a string that identifies maximum value for the element that cannot be reached. Applies only to numeric and date types.
 ::: Default: ""
 ::: Requirements: This element may appear zero or one time.
-:: <code>minInclusive</code> - Contains a string that identifies minimum value for the element that can be reached. Applies only to numeric and date types.  
+:: <code>minInclusive</code> - Contains a string that identifies minimum value for the element that can be reached. Applies only to numeric and date types.
 ::: Default: ""
 ::: Requirements: This element may appear zero or one time.
 :: <code>maxInclusive</code> - Contains a string that identifies maximum value for the element that can be reached. Applies only to numeric and date types.
 ::: Default: ""
 ::: Requirements: This element may appear zero or one time.
-
-:: <code>step</code> - Contains a string that identifies the granularity of the allowed values between the minimal and maximal range.  
+:: <code>step</code> - Contains a string that identifies the granularity of the allowed values between the minimal and maximal range.
 ::: Default: ""
 ::: Requirements: This element may appear zero or one time  (only relevant when the max or min attributes are present).
+:: <code>maxPeriod</code> - Contains a string that identifies the maximum temporal period allowed and is defined as a string value consistent with ISO_8601 duration.
+::: Default: ""
+::: Requirements: This element may appear zero or one time.
+:: <code>relativeTo</code> - In the case where a maxPeriod is defined for a temporal parameter, the relativeTo attribute will reference the other temporal parameter name and vice versa.
+::: Default: ""
+::: Requirements: This element may appear zero or one time.  (only relevant when the maxPeriod attribute is present).
 
 
 ''Example of a Parameter element used to represent a simple required core search parameter:''
@@ -106,15 +111,15 @@ Describes a name/value pair to be included in the search request.
 
 ''Example of a Parameter element used to represent a repeating custom search parameter:''
 
-  <Parameter xmlns:custom="<nowiki>http://example.com/opensearchextensions/1.0/</nowiki>" 
+  <Parameter xmlns:custom="<nowiki>http://example.com/opensearchextensions/1.0/</nowiki>"
       name="tag"
       value="{custom:tag}"
       minimum="0"
       maximum="*" />
-             
+
 ''Example of a Parameter element used to represent an optional time extension custom search parameter restricted to 2011''
 
-  <Parameter xmlns:time="<nowiki>http://a9.com/-/opensearch/extensions/time/1.0/</nowiki>" 
+  <Parameter xmlns:time="<nowiki>http://a9.com/-/opensearch/extensions/time/1.0/</nowiki>"
       name="start"
       value="{time:start}"
       minimum="0"
@@ -123,14 +128,32 @@ Describes a name/value pair to be included in the search request.
       pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?(Z|[\+\-][0-9]{2}:[0-9]{2})"
   />
 
+''Example of a Parameter element used to represent an optional time extension custom search parameter with maxPeriod of 6 months''
+
+  <Parameter xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+      name="start"
+      value="{time:start}"
+      maxPeriod="P6M"
+      relativeTo="end"
+      pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?(Z|[\+\-][0-9]{2}:[0-9]{2})"
+  />
+
+  <Parameter xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+      name="end"
+      value="{time:end}"
+      maxPeriod="P6M"
+      relativeTo="start"
+      pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?(Z|[\+\-][0-9]{2}:[0-9]{2})"
+  />
+
 === The "Option" element ===
 
 Describes a value/label pair suggested to the client for the parent element.
 
 : Parent: Parameter
-: Attributes: 
-:: <code>value</code> - Contains a string with the value of the option.  
-::: Restrictions: The value must be URL-encoded. 
+: Attributes:
+:: <code>value</code> - Contains a string with the value of the option.
+::: Restrictions: The value must be URL-encoded.
 ::: Requirements: This attribute is '''required'''.
 :: <code>label</code> - Contains a string that provides a label for the option.
 ::: Default: The value must contain 512 or fewer characters of plain text. The value must not contain HTML or other markup.
@@ -138,49 +161,49 @@ Describes a value/label pair suggested to the client for the parent element.
 
 ''Example of a Parameter element used to represent a optional hexadecimal RGB color custom search parameter, with 3 suggested values:''
 
-  <Parameter xmlns:custom="<nowiki>http://example.com/opensearchextensions/1.0/</nowiki>" 
-  		name="color" 
-  		value="{custom:rgbcolor}"  
-  		pattern="#(?:[0-9a-fA-F]{3}){1,2}" 
+  <Parameter xmlns:custom="<nowiki>http://example.com/opensearchextensions/1.0/</nowiki>"
+  		name="color"
+  		value="{custom:rgbcolor}"
+  		pattern="#(?:[0-9a-fA-F]{3}){1,2}"
   		title="Color using a hex notation for the Red, Green, and Blue color values (RGB)"
   		minimum="0" >
   		<Option value="#0000FF" label="Blue"/>
   		<Option value="#f00" label="Red"/>
   		<Option value="#0F0" label="Green"/>
   </Parameter>
-  
+
 '' Example of a OpenSearch Description supporting the Earth Observation and Temporal Extensions. The OpenSearch Parameter extension elements are used to suggest clients the possible values for temporal range and acquisition station names''
 
-  <?xml version="1.0" encoding="UTF-8"?> 
-  <OpenSearchDescription 
-       xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"  
-       xmlns:eo="<nowiki>http://a9.com/-/opensearch/extensions/eo/1.0/</nowiki>" 
-       xmlns:param="<nowiki>http://a9.com/-/spec/opensearch/extensions/parameters/1.0/</nowiki>" 
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OpenSearchDescription
+       xmlns="<nowiki>http://a9.com/-/spec/opensearch/1.1/</nowiki>"
+       xmlns:eo="<nowiki>http://a9.com/-/opensearch/extensions/eo/1.0/</nowiki>"
+       xmlns:param="<nowiki>http://a9.com/-/spec/opensearch/extensions/parameters/1.0/</nowiki>"
        xmlns:time="<nowiki>http://a9.com/-/opensearch/extensions/time/1.0/</nowiki>" >
- 
-    <ShortName>Web Search</ShortName> 
-    <LongName>Example.com Web Search</LongName> 
-    <Description>Use Example.com to search the Web.</Description> 
-    <Tags>example web</Tags> 
-    <Contact>admin@example.com</Contact> 
-    <Url type="application/atom+xml" 
+
+    <ShortName>Web Search</ShortName>
+    <LongName>Example.com Web Search</LongName>
+    <Description>Use Example.com to search the Web.</Description>
+    <Tags>example web</Tags>
+    <Contact>admin@example.com</Contact>
+    <Url type="application/atom+xml"
          template="<nowiki>http://example.com/myatom/?pw={startPage?}&acq={eo:acquisitionStation?}&</nowiki>
-                    start={time:start?}& end={time:end?}"> 
-      <param:Parameter name="start" value="{time:start}" minimum="0" 
+                    start={time:start?}& end={time:end?}">
+      <param:Parameter name="start" value="{time:start}" minimum="0"
                        minInclusive="2011-01-01T00:00:00Z" maxExclusive="2012-01-01T00:00:00Z"/>
       <param:Parameter name="end" value="{time:end}" minimum="0"
-                       minInclusive="2011-01-01T00:00:00Z" maxExclusive="2012-01-01T00:00:00Z"/> 
-      <param:Parameter name=”acq” value=”eo:acquisitionStation” minimum=”0” 
+                       minInclusive="2011-01-01T00:00:00Z" maxExclusive="2012-01-01T00:00:00Z"/>
+      <param:Parameter name=”acq” value=”eo:acquisitionStation” minimum=”0”
                        title=”Acquisiton Station”>
         <param:Option value="PDHS-K" label=”Kiruna”/>
         <param:Option value="PDHS-E" label=”ESRIN”/ >
       </param:Parameter>
     </Url>
-    <Attribution>Copyright 2005, Example.com, Inc.</Attribution> 
-    <SyndicationRight>open</SyndicationRight> 
+    <Attribution>Copyright 2005, Example.com, Inc.</Attribution>
+    <SyndicationRight>open</SyndicationRight>
   </OpenSearchDescription>
-  
-  
+
+
 
 == Processing Rules ==
 
