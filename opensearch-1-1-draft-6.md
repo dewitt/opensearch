@@ -1,4 +1,4 @@
-# OpenSearch
+# OpenSearch 
 
 - [Version](#version)
 - [Overview](#overview)
