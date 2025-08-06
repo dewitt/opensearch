@@ -1,0 +1,58 @@
+{
+    "_links": {
+        "self": {
+            "href": "https://api.mainnet.minepi.com/transactions/68b111b3c5d7a41f4a217e39288674cb319356ce97b6d040961be7cad9870b6a"
+        },
+        "account": {
+            "href": "https://api.mainnet.minepi.com/accounts/GAMT3GAWJ6G7X7OWPOP35A63ME47HJDUI6SMHTTHBD72HHCIBHLCPRS2"
+        },
+        "ledger": {
+            "href": "https://api.mainnet.minepi.com/ledgers/20732974"
+        },
+        "operations": {
+            "href": "https://api.mainnet.minepi.com/transactions/68b111b3c5d7a41f4a217e39288674cb319356ce97b6d040961be7cad9870b6a/operations{?cursor,limit,order}",
+            "templated": true
+        },
+        "effects": {
+            "href": "https://api.mainnet.minepi.com/transactions/68b111b3c5d7a41f4a217e39288674cb319356ce97b6d040961be7cad9870b6a/effects{?cursor,limit,order}",
+            "templated": true
+        },
+        "precedes": {
+            "href": "https://api.mainnet.minepi.com/transactions?order=asc&cursor=89047445278826496"
+        },
+        "succeeds": {
+            "href": "https://api.mainnet.minepi.com/transactions?order=desc&cursor=89047445278826496"
+        },
+        "transaction": {
+            "href": "https://api.mainnet.minepi.com/transactions/68b111b3c5d7a41f4a217e39288674cb319356ce97b6d040961be7cad9870b6a"
+        }
+    },
+    "id": "68b111b3c5d7a41f4a217e39288674cb319356ce97b6d040961be7cad9870b6a",
+    "paging_token": "89047445278826496",
+    "successful": true,
+    "hash": "68b111b3c5d7a41f4a217e39288674cb319356ce97b6d040961be7cad9870b6a",
+    "ledger": 20732974,
+    "created_at": "2025-05-16T22:30:00Z",
+    "source_account": "GAMT3GAWJ6G7X7OWPOP35A63ME47HJDUI6SMHTTHBD72HHCIBHLCPRS2",
+    "source_account_sequence": "83899420168555447",
+    "fee_account": "GAMT3GAWJ6G7X7OWPOP35A63ME47HJDUI6SMHTTHBD72HHCIBHLCPRS2",
+    "fee_charged": "100000",
+    "max_fee": "100000",
+    "operation_count": 1,
+    "envelope_xdr": "AAAAAgAAAAAZPZgWT437/dZ7n76D22E586R0R6TDzmcI/6OcSAnWJwABhqABKhIUAAILtwAAAAEAAAAAAAAAAAAAAABoJ7yWAAAAAAAAAAEAAAAAAAAAAAAAAACDtwIc/nvRAjTwkiQaWUTDFddb6pPgYij8u/v+vQiUAAAAAAAAlYlAAAAAAAAAAAFICdYnAAAAQDF7xvZ4bXO/8N9eehpc9vPsE0Ke3ZYps+scDYoJPNJdllYkgYiu8jR/nvW49G3TwBpSfEWAQauGf9l7zG6kZgw=",
+    "result_xdr": "AAAAAAABhqAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=",
+    "result_meta_xdr": "AAAAAgAAAAIAAAADATxcLgAAAAAAAAAAGT2YFk+N+/3We5++g9thOfOkdEekw85nCP+jnEgJ1icAAAMWF01hRAEqEhQAAgu2AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAABPFwrAAAAAGgnvFkAAAAAAAAAAQE8XC4AAAAAAAAAABk9mBZPjfv91nufvoPbYTnzpHRHpMPOZwj/o5xICdYnAAADFhdNYUQBKhIUAAILtwAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAMAAAAAATxcLgAAAABoJ7xoAAAAAAAAAAEAAAADAAAAAwE8XC4AAAAAAAAAABk9mBZPjfv91nufvoPbYTnzpHRHpMPOZwj/o5xICdYnAAADFhdNYUQBKhIUAAILtwAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAMAAAAAATxcLgAAAABoJ7xoAAAAAAAAAAEBPFwuAAAAAAAAAAAZPZgWT437/dZ7n76D22E586R0R6TDzmcI/6OcSAnWJwAAAxYWt9gEASoSFAACC7cAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAAE8XC4AAAAAaCe8aAAAAAAAAAAAATxcLgAAAAAAAAAAg7cCHP570QI08JIkGllEwxXXW+qT4GIo/Lv7/r0IlAAAAAAAAJWJQAE8XC4AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "fee_meta_xdr": "AAAAAgAAAAMBPFwrAAAAAAAAAAAZPZgWT437/dZ7n76D22E586R0R6TDzmcI/6OcSAnWJwAAAxYXTufkASoSFAACC7YAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAAE8XCsAAAAAaCe8WQAAAAAAAAABATxcLgAAAAAAAAAAGT2YFk+N+/3We5++g9thOfOkdEekw85nCP+jnEgJ1icAAAMWF01hRAEqEhQAAgu2AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAABPFwrAAAAAGgnvFkAAAAA",
+    "memo_type": "none",
+    "signatures": [
+        "MXvG9nhtc7/w3156Glz28+wTQp7dlimz6xwNigk80l2WViSBiK7yNH+e9bj0bdPAGlJ8RYBBq4Z/2XvMbqRmDA=="
+    ],
+    "valid_after": "1970-01-01T00:00:00Z",
+    "valid_before": "2025-05-16T22:30:46Z",
+    "preconditions": {
+        "timebounds": {
+            "min_time": "0",
+            "max_time": "1747434646"
+        }
+    }
+}
